@@ -1,0 +1,61 @@
+version: "3"
+
+services:
+  booklar-mysql:
+    container_name: booklar-mysql
+    restart: unless-stopped
+    image: mysql:8
+    command:
+      - mysqld
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_bin
+      - --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: 'book'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'user_pwd'
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./.docker/mysql/data:/var/lib/mysql
+      - ./.docker/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./.docker/mysql-files:/var/lib/mysql-files
+    networks:
+      - booklar
+
+  booklar-nginx:
+    container_name: booklar-nginx
+    restart: always
+    image: nginx
+    ports:
+      - 443:443
+      - 80:80
+    volumes:
+      - ./.docker/nginx/hosts:/etc/nginx/conf.d
+      - ./www:/var/www
+      - ./.docker/nginx/log:/var/log/nginx
+      - ./.docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - booklar
+
+  booklar-php:
+    build:
+      context: ./.docker/php
+      dockerfile: Dockerfile
+    image: php
+    container_name: booklar-php
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./www:/var/www
+      - ./.docker/php/php.ini:/usr/local/etc/php/conf.d/uploads.ini
+    networks:
+      - booklar
+    depends_on:
+      - booklar-mysql
+      - booklar-nginx
+
+networks:
+  booklar:
+    driver: bridge
