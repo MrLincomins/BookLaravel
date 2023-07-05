@@ -1,3 +1,9 @@
+<?php
+
+use Illuminate\Support\Facades\Auth;
+
+$user = Auth::user();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,10 +71,7 @@
                     <li>
                         <a href="/books/year"> Поиск по году </a>
                     </li>
-                    <li>
-                        <a href="/books/top"> Топ 100 авторов </a>
-                    </li>
-                    <?php if (@$_COOKIE['status'] == 1) { ?>
+                    <?php if (@$user->status == 1) { ?>
                         <li>
                             <a href="/books/create"> Добавить книгу </a>
                         </li>
@@ -95,7 +98,7 @@
                     <span class="text">Резервация</span>
                 </a>
                 <ul id="ddmenu_4" class="collapse dropdown-nav">
-                    <?php if (@$_COOKIE['status'] == 1) { ?>
+                    <?php if (@$user->status == 1) { ?>
                         <li>
                             <a href="/books/reserve/show"> Все резервированные книги </a>
                         </li>
@@ -105,7 +108,7 @@
                     </li>
                 </ul>
             </li>
-            <?php if (@$_COOKIE['status'] == 1) { ?>
+            <?php if (@$user->status == 1) { ?>
                 <li class="nav-item nav-item-has-children">
                     <a
                         href="#0"
@@ -150,7 +153,7 @@
                     </a>
                     <ul id="ddmenu_6" class="collapse dropdown-nav">
                         <li>
-                            <a href="/user"> Аккаунт </a>
+                            <a href="/account"> Аккаунт </a>
                         </li>
 
                     </ul>
@@ -182,17 +185,17 @@
                     <span class="text">Авторизация</span>
                 </a>
                 <ul id="ddmenu_3" class="collapse dropdown-nav">
-                    <?php if (empty(@$_COOKIE['status'])) { ?>
+                    <?php if (empty(@$user->status)) { ?>
                         <li>
                             <a href="/login"> Войти </a>
                         </li>
                     <?php } ?>
-                    <?php if (@$_COOKIE['status'] == 1) { ?>
+                    <?php if (@$user->status == 1) { ?>
                         <li>
                             <a href="/register"> Зарегистрировать пользователя </a>
                         </li>
                     <?php } ?>
-                    <?php if (!empty($_COOKIE['status'])) { ?>
+                    <?php if (!empty($user->status)) { ?>
                         <li>
                             <a href="/logout"> Выход из аккаунта </a>
                         </li>
@@ -233,7 +236,7 @@
                         </div>
                         <div class="header-search d-none d-md-flex">
                             <form method="GET" action="/books/search">
-                                <input name="tittle  " type="text" placeholder="Поиск..."/>
+                                <input name="tittle" type="text" placeholder="Поиск..."/>
                                 <button><i class="lni lni-search-alt"></i></button>
                             </form>
                         </div>
@@ -272,16 +275,14 @@
                             >
                                 <div class="profile-info">
                                     <div class="info">
+                                        <?php if(!empty($user->name)): ?>
+                                        <h6><?php echo $user->name ?></h6>
+                                        <?php else: ?>
                                         <h6>Пользователь</h6>
+                                        <?php endif; ?>
                                         <div class="image">
                                             <img
-                                                <?php if (@$_COOKIE['id'] == 1) { ?>
-                                                    src="assets/images/profile/anonimus.jpg"
-                                                    alt=""
-                                                <?php } else { ?>
-                                                    src="assets/images/profile/149452.png"
-                                                    alt=""
-                                                <?php } ?>
+                                                src="/resources/images/149452.png"
                                             />
                                             <span class="status"></span>
                                         </div>
@@ -294,7 +295,7 @@
                                 aria-labelledby="profile"
                             >
                                 <li>
-                                    <a href="\user">
+                                    <a href="\account">
                                         <i class="lni lni-user"></i> Профиль
                                     </a>
                                 </li>

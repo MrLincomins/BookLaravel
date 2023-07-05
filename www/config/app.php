@@ -165,7 +165,8 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        Illuminate\Session\SessionServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ])->toArray(),
@@ -182,7 +183,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'Session' => Illuminate\Support\Facades\Session::class,
     ])->toArray(),
 
 ];

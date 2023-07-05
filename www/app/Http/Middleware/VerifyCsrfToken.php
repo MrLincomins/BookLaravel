@@ -16,6 +16,9 @@ class VerifyCsrfToken extends Middleware
         'http://localhost/books/create',
         'http://localhost/books/delete/*',
         'http://localhost/books/edit/*',
+        'http://localhost/register',
+        'http://localhost/login',
+        'http://localhost/books/year'
         //Исправить
     ];
 }
