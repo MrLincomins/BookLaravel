@@ -14,7 +14,8 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'http://localhost/books/genre',
         'http://localhost/books/create',
-        'http://localhost/books/delete/',
+        'http://localhost/books/delete/*',
+        'http://localhost/books/edit/*',
         //Исправить
     ];
 }

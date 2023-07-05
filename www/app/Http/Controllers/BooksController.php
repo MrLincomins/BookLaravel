@@ -9,7 +9,6 @@ class BooksController
 {
     public function index(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-
         $books = Books::paginate(10);
         return view('allBooks', compact('books'));
     }
@@ -45,7 +44,35 @@ class BooksController
     {
         Books::destroy($id);
         return redirect('/books');
+    }
+    // Удаляет книгу
 
+    public function edit(Request $request, $id): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        $book = Books::find($id);
+        $genres = Genre::all('genre');
+        return view('edit', compact('book', 'genres'));
+    }
+    // Открывает форму для изменения книги
+
+    public function refactor(Request $request, $id): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
+    {
+        $book = Books::find($id);
+        $book->tittle = $request->input('tittle');
+        $book->author = $request->input('author');
+        $book->year = $request->input('year');
+        $book->isbn = $request->input('isbn');
+        $book->count = $request->input('count');
+        $book->genre = $request->input('genre');
+        $book->save();
+        return redirect('/books');
+    }
+    // Изменяет книгу
+    public function search(Request $request)
+    {
+        $tittle = $request->get('tittle');
+        $books = Books::where('tittle', 'like', '%' . $tittle . '%')->get();
+        return view('search', compact('books'));
     }
 
 

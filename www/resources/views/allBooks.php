@@ -67,12 +67,12 @@
                                         <p><?php echo $book->genre ?></p>
                                     </td>
                                     <td class="min-width">
-                                        <p><?php echo $book->ISBN ?></p>
+                                        <p><?php echo $book->isbn ?></p>
                                     </td>
                                     <td>
                                         <div class="action justify-content-end">
 
-                                            <form method="get" action="books/edit/">
+                                            <form method="get" action="books/edit/<?php echo $book->id; ?>">
                                                 <button class="text-secondary" type="submit">
                                                     <i class="mdi mdi-tools"></i>
                                                 </button>

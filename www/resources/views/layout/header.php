@@ -233,7 +233,7 @@
                         </div>
                         <div class="header-search d-none d-md-flex">
                             <form method="GET" action="/books/search">
-                                <input name="name" type="text" placeholder="Поиск..."/>
+                                <input name="tittle  " type="text" placeholder="Поиск..."/>
                                 <button><i class="lni lni-search-alt"></i></button>
                             </form>
                         </div>
