@@ -33,6 +33,9 @@ Route::group(['middleware' => 'web'], function () {
         return view('yearSearch');
     });
     Route::post('/books/year', [BooksController::class, 'yearSearch']);
+    Route::get('/books/reserve/{id}', [BooksController::class, 'reserveBookForm']);
+    Route::post('/books/reserve/{id}', [BooksController::class, 'reserveBook']);
+
 
 
 // Жанры

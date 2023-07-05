@@ -95,8 +95,8 @@
                                                         aria-labelledby="moreAction1"
                                                     >
                                                         <li class="dropdown-item">
-                                                            <form method="post" action="../books/reserve/<?php echo $book->id ?>">
-                                                                <a href="#0" class="text-gray">Резервация</a>
+                                                            <form method="get" action="../books/reserve/<?php echo $book->id ?>">
+                                                                <a class="text-gray">Резервация</a>
                                                             </form>
                                                         </li>
                                                         <li class="dropdown-item">

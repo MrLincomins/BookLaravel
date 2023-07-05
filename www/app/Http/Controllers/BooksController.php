@@ -101,6 +101,12 @@ class BooksController
         return redirect('/books');
     }
 
+    public function reserveBookForm(Request $request, $id): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        $book = Books::find($id);
+        return view('reserveBook', compact('book'));
+    }
+
 
     public function allReserve(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
