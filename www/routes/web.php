@@ -35,7 +35,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/books/year', [BooksController::class, 'yearSearch']);
     Route::get('/books/reserve/{id}', [BooksController::class, 'reserveBookForm']);
     Route::post('/books/reserve/{id}', [BooksController::class, 'reserveBook']);
+    Route::get('/books/reserve', [BooksController::class, 'allReserve']);
 
+    Route::get('/books/surrender/{id}', [BooksController::class, 'surrenderBookForm']);
+    Route::post('/books/surrender/{id}', [BooksController::class, 'surrenderBook']);
+    Route::get('/books/surrender', [BooksController::class, 'allSurrender']);
 
 
 // Жанры

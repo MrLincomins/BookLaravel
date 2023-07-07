@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reserve_books', function (Blueprint $table) {
+        Schema::create('reserves', function (Blueprint $table) {
             $table->integer('iduser');
             $table->integer('idbook');
             $table->string('date');
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reserve_books');
+        Schema::dropIfExists('reserves');
     }
 };

@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Books;
 use Illuminate\Http\Request;
 use App\Models\Genre;
+use Illuminate\Support\Facades\Validator;
 
 class GenreController
 {
@@ -15,6 +15,13 @@ class GenreController
 
     public function storeGenre(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
+        $rules = [
+            'genre' => 'required|max:100',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+        // JSON
+
         Genre::create([
             'genre' => $request->input('genre')
         ]);

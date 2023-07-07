@@ -98,12 +98,7 @@
                                                         <a href="books/reserve/<?php echo $book->id; ?>" class="text-gray">Резервация</a>
                                                 </li>
                                                 <li class="dropdown-item">
-                                                    <form method="post"
-                                                          action="books/borrow/">
-                                                        <a href="books/borrow/"
-                                                           class="text-gray">Дать книгу
-                                                            ученику</a>
-                                                    </form>
+                                                    <a href="books/surrender/<?php echo $book->id; ?>" class="text-gray">Выдача книг</a>
                                                 </li>
                                             </ul>
                                         </div>

@@ -5,12 +5,23 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 
 class UserController extends Controller
 {
     public function register(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
+        $rules = [
+            'name' => 'required',
+            'class' => 'required|max:4',
+            'status' => 'required|numeric',
+            'password' => 'required|max:40',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+        // JSON
+
         $user = User::create([
             'name' => $request->input('name'),
             'class' => $request->input('class'),
