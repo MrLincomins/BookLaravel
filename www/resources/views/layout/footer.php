@@ -9,6 +9,7 @@
 <script src="/resources/js/polyfill.js"></script>
 <script src="/resources/js/main.js"></script>
 <script src="/resources/js/loading-bar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
 
 <style>
     .bgc-img img{

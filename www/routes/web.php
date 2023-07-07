@@ -25,7 +25,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/books', [BooksController::class, 'index']);
     Route::get('/books/create', [BooksController::class, 'create']);
     Route::post('/books/create', [BooksController::class, 'store']);
-    Route::post('/books/delete/{id}', [BooksController::class, 'delete']);
+    Route::delete('/books/delete/{id}', [BooksController::class, 'delete']);
     Route::get('/books/edit/{id}', [BooksController::class, 'edit']);
     Route::post('/books/edit/{id}', [BooksController::class, 'refactor']);
     Route::get('/books/search', [BooksController::class, 'search']);

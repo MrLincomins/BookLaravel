@@ -59,10 +59,10 @@ class BooksController
     // Добавляет книги в бд
 
 
-    public function delete(Request $request, $id): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
+    public function delete(Request $request, $id): \Illuminate\Http\JsonResponse
     {
         Books::destroy($id);
-        return redirect('/books');
+        return response()->json(['status' => true, 'message' => 'Вы успешно удалили книгу']);
     }
     // Удаляет книгу
 
@@ -74,7 +74,7 @@ class BooksController
     }
     // Открывает форму для изменения книги
 
-    public function refactor(Request $request, $id): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
+    public function refactor(Request $request, $id): string
     {
         $rules = [
             'tittle' => 'required|max:200',
@@ -96,7 +96,13 @@ class BooksController
         $book->count = $request->input('count');
         $book->genre = $request->input('genre');
         $book->save();
-        return redirect('/books');
+        return redirect('/books')
+            ->header('Content-Type', 'application/json')
+            ->header('Accept', 'application/json')
+            ->content(json_encode([
+                'status' => true,
+                'message' => 'Вы успешно изменили книгу'
+            ]));
     }
     // Изменяет книгу
 
