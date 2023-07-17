@@ -25,6 +25,8 @@ $user = Auth::user();
     <link rel="stylesheet" href="/resources/css/main.css"/>
 </head>
 <body>
+
+
 <!-- ======== sidebar-nav start =========== -->
 <aside class="sidebar-nav-wrapper">
     <nav class="sidebar-nav">
@@ -194,6 +196,9 @@ $user = Auth::user();
                         <li>
                             <a href="/register"> Зарегистрировать пользователя </a>
                         </li>
+                        <li>
+                            <a href="/register"> Зарегистрировать пользователя </a>
+                        </li>
                     <?php } ?>
                     <?php if (!empty($user->status)) { ?>
                         <li>
@@ -202,6 +207,30 @@ $user = Auth::user();
                     <?php } ?>
                 </ul>
             </li>
+            <?php if (@$user->status == 1) { ?>
+            <li class="nav-item nav-item-has-children">
+                <a
+                    href="#0"
+                    class="collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#ddmenu_9"
+                    aria-controls="ddmenu_9"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+              <span class="icon">
+                  <i class="mdi mdi-cog"></i>
+              </span>
+                    <span class="text">Админ-панель</span>
+                </a>
+                <ul id="ddmenu_9" class="collapse dropdown-nav">
+
+                        <li>
+                            <a href="/settings"> Изменение библиотеки </a>
+                        </li>
+                </ul>
+            </li>
+            <?php } ?>
 
             <span class="divider"><hr/></span>
 
@@ -310,4 +339,17 @@ $user = Auth::user();
             </div>
         </div>
     </header>
+    <div id="successPopup" class="popup alert alert-success alert-dismissible fade d-none" role="alert">
+        <span>{{ successMessage }}</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div id="errorPopup" class="popup alert alert-danger alert-dismissible fade d-none" role="alert">
+        <span>{{ errorMessage }}</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <div class="overlay"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+

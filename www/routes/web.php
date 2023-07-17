@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,8 +61,14 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/logout', [UserController::class, 'logout']);
 
     Route::get('/account', function () {
-        return view('account    ');
+        return view('account');
     });
+// Админ панель
+    Route::get('/settings', function () {
+        return view('globalSettings');
+    });
+
+    Route::post('/settings', [AdminController::class, 'globalSettings']);
 
 
 

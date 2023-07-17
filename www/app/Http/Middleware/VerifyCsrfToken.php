@@ -20,7 +20,8 @@ class VerifyCsrfToken extends Middleware
         'http://localhost/login',
         'http://localhost/books/year',
         'http://localhost/books/reserve/*',
-        'http://localhost/books/surrender/*'
+        'http://localhost/books/surrender/*',
+        'http://localhost/settings'
         //Исправить
     ];
 }

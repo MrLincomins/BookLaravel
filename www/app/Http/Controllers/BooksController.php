@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Books;
 use App\Models\Genre;
 use App\Models\Surrender;
@@ -14,9 +15,10 @@ class BooksController
 {
     public function index(Request $request): \Illuminate\Contracts\View\View
     {
-        $books = Books::paginate(10);
+        $books = Books::paginate(10)->toArray();
         return view('allBooks', compact('books'));
     }
+
     //Показывает книги на странице, по 10 штук на каждую
 
     public function create(Request $request): \Illuminate\Contracts\View\View
@@ -24,14 +26,15 @@ class BooksController
         $genres = Genre::all('genre');
         return view('createBooks', compact('genres'));
     }
+
     // Берёт жанры и перенаправляет на страницу
 
-    public function store(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function store(Request $request): \Illuminate\Http\JsonResponse
     {
         $rules = [
             'tittle' => 'required|max:200',
             'author' => 'required|max:200',
-            'year' => 'required|numeric|max:5',
+            'year' => 'required|numeric',
             'isbn' => 'required|max:13',
             'count' => 'required|numeric|max:9999',
             'genre' => 'required',
@@ -40,9 +43,9 @@ class BooksController
         $validator = Validator::make($request->all(), $rules);
 
 //        JSON Ответ
-//        if ($validator->fails()) {
-//            return response()->json(['errors' => $validator->errors()], 400);
-//        }
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(), 'status' => false], 400);
+        }
 
         $picture = "https://pictures.abebooks.com/isbn/" . $request->input('isbn') . "-us-300.jpg";
         $book = Books::create([
@@ -54,8 +57,9 @@ class BooksController
             'genre' => $request->input('genre'),
             'picture' => $picture
         ]);
-        return redirect('/books/create');
+        return response()->json(['message' => 'Вы успешно добавили книгу', 'status' => true], 400);
     }
+
     // Добавляет книги в бд
 
 
@@ -64,6 +68,7 @@ class BooksController
         Books::destroy($id);
         return response()->json(['status' => true, 'message' => 'Вы успешно удалили книгу']);
     }
+
     // Удаляет книгу
 
     public function edit(Request $request, $id): \Illuminate\Contracts\View\View
@@ -72,6 +77,7 @@ class BooksController
         $genres = Genre::all('genre');
         return view('editBook', compact('book', 'genres'));
     }
+
     // Открывает форму для изменения книги
 
     public function refactor(Request $request, $id): string
@@ -104,6 +110,7 @@ class BooksController
                 'message' => 'Вы успешно изменили книгу'
             ]));
     }
+
     // Изменяет книгу
 
     public function search(Request $request): \Illuminate\Contracts\View\View
@@ -112,6 +119,7 @@ class BooksController
         $books = Books::where('tittle', 'like', '%' . $tittle . '%')->get();
         return view('searchBook', compact('books'));
     }
+
     // Поиск книги
 
     public function yearSearch(Request $request): \Illuminate\Contracts\View\View
@@ -186,9 +194,6 @@ class BooksController
 
         return view('allSurrender', compact('surrenders', 'books', 'users'));
     }
-
-
-
 
 
 }

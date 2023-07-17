@@ -1,11 +1,10 @@
 <?php require_once "layout/header.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books Page</title>
+    <title>Книги</title>
 </head>
 <body>
 <div id="app">
@@ -49,7 +48,7 @@
                                         <td class="min-width">
                                             <div class="lead">
                                                 <div class="lead-image bgc-img">
-                                                    <img :src="book.picture" alt="" class="lup" />
+                                                    <img :src="book.picture" alt="" class="lup"/>
                                                 </div>
                                                 <div class="lead-text">
                                                     <p>{{ book.tittle }}</p>
@@ -76,16 +75,24 @@
                                                 <button class="text-danger" @click="deleteBook(book.id)">
                                                     <i class="lni lni-trash-can"></i>
                                                 </button>
-                                                <button class="more-btn ml-10 dropdown-toggle" id="moreAction1" data-bs-toggle="dropdown"
+                                                <form method="get" :action="`books/edit/${book.id}`">
+                                                    <button class="text-secondary" type="submit">
+                                                        <i class="mdi mdi-tools"></i>
+                                                    </button>
+                                                </form>
+                                                <button class="more-btn ml-10 dropdown-toggle" id="moreAction1"
+                                                        data-bs-toggle="dropdown"
                                                         aria-expanded="false">
                                                     <i class="lni lni-more-alt"></i>
                                                 </button>
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreAction1">
+                                                <ul class="dropdown-menu dropdown-menu-end"
+                                                    aria-labelledby="moreAction1">
                                                     <li class="dropdown-item">
                                                         <a :href="`books/reserve/${book.id}`" class="text-gray">Резервация</a>
                                                     </li>
                                                     <li class="dropdown-item">
-                                                        <a :href="`books/surrender/${book.id}`" class="text-gray">Выдача книг</a>
+                                                        <a :href="`books/surrender/${book.id}`" class="text-gray">Выдача
+                                                            книг</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -101,12 +108,30 @@
         </div>
     </section>
 </div>
-
 <script>
-
+    var bookData = <?= json_encode($books['data']); ?>;
+    new Vue({
+        el: '#app',
+        data: {
+            books: bookData,
+        },
+        methods: {
+            deleteBook: function (bookId) {
+                // Метод удаления книги
+                axios.delete(`/books/delete/${bookId}`)
+                    .then(response => {
+                        if (response.status === 200) {
+                            this.books = this.books.filter(book => book.id !== bookId);
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            },
+        },
+    });
 </script>
 </body>
-
 </html>
 
 <?php require_once "layout/footer.php"; ?>
