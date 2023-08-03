@@ -202,6 +202,33 @@ $user = Auth::user();
                     <?php } ?>
                 </ul>
             </li>
+<<<<<<< Updated upstream
+=======
+            <?php if (@$user->status == 1) { ?>
+                <li class="nav-item nav-item-has-children">
+                    <a
+                        href="#0"
+                        class="collapsed"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#ddmenu_9"
+                        aria-controls="ddmenu_9"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+              <span class="icon">
+                  <i class="mdi mdi-cog"></i>
+              </span>
+                        <span class="text">Админ-панель</span>
+                    </a>
+                    <ul id="ddmenu_9" class="collapse dropdown-nav">
+
+                        <li>
+                            <a href="/library/settings"> Изменение библиотеки </a>
+                        </li>
+                    </ul>
+                </li>
+            <?php } ?>
+>>>>>>> Stashed changes
 
             <span class="divider"><hr/></span>
 
@@ -275,10 +302,10 @@ $user = Auth::user();
                             >
                                 <div class="profile-info">
                                     <div class="info">
-                                        <?php if(!empty($user->name)): ?>
-                                        <h6><?php echo $user->name ?></h6>
+                                        <?php if (!empty($user->name)): ?>
+                                            <h6><?php echo $user->name ?></h6>
                                         <?php else: ?>
-                                        <h6>Пользователь</h6>
+                                            <h6>Пользователь</h6>
                                         <?php endif; ?>
                                         <div class="image">
                                             <img
@@ -295,7 +322,7 @@ $user = Auth::user();
                                 aria-labelledby="profile"
                             >
                                 <li>
-                                    <a href="\account">
+                                    <a href="/account">
                                         <i class="lni lni-user"></i> Профиль
                                     </a>
                                 </li>
@@ -311,3 +338,9 @@ $user = Auth::user();
         </div>
     </header>
     <div class="overlay"></div>
+<<<<<<< Updated upstream
+=======
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+>>>>>>> Stashed changes

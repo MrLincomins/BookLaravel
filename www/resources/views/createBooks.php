@@ -1,6 +1,6 @@
 <?php require_once  "layout/header.php"; ?>
 
-<body>
+<body class="app">
 <section class="tab-components">
     <div class="container-fluid">
         <section class="table-components">
@@ -42,12 +42,20 @@
                                     <div class="select-style-1">
                                         <label>Выбрать жанр</label>
                                         <div class="select-position">
+<<<<<<< Updated upstream
                                             <select class="light-bg" name="genre">
                                                 <?php foreach ($genres as $genre): ?>
                                                     <option
                                                         value="<?php echo $genre["genre"]; ?>"><?php echo $genre["genre"]; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
+=======
+                                                <select class="light-bg" v-model="bookData.genre">
+                                                    <?php foreach ($genres as $genre): ?>
+                                                        <option value="<?php echo $genre["genre"]; ?>"><?php echo $genre["genre"]; ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+>>>>>>> Stashed changes
                                         </div>
                                     </div>
                                     <!-- end select -->
@@ -79,6 +87,67 @@
                 </div>
             </div>
         </section>
+<<<<<<< Updated upstream
+=======
+    </div>
+</section>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            successMessage: '',
+            errorMessage: '',
+            bookData: {
+                tittle: '',
+                author: '',
+                year: '',
+                genre: '',
+                isbn: '',
+                count: '',
+            },
+        },
+        methods: {
+            addBook(event) {
+                event.preventDefault();
+
+                this.bookData.year = parseInt(this.bookData.year);
+                this.bookData.isbn = parseInt(this.bookData.isbn);
+
+                axios.post('/books/create', this.bookData)
+                    .then(response => {
+                        if (response.data.status === true) {
+                            this.showSuccessPopup(response.data.message);
+                        } else {
+                            this.showErrorPopup(response.data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            },
+            showSuccessPopup(message) {
+                this.successMessage = message;
+                const successPopup = new bootstrap.Alert(document.getElementById('successPopup'));
+                successPopup.classList.remove('d-none');
+                setTimeout(() => {
+                    successPopup.classList.add('d-none');
+                    this.successMessage = '';
+                }, 5000);
+            },
+            showErrorPopup(message) {
+                this.errorMessage = message;
+                const errorPopup = new bootstrap.Alert(document.getElementById('errorPopup'));
+                errorPopup.classList.remove('d-none');
+                setTimeout(() => {
+                    errorPopup.classList.add('d-none');
+                    this.errorMessage = '';
+                }, 5000);
+            },
+        },
+    });
+</script>
+>>>>>>> Stashed changes
 </body>
 
 <?php require_once  "layout/footer.php"; ?>

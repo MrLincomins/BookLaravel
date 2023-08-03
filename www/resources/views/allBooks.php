@@ -81,6 +81,7 @@
                                                 <button class="text-danger" type="submit">
                                                     <i class="lni lni-trash-can"></i>
                                                 </button>
+<<<<<<< Updated upstream
                                             </form>
                                             <button
                                                 class="more-btn ml-10 dropdown-toggle"
@@ -107,13 +108,68 @@
                                 <?php endforeach; ?>
                                 </tbody>
                             </table>
+=======
+                                                <form method="get" :action="`books/edit/${book.id}`">
+                                                    <button class="text-secondary" type="submit">
+                                                        <i class="mdi mdi-tools"></i>
+                                                    </button>
+                                                </form>
+                                                <button class="more-btn ml-10 dropdown-toggle" id="moreAction1"
+                                                        data-bs-toggle="dropdown"
+                                                        aria-expanded="false">
+                                                    <i class="lni lni-more-alt"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end"
+                                                    aria-labelledby="moreAction1">
+                                                    <li class="dropdown-item">
+                                                        <a :href="`books/reserve/${book.id}`" class="text-gray">Резервация</a>
+                                                    </li>
+                                                    <li class="dropdown-item">
+                                                        <a :href="`books/surrender/${book.id}`" class="text-gray">Выдача книг</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+<<<<<<< Updated upstream
     </div>
     </div>
 </section>
+=======
+    </section>
+</div>
+<script>
+    var bookData = <?= json_encode($books); ?>;
+    new Vue({
+        el: '#app',
+        data: {
+            books: bookData,
+        },
+        methods: {
+            deleteBook: function (bookId) {
+                // Метод удаления книги
+                axios.delete(`/books/delete/${bookId}`)
+                    .then(response => {
+                        if (response.status === 200) {
+                            this.books = this.books.filter(book => book.id !== bookId);
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            },
+        },
+    });
+</script>
+>>>>>>> Stashed changes
 </body>
 <?php require_once "layout/footer.php"; ?>

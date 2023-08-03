@@ -16,10 +16,8 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::group(['middleware' => 'web'], function () {
+
+Route::group(['middleware' => ['web', 'auth']], function () {
 
 // Книги
     Route::get('/books', [BooksController::class, 'index']);
@@ -47,6 +45,42 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/books/genre', [GenreController::class, 'storeGenre']);
 
 // Пользователи
+
+    Route::get('/logout', [UserController::class, 'logout']);
+
+    Route::get('/account', function () {
+        return view('account    ');
+    });
+<<<<<<< Updated upstream
+
+
+=======
+// Админ панель
+
+    Route::get('/library/entrance', function () {
+        return view('libraryEntrance');
+    })->name('LibraryEntrance');
+
+    Route::post('/library/entrance', [AdminController::class, 'libraryEntrance']);
+
+
+    Route::get('/library', function () {
+        return view('createLibrary');
+    });
+
+    Route::post('/library', [AdminController::class, 'storeLibrary']);
+
+    Route::get('/library/settings', function () {
+        return view('globalSettings');
+    });
+
+    Route::post('/library/settings', [AdminController::class, 'globalSettings']);
+
+});
+
+Route::group(['middleware' => 'web'], function () {
+    // Регистрация и вход
+
     Route::get('/register', function () {
         return view('register');
     });
@@ -54,15 +88,9 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/login', function () {
         return view('login');
-    });
+    })->name('login');
+
     Route::post('/login', [UserController::class, 'login']);
-
-    Route::get('/logout', [UserController::class, 'logout']);
-
-    Route::get('/account', function () {
-        return view('account    ');
-    });
-
-
+>>>>>>> Stashed changes
 
 });

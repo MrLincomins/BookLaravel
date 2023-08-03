@@ -1,7 +1,7 @@
 <?php require_once "layout/header.php"; ?>
 <body>
 <section class="tab-components">
-    <div class="container-fluid">
+    <div class="container-fluid offset-md-1">
         <section class="table-components">
             <div class="container-fluid">
                 <div class="title-wrapper pt-30">
@@ -16,7 +16,7 @@
                 <div class="form-elements-wrapper">
                     <form action="/register" method="POST">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-10">
                                 <!-- input style start -->
                                 <div class="card-style mb-30">
                                     <h6 class="mb-25">Поля ввода</h6>
@@ -58,6 +58,7 @@
                                     </div>
                                     <!-- end button -->
                                 </div>
+                                <p align="center">Уже есть аккаунт? <a href="/login" class="btn-registration">Авторизация</a></p>
                             </div>
                         </div>
                     </form>

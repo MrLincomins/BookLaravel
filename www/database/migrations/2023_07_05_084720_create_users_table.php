@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('class');
             $table->string('status');
             $table->string('password');
+            $table->string('unique_key')->nullable();
             $table->timestamps();
         });
     }

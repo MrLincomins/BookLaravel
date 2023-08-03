@@ -17,5 +17,12 @@ class Books extends Model
         'count',
         'genre',
         'picture',
+        'library_id'
     ];
+
+
+    public function library(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Library::class, 'library_id');
+    }
 }

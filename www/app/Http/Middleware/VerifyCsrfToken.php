@@ -20,7 +20,15 @@ class VerifyCsrfToken extends Middleware
         'http://localhost/login',
         'http://localhost/books/year',
         'http://localhost/books/reserve/*',
+<<<<<<< Updated upstream
         'http://localhost/books/surrender/*'
+=======
+        'http://localhost/books/surrender/*',
+        'http://localhost/library/settings',
+        'http://localhost/library/entrance',
+        'http://localhost/library',
+        'http://localhost/library/setting'
+>>>>>>> Stashed changes
         //Исправить
     ];
 }

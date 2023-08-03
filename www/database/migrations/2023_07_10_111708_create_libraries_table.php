@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,17 +12,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('libraries', function (Blueprint $table) {
             $table->id();
-            $table->string('tittle');
-            $table->string('author');
-            $table->integer('year');
-            $table->integer('isbn');
-            $table->integer('count');
-            $table->string('genre');
-            $table->string('picture');
-            $table->json('library_id');
+            $table->unsignedBigInteger('userid');
+            $table->string('username');
+            $table->string('unique_key')->unique();
             $table->timestamps();
+
+            $table->foreign('userid')->references('id')->on('users');
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('libraries');
     }
 };
