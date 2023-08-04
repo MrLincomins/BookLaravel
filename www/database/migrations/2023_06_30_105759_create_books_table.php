@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('count');
             $table->string('genre');
             $table->string('picture');
-            $table->json('library_id');
+            $table->string('library_id');
             $table->timestamps();
         });
     }

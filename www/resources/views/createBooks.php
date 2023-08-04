@@ -1,7 +1,15 @@
-<?php require_once  "layout/header.php"; ?>
+<?php require_once "layout/header.php"; ?>
 
 <body class="app">
-<section class="tab-components">
+<div id="loader" class="loader"></div>
+<section class="tab-components" id="app">
+    <div v-show="popupStatus === 'success'" class="alert alert-success mt-3" role="alert">
+        {{ successMessage }}
+    </div>
+
+    <div v-show="popupStatus === 'error'" class="alert alert-danger mt-3" role="alert">
+        {{ errorMessage }}
+    </div>
     <div class="container-fluid">
         <section class="table-components">
             <div class="container-fluid">
@@ -15,7 +23,7 @@
                     </div>
                 </div>
                 <div class="form-elements-wrapper">
-                    <form action="/books/create" method="POST">
+                    <form action="/books/create" method="POST" @submit="addBook">
                         <div class="row">
                             <div class="col-lg-6">
                                 <!-- input style start -->
@@ -23,51 +31,43 @@
                                     <h6 class="mb-25">Поля ввода</h6>
                                     <div class="input-style-2">
                                         <label>Название книги</label>
-                                        <input name="tittle" type="text" placeholder="Название книги"/>
+                                        <input v-model="bookData.tittle" type="text" placeholder="Название книги"/>
                                         <span class="icon"> <i class="lni lni-bookmark"></i> </span>
                                     </div>
                                     <!-- end input -->
                                     <div class="input-style-2">
                                         <label>Автор</label>
-                                        <input name="author" type="text" placeholder="Автор"/>
+                                        <input v-model="bookData.author" type="text" placeholder="Автор"/>
                                         <span class="icon"> <i class="lni lni-user"></i> </span>
                                     </div>
                                     <!-- end input -->
                                     <div class="input-style-2">
                                         <label>Год</label>
-                                        <input name="year" type="text" placeholder="Год"/>
+                                        <input v-model="bookData.year" type="text" placeholder="Год"/>
                                         <span class="icon"> <i class="lni lni-calendar"></i> </span>
                                     </div>
                                     <!-- end input -->
                                     <div class="select-style-1">
                                         <label>Выбрать жанр</label>
                                         <div class="select-position">
-<<<<<<< Updated upstream
-                                            <select class="light-bg" name="genre">
+                                            <select class="light-bg" v-model="bookData.genre">
                                                 <?php foreach ($genres as $genre): ?>
                                                     <option
                                                         value="<?php echo $genre["genre"]; ?>"><?php echo $genre["genre"]; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
-=======
-                                                <select class="light-bg" v-model="bookData.genre">
-                                                    <?php foreach ($genres as $genre): ?>
-                                                        <option value="<?php echo $genre["genre"]; ?>"><?php echo $genre["genre"]; ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
->>>>>>> Stashed changes
                                         </div>
                                     </div>
                                     <!-- end select -->
                                     <div class="input-style-2">
                                         <label>ISBN</label>
-                                        <input name="isbn" type="text" placeholder="ISBN"/>
+                                        <input v-model="bookData.isbn" type="text" placeholder="ISBN"/>
                                         <span class="icon"> <i class="lni lni-paperclip"></i> </span>
                                     </div>
                                     <!-- end input -->
                                     <div class="input-style-2">
                                         <label>Число книг</label>
-                                        <input name="count" type="text" placeholder="Число книг"/>
+                                        <input v-model="bookData.count" type="text" placeholder="Число книг"/>
                                         <span class="icon"> <i class="lni lni-calculator"></i> </span>
                                     </div>
                                     <!-- end input -->
@@ -87,17 +87,15 @@
                 </div>
             </div>
         </section>
-<<<<<<< Updated upstream
-=======
     </div>
 </section>
-
 <script>
     new Vue({
         el: '#app',
         data: {
             successMessage: '',
             errorMessage: '',
+            popupStatus: null,
             bookData: {
                 tittle: '',
                 author: '',
@@ -110,45 +108,42 @@
         methods: {
             addBook(event) {
                 event.preventDefault();
+                this.showLoader();
 
                 this.bookData.year = parseInt(this.bookData.year);
                 this.bookData.isbn = parseInt(this.bookData.isbn);
 
                 axios.post('/books/create', this.bookData)
                     .then(response => {
-                        if (response.data.status === true) {
-                            this.showSuccessPopup(response.data.message);
+                        if (response.data.status) {
+                            this.successMessage = response.data.message;
+                            this.popupStatus = 'success';
                         } else {
-                            this.showErrorPopup(response.data.message);
+                            this.errorMessage = response.data.message;
+                            this.popupStatus = 'error';
                         }
                     })
                     .catch(error => {
                         console.error(error);
+                        this.errorMessage = 'Ошибка';
+                        this.popupStatus = 'error';
+                    })
+                    .finally(() => {
+                        this.hideLoader();
                     });
             },
-            showSuccessPopup(message) {
-                this.successMessage = message;
-                const successPopup = new bootstrap.Alert(document.getElementById('successPopup'));
-                successPopup.classList.remove('d-none');
-                setTimeout(() => {
-                    successPopup.classList.add('d-none');
-                    this.successMessage = '';
-                }, 5000);
+
+            showLoader() {
+                document.getElementById('loader').style.display = 'block';
             },
-            showErrorPopup(message) {
-                this.errorMessage = message;
-                const errorPopup = new bootstrap.Alert(document.getElementById('errorPopup'));
-                errorPopup.classList.remove('d-none');
-                setTimeout(() => {
-                    errorPopup.classList.add('d-none');
-                    this.errorMessage = '';
-                }, 5000);
-            },
-        },
-    });
+            hideLoader() {
+                document.getElementById('loader').style.display = 'none';
+            }
+        }
+    },
+    })
 </script>
->>>>>>> Stashed changes
 </body>
 
-<?php require_once  "layout/footer.php"; ?>
+<?php require_once "layout/footer.php"; ?>
 

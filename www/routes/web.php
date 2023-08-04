@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\GenreController;
@@ -49,12 +50,9 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/logout', [UserController::class, 'logout']);
 
     Route::get('/account', function () {
-        return view('account    ');
+        return view('account');
     });
-<<<<<<< Updated upstream
 
-
-=======
 // Админ панель
 
     Route::get('/library/entrance', function () {
@@ -91,6 +89,6 @@ Route::group(['middleware' => 'web'], function () {
     })->name('login');
 
     Route::post('/login', [UserController::class, 'login']);
->>>>>>> Stashed changes
 
 });
+

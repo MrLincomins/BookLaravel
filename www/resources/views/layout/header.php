@@ -202,8 +202,6 @@ $user = Auth::user();
                     <?php } ?>
                 </ul>
             </li>
-<<<<<<< Updated upstream
-=======
             <?php if (@$user->status == 1) { ?>
                 <li class="nav-item nav-item-has-children">
                     <a
@@ -228,7 +226,6 @@ $user = Auth::user();
                     </ul>
                 </li>
             <?php } ?>
->>>>>>> Stashed changes
 
             <span class="divider"><hr/></span>
 
@@ -338,9 +335,29 @@ $user = Auth::user();
         </div>
     </header>
     <div class="overlay"></div>
-<<<<<<< Updated upstream
-=======
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
->>>>>>> Stashed changes
+    <style>
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
