@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LibraryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\GenreController;
@@ -24,7 +24,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/books', [BooksController::class, 'index']);
     Route::get('/books/create', [BooksController::class, 'create']);
     Route::post('/books/create', [BooksController::class, 'store']);
-    Route::post('/books/delete/{id}', [BooksController::class, 'delete']);
+    Route::delete('/books/{id}', [BooksController::class, 'delete']);
     Route::get('/books/edit/{id}', [BooksController::class, 'edit']);
     Route::post('/books/edit/{id}', [BooksController::class, 'refactor']);
     Route::get('/books/search', [BooksController::class, 'search']);
@@ -49,9 +49,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::get('/logout', [UserController::class, 'logout']);
 
-    Route::get('/account', function () {
-        return view('account');
-    });
+    Route::get('/account', [UserController::class, 'account']);
 
 // Админ панель
 
@@ -59,20 +57,29 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         return view('libraryEntrance');
     })->name('LibraryEntrance');
 
-    Route::post('/library/entrance', [AdminController::class, 'libraryEntrance']);
+    Route::post('/library/entrance', [LibraryController::class, 'libraryEntrance']);
 
 
     Route::get('/library', function () {
         return view('createLibrary');
     });
 
-    Route::post('/library', [AdminController::class, 'storeLibrary']);
+    Route::post('/library', [LibraryController::class, 'storeLibrary']);
 
     Route::get('/library/settings', function () {
         return view('globalSettings');
     });
 
-    Route::post('/library/settings', [AdminController::class, 'globalSettings']);
+    Route::post('/library/settings', [LibraryController::class, 'globalSettings']);
+
+    Route::get('/library/roles', [LibraryController::class, 'createRole']);
+
+
+    Route::post('/library/roles', [LibraryController::class, 'storeRole']);
+
+    Route::get('/library/users', [LibraryController::class, 'allUsers']);
+
+    Route::post('/library/users/{id}', [LibraryController::class, 'kickUser']);
 
 });
 

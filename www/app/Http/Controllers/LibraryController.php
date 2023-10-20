@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
@@ -10,8 +11,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Library;
 use Illuminate\Support\Str;
+use JetBrains\PhpStorm\NoReturn;
 
-class AdminController extends Controller
+class LibraryController extends Controller
 {
 
     public function storeLibrary(Request $request): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
@@ -69,12 +71,52 @@ class AdminController extends Controller
         $image->move(public_path($destinationPath), $imageName);
 
         Library::create([
-        'name' => $name,
-        'image' => $imageName,
-        'info' => $info,
+            'name' => $name,
+            'image' => $imageName,
+            'info' => $info,
         ]);
 
         return redirect('/books');
     }
-    
+
+    public function createRole(Request $request): \Illuminate\Contracts\View\View
+    {
+        $libraryId = Auth::user()->unique_key;
+        $roles = Role::where('unique_key', $libraryId)->get();
+
+        return view('roles', compact('roles'));
+
+    }
+    // Переписать систему ролей как у линукса
+    public function storeRole(Request $request)
+    {
+        $permissions = 0;
+        foreach ($request->input('permissions', []) as $permission) {
+            $permissions |= (int) $permission;
+        }
+
+        Role::create([
+            'name' => $request->input('name'),
+            'permissions' => $permissions,
+            'unique_key' => Auth::user()->unique_key
+        ]);
+
+        return redirect('/library/roles');
+    }
+
+    public function allUsers(Request $request): \Illuminate\Contracts\View\View
+    {
+        $libraryId = Auth::user()->unique_key;
+        $users = User::where('unique_key', $libraryId)->orderBy('class')->get();
+        return view('userManagement', compact('users'));
+    }
+
+    public function kickUser(Request $request, $id): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+    {
+        $user = User::find($id);
+        $user->unique_key = null;
+        $user->save();
+        return redirect('/library/users');
+    }
+
 }

@@ -19,7 +19,6 @@ class BooksController
 {
     public function index(Request $request): \Illuminate\Contracts\View\View
     {
-        $books = Books::paginate(10);
 
         $libraryId = Auth::user()->unique_key;
         $books = Books::where('library_id', $libraryId)->get();
@@ -42,16 +41,22 @@ class BooksController
         $unique_key = Auth::user()->unique_key;
 
         $picture = "https://pictures.abebooks.com/isbn/" . $request->input('isbn') . "-us-300.jpg";
-        Books::create([
-            'tittle' => $request->input('tittle'),
-            'author' => $request->input('author'),
-            'year' => $request->input('year'),
-            'isbn' => $request->input('isbn'),
-            'genre' => $request->input('genre'),
-            'count' => $request->input('count'),
-            'picture' => $picture,
-            'library_id' => $unique_key
-        ]);
+        $book = Books::where('isbn', $request->input('isbn'))->where('library_id', $unique_key)->first();
+        if(!$book) {
+            Books::create([
+                'tittle' => $request->input('tittle'),
+                'author' => $request->input('author'),
+                'year' => $request->input('year'),
+                'isbn' => $request->input('isbn'),
+                'genre' => $request->input('genre'),
+                'count' => $request->input('count'),
+                'picture' => $picture,
+                'library_id' => $unique_key
+            ]);
+        } elseif($book) {
+            $book->count++;
+            $book->save();
+        }
 
         return response()->json(['message' => 'Вы успешно добавили книгу', 'status' => true], 200);
     }
@@ -59,12 +64,17 @@ class BooksController
     // Добавляет книги в бд
 
 
-    public function delete(Request $request, $id): \Illuminate\Http\JsonResponse|Redirector
+    public function delete($id)
     {
-        Books::destroy($id);
-        return response()->json(['status' => true, 'message' => 'Вы успешно удалили книгу']);
-    }
+        $book = Books::find($id);
 
+        if (!$book) {
+            return response()->json(['status' => false, 'message' => 'Книга не найдена']);
+        }
+
+        $book->delete();
+        return response()->json(['status' => true, 'message' => 'Книга успешно удалена']);
+    }
     // Удаляет книгу
 
     public function edit(Request $request, $id): \Illuminate\Contracts\View\View

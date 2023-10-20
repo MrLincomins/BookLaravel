@@ -33,6 +33,7 @@ class UserController extends Controller
         return redirect('/books');
     }
 
+
     public function logout(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
         Auth::logout();
@@ -49,6 +50,14 @@ class UserController extends Controller
         } else {
             return redirect()->back();
         }
+    }
+
+    public function account(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        $user = User::where('id', Auth::id())->first();
+
+        return view('account', compact('user'));
+
     }
 
 }

@@ -25,7 +25,9 @@ class VerifyCsrfToken extends Middleware
         'http://localhost/library/settings',
         'http://localhost/library/entrance',
         'http://localhost/library',
-        'http://localhost/library/setting'
+        'http://localhost/library/setting',
+        'http://localhost/library/roles',
+        'http://localhost/*',
         //Исправить
     ];
 }

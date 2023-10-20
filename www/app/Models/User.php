@@ -12,6 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,7 +22,7 @@ class User extends Authenticatable
         'name',
         'class',
         'status',
-        'password'
+        'password',
     ];
 
     /**
@@ -47,5 +48,10 @@ class User extends Authenticatable
     public function library(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(Library::class);
+    }
+
+    public function roles(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Role::class);
     }
 }
