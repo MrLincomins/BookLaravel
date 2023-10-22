@@ -1,5 +1,7 @@
-<?php require_once "layout/header.php"; ?>
-    <section class="tab-components">
+@extends('layout.layout')
+
+@section('content')
+<section class="tab-components">
     <div class="container-fluid">
         <section class="table-components">
             <div class="container-fluid">
@@ -13,7 +15,7 @@
                     </div>
                 </div>
                 <div class="form-elements-wrapper">
-                    <form action="/books/edit/<?php echo $book->id; ?>" method="POST">
+                    <form action="/books/edit/{{ $book->id }}" method="POST">
                         <div class="row">
                             <div class="col-lg-6">
                                 <!-- input style start -->
@@ -21,22 +23,19 @@
                                     <h6 class="mb-25">Поля ввода</h6>
                                     <div class="input-style-2">
                                         <label>Название книги</label>
-                                        <input name="tittle" type="text" placeholder="Название книги"
-                                               value="<?php echo $book->tittle; ?>"/>
+                                        <input name="tittle" type="text" placeholder="Название книги" value="{{ $book->tittle }}" />
                                         <span class="icon"> <i class="lni lni-bookmark"></i> </span>
                                     </div>
                                     <!-- end input -->
                                     <div class="input-style-2">
                                         <label>Автор</label>
-                                        <input name="author" type="text" placeholder="Автор"
-                                               value="<?php echo $book->author; ?>"/>
+                                        <input name="author" type="text" placeholder="Автор" value="{{ $book->author }}" />
                                         <span class="icon"> <i class="lni lni-user"></i> </span>
                                     </div>
                                     <!-- end input -->
                                     <div class="input-style-2">
                                         <label>Год</label>
-                                        <input name="year" type="text" placeholder="Год"
-                                               value="<?php echo $book->year; ?>"/>
+                                        <input name="year" type="text" placeholder="Год" value="{{ $book->year }}" />
                                         <span class="icon"> <i class="lni lni-calendar"></i> </span>
                                     </div>
                                     <!-- end input -->
@@ -44,31 +43,29 @@
                                         <label>Выбрать жанр</label>
                                         <div class="select-position">
                                             <select class="light-bg" name="genre">
-                                                <?php foreach ($genres as $genre): ?>
-                                                    <option value="<?php echo $genre["genre"]; ?>"><?php echo $genre["genre"]; ?></option>
-                                                <?php endforeach; ?>
+                                                @foreach($genres as $genre)
+                                                <option value="{{ $genre['genre'] }}">{{ $genre['genre'] }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <!-- end select -->
                                     <div class="input-style-2">
                                         <label>ISBN</label>
-                                        <input name="isbn" type="text" placeholder="ISBN"
-                                               value="<?php echo $book->isbn; ?>"/>
+                                        <input name="isbn" type="text" placeholder="ISBN" value="{{ $book->isbn }}" />
                                         <span class="icon"> <i class="lni lni-paperclip"></i> </span>
                                     </div>
                                     <!-- end input -->
                                     <div class="input-style-2">
                                         <label>Число книг</label>
-                                        <input name="count" type="text" placeholder="Число книг" value="<?php echo $book->count; ?>"/>
+                                        <input name="count" type="text" placeholder="Число книг" value="{{ $book->count }}" />
                                         <span class="icon"> <i class="lni lni-calculator"></i> </span>
                                     </div>
                                     <!-- end input -->
 
                                     <div class="col-12">
                                         <div class="button-group d-flex justify-content-center flex-wrap">
-                                            <button class="main-btn primary-btn btn-hover w-100 text-center"
-                                                    type="submit">
+                                            <button class="main-btn primary-btn btn-hover w-100 text-center" type="submit">
                                                 Изменить
                                             </button>
                                         </div>
@@ -82,4 +79,5 @@
             </div>
         </section>
     </div>
-<?php require_once "layout/footer.php"; ?>
+</section>
+@endsection

@@ -42,8 +42,13 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
 
 // Жанры
-    Route::get('/books/genre', [GenreController::class, 'showGenre']);
+    Route::get('/books/genre', function () {
+        return view('createGenre');
+    });
+    Route::get('/books/genre/show', [GenreController::class, 'showGenre']);
+
     Route::post('/books/genre', [GenreController::class, 'storeGenre']);
+    Route::delete('/books/genre/{id}', [GenreController::class, 'deleteGenre']);
 
 // Пользователи
 

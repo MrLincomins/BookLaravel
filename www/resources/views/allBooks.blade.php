@@ -40,7 +40,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="book in books" :key="book.id">
+                                    <tr v-for="book in paginatedBooks" :key="book.id">
                                         <td class="min-width">
                                             <div class="lead">
                                                 <div class="lead-image bgc-img">
@@ -73,7 +73,9 @@
                                                         <i class="mdi mdi-tools"></i>
                                                     </button>
                                                 </form>
-                                                <button @click="deleteBook(book.id)" class="text-danger">
+                                                <button @click="confirmDelete(book.id, book.tittle)" type="button"
+                                                        data-toggle="modal" data-target="#deleteModal"
+                                                        class="text-danger">
                                                     <i class="lni lni-trash-can"></i>
                                                 </button>
 
@@ -97,46 +99,114 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item" :class="{ disabled: currentPage === 1 }">
+                                        <a class="page-link" @click="prevPage">Previous</a>
+                                    </li>
+                                    <li class="page-item" v-for="page in totalPages" :key="page"
+                                        :class="{ active: currentPage === page }">
+                                        <a class="page-link" @click="changePage(page)">@{{ page }}</a>
+                                    </li>
+                                    <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+                                        <a class="page-link" @click="nextPage">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" tabindex="-1" id="deleteModal" v-if="showDeleteModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Удаление</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    @click="showDeleteModal = false">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Вы точно хотите удалить книгу "@{{ bookToDelete.title }}"?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    @click="showDeleteModal = false">Нет
+                            </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" @click="deleteBook">Да
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    </body>
 
     <script>
         new Vue({
             el: '#app',
             data: {
                 books: @json($books),
+                showDeleteModal: false,
+                bookToDelete: {id: null, title: ''},
+                itemsPerPage: 6,
+                currentPage: 1
+            },
+            computed: {
+                totalPages() {
+                    return Math.ceil(this.books.length / this.itemsPerPage);
+                },
+                paginatedBooks() {
+                    const start = (this.currentPage - 1) * this.itemsPerPage;
+                    const end = start + this.itemsPerPage;
+                    return this.books.slice(start, end);
+                }
             },
             methods: {
-                deleteBook(bookId) {
-                    if (confirm('Вы уверены, что хотите удалить книгу?')) {
-                        this.showLoader();
-                        axios.delete(`/books/${bookId}`)
-                            .then(response => {
-                                if (response.data.status) {
-                                    // Удалите книгу из списка books
-                                    this.books = this.books.filter(book => book.id !== bookId);
-                                } else {
-                                    alert('Ошибка при удалении книги');
-                                }
-                            })
-                            .finally(() => {
-                                this.hideLoader();
-                            });
-                    }
+                deleteBook() {
+                    this.showDeleteModal = false;
+                    this.showLoader();
+                    axios.delete(`/books/${this.bookToDelete.id}`)
+                        .then(response => {
+                            if (response.data.status) {
+                                this.books = this.books.filter(book => book.id !== this.bookToDelete.id);
+                            } else {
+                                alert('Ошибка при удалении книги');
+                            }
+                        })
+                        .finally(() => {
+                            this.hideLoader();
+                        });
+                },
+                confirmDelete(id, title) {
+                    this.bookToDelete.id = id;
+                    this.bookToDelete.title = title;
+                    this.showDeleteModal = true;
                 },
                 showLoader() {
                     document.getElementById('loader').style.display = 'block';
                 },
                 hideLoader() {
                     document.getElementById('loader').style.display = 'none';
-                }
+                },
+                prevPage() {
+                    if (this.currentPage > 1) {
+                        this.currentPage--;
+                    }
+                },
+                nextPage() {
+                    if (this.currentPage < this.totalPages) {
+                        this.currentPage++;
+                    }
+                },
+                changePage(page) {
+                    this.currentPage = page;
+                },
             },
         });
+        //Пагинацию потом исправлю, а то мне кажеться так не правильно вставлять.
+        //Просто не могу использовать пагинацию Laravel, когда вывожу данные с помощью vue.js
     </script>
-    </body>
 @endsection
-

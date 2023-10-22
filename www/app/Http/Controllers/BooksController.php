@@ -21,7 +21,7 @@ class BooksController
     {
 
         $libraryId = Auth::user()->unique_key;
-        $books = Books::where('library_id', $libraryId)->get();
+        $books = Books::where('library_id', $libraryId)->get(); // 8 книг на странице
 
         return view('allBooks', compact('books'));
     }
@@ -122,12 +122,12 @@ class BooksController
 
     // Поиск книги
 
-    public function yearSearch(Request $request): \Illuminate\Contracts\View\View
+    public function yearSearch(Request $request): \Illuminate\Http\JsonResponse
     {
         $first = $request->input('first');
         $second = $request->input('second');
         $books = Books::whereBetween('year', [(int)$first, (int)$second])->get();
-        return view('yearSearch', compact('books'));
+        return response()->json($books);
     }
 
     public function reserveBook(Request $request, $id): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse

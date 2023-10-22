@@ -103,11 +103,9 @@
                 axios.post('/books/create', this.bookData)
                     .then(response => {
                         if (response.data.status === true) {
-                            this.isSuccess = true;
-                            this.statusMessage = 'Книга успешно добавлена';
+                            this.showAlert('Книга успешно добавлена', true)
                         } else {
-                            this.isSuccess = false;
-                            this.statusMessage = 'Ошибка при добавлении книги';
+                            this.showAlert('Ошибка при добавлении книги', false)
                         }
                     })
                     .finally(() => {
@@ -119,7 +117,16 @@
             },
             hideLoader() {
                 document.getElementById('loader').style.display = 'none';
-            }
+            },
+            showAlert(message, bool) {
+                this.statusMessage = message;
+                this.isSuccess = bool;
+
+                setTimeout(() => {
+                    this.statusMessage = '';
+                    this.isSuccess = false;
+                }, 4000);
+            },
         }
     });
 </script>

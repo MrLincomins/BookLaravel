@@ -11,5 +11,6 @@ class Genre extends Model
 
     protected $fillable = [
         'genre',
+        'library_id'
     ];
 }
