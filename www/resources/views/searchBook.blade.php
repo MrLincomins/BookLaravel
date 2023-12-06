@@ -50,7 +50,7 @@
                                                 />
                                             </div>
                                             <div class="lead-text">
-                                                <p>{{ $book->title }}</p>
+                                                <p>{{ $book->tittle }}</p>
                                             </div>
                                         </div>
                                     </td>

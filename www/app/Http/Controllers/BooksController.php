@@ -5,18 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBookRequest;
 use App\Models\Books;
 use App\Models\Genre;
-use App\Models\Library;
 use App\Models\Surrender;
 use App\Models\User;
 use App\Models\Reserve;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class BooksController
 {
+
     public function index(Request $request): \Illuminate\Contracts\View\View
     {
 
@@ -73,6 +71,7 @@ class BooksController
         }
 
         $book->delete();
+
         return response()->json(['status' => true, 'message' => 'Книга успешно удалена']);
     }
     // Удаляет книгу
@@ -130,69 +129,31 @@ class BooksController
         return response()->json($books);
     }
 
-    public function reserveBook(Request $request, $id): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
+
+
+
+
+    public function bookTest(Request $request)
     {
-        $date = now()->addDays(2)->format('Y-m-d');
+        $libraryId = Auth::user()->unique_key;
+        $books = Books::where('library_id', $libraryId)->get();
 
-        Reserve::create([
-            'idbook' => $id,
-            'iduser' => (Auth::user())->id,
-            'date' => $date
-        ]);
+        $genres = $books->pluck('genre')->unique()->toArray();
 
-        return redirect('/books');
-    }
+        $randomGenres = array_rand($genres, min(3, count($genres)));
 
-    public function reserveBookForm(Request $request, $id): \Illuminate\Contracts\View\View
-    {
-        $book = Books::find($id);
-        return view('reserveBook', compact('book'));
-    }
+        $randomBooks = [];
+        foreach ($randomGenres as $genreIndex) {
+            $genre = $genres[$genreIndex];
+            $genreBooks = $books->where('genre', $genre)->shuffle()->take(6)->toArray();
+            $randomBooks[] = [
+                'name' => $genre,
+                'books' => $genreBooks,
+                'start' => 0,
+            ];
+        }
 
-
-    public function allReserve(Request $request): \Illuminate\Contracts\View\View
-    {
-        $reserves = Reserve::all()->toArray();
-        $books = Books::whereIn('id', collect($reserves)->pluck('idbook'))->get()->toArray();
-        $users = User::whereIn('id', collect($reserves)->pluck('iduser'))->get()->toArray();
-
-        return view('allReserve', compact('reserves', 'books', 'users'));
-    }
-
-    public function surrenderBook(Request $request, $id)
-    {
-        $rules = [
-            'iduser' => 'required|numeric',
-        ];
-
-        $validator = Validator::make($request->all(), $rules);
-        // JSON
-
-        $date = now()->addDays(7)->format('Y-m-d');
-
-        Surrender::create([
-            'idbook' => $id,
-            'iduser' => $request->input('iduser'),
-            'date' => $date
-        ]);
-
-        return redirect('/books');
-    }
-
-    public function surrenderBookForm(Request $request, $id)
-    {
-        $book = Books::find($id);
-        return view('surrenderBook', compact('book'));
-
-    }
-
-    public function allSurrender(Request $request): \Illuminate\Contracts\View\View
-    {
-        $surrenders = Surrender::all()->toArray();
-        $books = Books::whereIn('id', collect($surrenders)->pluck('idbook'))->get()->toArray();
-        $users = User::whereIn('id', collect($surrenders)->pluck('iduser'))->get()->toArray();
-
-        return view('allSurrender', compact('surrenders', 'books', 'users'));
+        return view('booksTest', compact('randomBooks'));
     }
 
 

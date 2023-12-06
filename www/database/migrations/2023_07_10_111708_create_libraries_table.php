@@ -15,8 +15,11 @@ return new class extends Migration
         Schema::create('libraries', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('userid');
-            $table->string('username');
+            $table->string('libraryName');
             $table->string('unique_key')->unique();
+            $table->string('organisation')->nullable();
+            $table->string('library_img')->unique()->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
 
             $table->foreign('userid')->references('id')->on('users');

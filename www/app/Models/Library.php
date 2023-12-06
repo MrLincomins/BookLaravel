@@ -11,8 +11,12 @@ class Library extends Model
 
     protected $fillable = [
         'userid',
-        'username',
-        'unique_key'
+        'libraryName',
+        'unique_key',
+        'organisation',
+        'library_img',
+        'description',
+
     ];
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\IssuanceController;
 use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\GenreController;
@@ -32,13 +35,20 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         return view('yearSearch');
     });
     Route::post('/books/year', [BooksController::class, 'yearSearch']);
-    Route::get('/books/reserve/{id}', [BooksController::class, 'reserveBookForm']);
-    Route::post('/books/reserve/{id}', [BooksController::class, 'reserveBook']);
-    Route::get('/books/reserve', [BooksController::class, 'allReserve']);
 
-    Route::get('/books/surrender/{id}', [BooksController::class, 'surrenderBookForm']);
-    Route::post('/books/surrender/{id}', [BooksController::class, 'surrenderBook']);
-    Route::get('/books/surrender', [BooksController::class, 'allSurrender']);
+//Резервация книг
+
+    Route::get('/books/reserve/{id}', [ReservationController::class, 'reserveBook']);
+    Route::post('/books/reserve/{id}', [ReservationController::class, 'reserveBook']);
+    Route::get('/books/reserve', [ReservationController::class, 'allReserve']);
+
+// Выдача, сбор книг у учеников
+
+    Route::get('/books/surrender/{id}', [IssuanceController::class, 'issuanceBookForm']);
+    Route::post('/books/surrender/{id}', [IssuanceController::class, 'issuanceBook']);
+    Route::get('/books/surrender', [IssuanceController::class, 'allIssuance']);
+
+    //Route::get('/books/test', [BooksController::class, 'bookTest']);
 
 
 // Жанры
@@ -56,13 +66,23 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::get('/account', [UserController::class, 'account']);
 
-// Админ панель
+// Панель библиотекаря
+
+    Route::get('/library/application', function () {
+        return view('libraryApplication');
+    });
+    Route::post('/library/application', [LibraryController::class, 'libraryApplication']);
 
     Route::get('/library/entrance', function () {
-        return view('libraryEntrance');
-    })->name('LibraryEntrance');
+        return view('acceptApplications');
+    });
+    Route::post('/library/entrance', [LibraryController::class, 'libraryAcceptApplication']);
+    Route::delete('/library/entrance', [LibraryController::class, 'libraryDeleteApplication']);
+    Route::get('/library/entrance/get', [LibraryController::class, 'libraryGetApplications']);
 
-    Route::post('/library/entrance', [LibraryController::class, 'libraryEntrance']);
+    Route::post('/library/get', [LibraryController::class, 'libraryGet']);
+
+    Route::post('/library/delete', [LibraryController::class, 'deleteLibrary']);
 
 
     Route::get('/library', function () {
@@ -82,9 +102,20 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::post('/library/roles', [LibraryController::class, 'storeRole']);
 
+    Route::delete('/library/roles/{id}', [LibraryController::class, 'deleteRole']);
+
     Route::get('/library/users', [LibraryController::class, 'allUsers']);
 
-    Route::post('/library/users/{id}', [LibraryController::class, 'kickUser']);
+    Route::post('/library/users', [LibraryController::class, 'assigningRole']);
+
+    Route::delete('/library/users/{id}', [LibraryController::class, 'kickUser']);
+
+    Route::get('/library/logs', [LibraryController::class, 'allLogs']);
+
+    // Админ панель
+
+    Route::get('/admin/permissions', [AdminController::class, 'createPermission']);
+
 
 });
 

@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="form-elements-wrapper">
-                        <form action="/library" method="POST">
+                        <form action="/library" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-lg-10">
                                     <div class="card-style mb-30">
@@ -27,7 +27,7 @@
                                         <div class="input-style-2">
                                             <label>Выберите логотип для библиотеки</label>
                                             <input type="file" class="form-control"
-                                                   name="libraryImg"
+                                                   name="library_img"
                                                    aria-label="Загрузка">
                                         </div>
                                         <div class="input-style-1">
@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="input-style-2">
                                             <label>Школа/Организация</label>
-                                            <input name="organization" type="text" placeholder="Название школы/организации"/>
+                                            <input name="organisation" type="text" placeholder="Название школы/организации"/>
                                             <span class="icon"> <i class="lni lni-key"></i> </span>
                                         </div>
                                         <!-- end input -->

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Audit_Log;
+use App\Models\Library_Application;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
@@ -12,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Models\Library;
 use Illuminate\Support\Str;
 use JetBrains\PhpStorm\NoReturn;
+use Termwind\Components\Li;
 
 class LibraryController extends Controller
 {
@@ -20,41 +23,30 @@ class LibraryController extends Controller
     {
 
         $userid = (Auth::id());
-        $username = (Auth::user())->name;
+        $unique_key = Str::random(10);
+        $name = $request->get('name');
 
-        $unique_key = Str::random(10); // случайный ключ из 10 символов
+        $image = $request->file('library_img');
+        if($image) {
+        $imgName = 'library_img_' . $name . '.png';
+            $image->move(public_path('/images/library'), $imgName);
+        }
 
-        // создание записи о данной библиотеке
+
         Library::create([
             'userid' => $userid,
-            'username' => $username,
+            'libraryName' => $name,
             'unique_key' => $unique_key,
+            'organisation' => $request->get('organisation'),
+            'library_img' => $imgName ?? null,
+            'description' => $request->get('description'),
         ]);
-
-        // Добавление ключа пользователю
+    
         $user = User::find(Auth::id());
         $user->unique_key = $unique_key;
         $user->save();
 
         Auth::login($user);
-
-        return redirect('/books');
-    }
-
-
-    public function libraryEntrance(Request $request): bool|\Illuminate\Contracts\Foundation\Application|\Illuminate\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-    {
-        $unique_key = $request->input('unique_key');
-
-        $library = Library::where('unique_key', $unique_key)->first();
-
-        if (!$library) {
-            return false;
-        }
-
-        $user = User::find(Auth::id());
-        $user->unique_key = $unique_key;
-        $user->save();
 
         return redirect('/books');
     }
@@ -81,19 +73,17 @@ class LibraryController extends Controller
 
     public function createRole(Request $request): \Illuminate\Contracts\View\View
     {
-        $libraryId = Auth::user()->unique_key;
-        $roles = Role::where('unique_key', $libraryId)->get();
+
+        $unique_key = Auth::user()->unique_key;
+        $roles = Role::where('unique_key', $unique_key)->get();
 
         return view('roles', compact('roles'));
 
     }
-    // Переписать систему ролей как у линукса
-    public function storeRole(Request $request)
+
+    public function storeRole(Request $request): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
     {
-        $permissions = 0;
-        foreach ($request->input('permissions', []) as $permission) {
-            $permissions |= (int) $permission;
-        }
+        $permissions = array_sum($request->input('permissions', []));
 
         Role::create([
             'name' => $request->input('name'),
@@ -104,11 +94,32 @@ class LibraryController extends Controller
         return redirect('/library/roles');
     }
 
+    public function deleteRole(Request $request, $id): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+    {
+        Role::destroy($id);
+        return redirect('/library/roles');
+    }
+
+    public function assigningRole(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $role = Role::where('id', $request->get('idRole'))->first();
+
+        $user = User::find($request->get('idUser'));
+        if ($role) {
+            $user->role = $role->name;
+        } else {
+            $user->role = null;
+        }
+        $user->save();
+        return response()->json(true);
+    }
+
     public function allUsers(Request $request): \Illuminate\Contracts\View\View
     {
-        $libraryId = Auth::user()->unique_key;
-        $users = User::where('unique_key', $libraryId)->orderBy('class')->get();
-        return view('userManagement', compact('users'));
+        $unique_key = Auth::user()->unique_key;
+        $users = User::where('unique_key', $unique_key)->orderBy('class')->get();
+        $roles = Role::where('unique_key', $unique_key)->get();
+        return view('userManagement', compact('users', 'roles'));
     }
 
     public function kickUser(Request $request, $id): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
@@ -117,6 +128,96 @@ class LibraryController extends Controller
         $user->unique_key = null;
         $user->save();
         return redirect('/library/users');
+    }
+
+    public function libraryGet(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $unique_key = $request->get('unique_key');
+
+        $library = Library::where('unique_key', $unique_key)->first();
+        if ($library) {
+            return response()->json($library);
+        } else {
+            return response()->json(false);
+        }
+    }
+
+    public function libraryAcceptApplication(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $unique_key = $request->input('unique_key');
+        $idUser = $request->input('idUser');
+        $id = $request->input('id');
+
+        $user = User::find($idUser);
+        $user->unique_key = $unique_key;
+        $user->save();
+
+        Library_Application::destroy($id);
+
+        return response()->json(true);
+    }
+
+    public function libraryDeleteApplication(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $id = $request->input('id');
+
+        Library_Application::destroy($id);
+
+        return response()->json(true);
+    }
+
+    public function libraryGetApplications(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $unique_key = Auth::user()->unique_key;
+
+        $applications = Library_Application::where('unique_key', $unique_key)->get();
+
+        $users = [];
+        foreach ($applications as $application) {
+            $users[] = User::find($application->idUser);
+        }
+
+        return response()->json(['applications' => $applications, 'users' => $users]);
+    }
+
+    public function libraryApplication(Request $request): bool|\Illuminate\Http\JsonResponse
+    {
+        $unique_key = $request->input('code');
+
+        $library = Library::where('unique_key', $unique_key)->get();
+
+        if (!$library) {
+            return false;
+        }
+
+        Library_Application::create([
+            'unique_key' => $unique_key,
+            'idUser' => Auth::id(),
+            'nameUser' => Auth::user()->name,
+        ]);
+
+        return response()->json(true);
+    }
+
+    public function deleteLibrary(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $unique_key = $request->get('unique_key');
+
+        $library = Library::where('unique_key', $unique_key)->first();
+
+        if (Library::destroy($library->id)) {
+            return response()->json(true);
+        } else {
+            return response()->json(false);
+        }
+    }
+
+    public function allLogs(Request $request):\Illuminate\Contracts\View\View
+    {
+        $unique_key = Auth::user()->unique_key;
+        $logs = Audit_Log::where('unique_key', $unique_key)->get();
+
+        return view('libraryLogs', compact('logs'));
     }
 
 }

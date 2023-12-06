@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+
   booklar-mysql:
     container_name: booklar-mysql
     restart: unless-stopped
@@ -43,7 +44,8 @@ services:
     build:
       context: ./.docker/php
       dockerfile: Dockerfile
-    image: php
+
+    image: php:8.1
     container_name: booklar-php
     restart: unless-stopped
     working_dir: /var/www/

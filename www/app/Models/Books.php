@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
+use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @method static whereIn(string $string, \Illuminate\Support\Collection $pluck)
+ */
 class Books extends Model
 {
     use HasFactory;
+    use Auditable;
 
     protected $fillable = [
         'tittle',

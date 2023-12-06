@@ -99,7 +99,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <nav aria-label="Page navigation example">
+                            <nav v-if="shouldShowPagination">
                                 <ul class="pagination">
                                     <li class="page-item" :class="{ disabled: currentPage === 1 }">
                                         <a class="page-link" @click="prevPage">Previous</a>
@@ -162,7 +162,10 @@
                     const start = (this.currentPage - 1) * this.itemsPerPage;
                     const end = start + this.itemsPerPage;
                     return this.books.slice(start, end);
-                }
+                },
+                shouldShowPagination() {
+                    return this.totalPages > 1; // Покажите пагинацию, только если страниц больше одной
+                },
             },
             methods: {
                 deleteBook() {
@@ -206,7 +209,7 @@
                 },
             },
         });
-        //Пагинацию потом исправлю, а то мне кажеться так не правильно вставлять.
+        //Пагинацию потом исправлю, а то мне кажется так не правильно вставлять.
         //Просто не могу использовать пагинацию Laravel, когда вывожу данные с помощью vue.js
     </script>
 @endsection

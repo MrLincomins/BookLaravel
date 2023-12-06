@@ -15,6 +15,7 @@ return new class extends Migration
             $table->integer('iduser');
             $table->integer('idbook');
             $table->string('date');
+            $table->string('unique_key');
             $table->timestamps();
         });
     }

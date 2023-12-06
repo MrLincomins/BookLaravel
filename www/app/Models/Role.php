@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
     use HasFactory;
+    use Auditable;
 
-    public mixed $permissions;
-
-    protected $fillable = ['name', 'permissions'];
+    protected $fillable = ['name', 'permissions', 'unique_key'];
 
     protected $casts = [
         'permissions' => 'json',

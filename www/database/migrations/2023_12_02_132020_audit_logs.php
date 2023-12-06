@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('audit_logs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('class')->nullable();
-            $table->string('status');
-            $table->string('password');
-            $table->string('unique_key')->nullable();
-            $table->string('role')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('action');
+            $table->string('entity_type')->nullable();
+            $table->unsignedBigInteger('entity_id')->nullable();
+            $table->text('changes')->nullable();
+            $table->string('unique_key');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('audit_logs');
     }
 };
