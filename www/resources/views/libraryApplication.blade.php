@@ -49,7 +49,7 @@
                             </div>
                             <div class="modal-body">
                                 <template v-if="showConfirmationModal">
-                                    <h4>Это та библиотека?</h4>
+                                    <h4>Это ваша библиотека?</h4>
                                     <p>Название библиотеки: @{{ libraryData.libraryName }}</p>
                                     <p>Организация: @{{ libraryData.organisation }}</p>
                                     <p>Описание: @{{ libraryData.description }}</p>

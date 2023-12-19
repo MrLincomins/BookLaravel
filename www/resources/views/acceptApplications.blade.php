@@ -18,7 +18,7 @@
                 <div class="card-style" v-if="notifications.length > 0">
                     <div class="single-notification" v-for="notification in notifications" :key="notification.id">
                         <div class="notification">
-                            <div class="image warning-bg">
+                            <div class="image primary-bg">
                                 <span>@{{ getFirstLetter(notification.nameUser) }}</span>
                             </div>
                             <a class="content">

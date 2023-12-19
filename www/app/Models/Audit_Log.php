@@ -23,4 +23,14 @@ class Audit_Log extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function surrender(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Surrender::class, 'entity_id');
+    }
+
+    public function book(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Books::class, 'entity_id');
+    }
 }

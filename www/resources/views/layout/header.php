@@ -100,7 +100,7 @@ $user = Auth::user();
                 <ul id="ddmenu_4" class="collapse dropdown-nav">
                     <?php if (@$user->status == 1) { ?>
                         <li>
-                            <a href="/books/reserve/show"> Все резервированные книги </a>
+                            <a href="/books/reserve"> Все резервированные книги </a>
                         </li>
                     <?php } ?>
                     <li>
@@ -126,13 +126,13 @@ $user = Auth::user();
                     </a>
                     <ul id="ddmenu_5" class="collapse dropdown-nav">
                         <li>
-                            <a href="/books/borrow/show"> Все книги у учеников </a>
+                            <a href="/books/surrender"> Все книги у учеников </a>
                         </li>
                         <li>
                             <a href="/books"> Дать книгу ученику(все книги) </a>
                         </li>
                         <li>
-                            <a href="/books/borrow/return"> Вернуть книгу в библиотеку </a>
+                            <a href="/books/surrender"> Вернуть книгу в библиотеку </a>
                         </li>
                     </ul>
                 </li>

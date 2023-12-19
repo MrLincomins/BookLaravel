@@ -67,6 +67,10 @@
                                                 <td>
                                                     <div class="action justify-content-end">
                                                         <button type="button" data-toggle="modal"
+                                                                data-target="#booksModal{{ $user->id }}">
+                                                            Показать взятые книги
+                                                        </button>
+                                                        <button type="button" data-toggle="modal"
                                                                 data-target="#showModal{{ $user->id }}"
                                                                 @click="selectedUserId = {{ $user->id }}">
                                                             <i class="lni lni-user"></i>
@@ -132,6 +136,42 @@
                             </div>
                         </div>
                     </div>
+                    @foreach($usersInClass as $user)
+                        <div class="modal fade" tabindex="-1" id="booksModal{{ $user->id }}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Взятые книги: {{ $user->name }}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Автор</th>
+                                                <th>Дата выдачи</th>
+                                                <th>Статус</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach ($user->userBooks as $surrender)
+                                                <tr>
+                                                    <td>{{ $surrender->book->tittle }}</td>
+                                                    <td>{{ $surrender->book->author }}</td>
+                                                    <td>{{ $surrender->created_at }}</td>
+                                                    <td>@php if($surrender->status){ echo 'У пользователя';} else { echo 'Возвращена';} @endphp</td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 @endforeach
             </div>
         </div>

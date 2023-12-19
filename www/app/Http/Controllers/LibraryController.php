@@ -41,7 +41,7 @@ class LibraryController extends Controller
             'library_img' => $imgName ?? null,
             'description' => $request->get('description'),
         ]);
-    
+
         $user = User::find(Auth::id());
         $user->unique_key = $unique_key;
         $user->save();
@@ -117,7 +117,7 @@ class LibraryController extends Controller
     public function allUsers(Request $request): \Illuminate\Contracts\View\View
     {
         $unique_key = Auth::user()->unique_key;
-        $users = User::where('unique_key', $unique_key)->orderBy('class')->get();
+        $users = User::where('unique_key', $unique_key)->orderBy('class')->with('userBooks')->get();
         $roles = Role::where('unique_key', $unique_key)->get();
         return view('userManagement', compact('users', 'roles'));
     }

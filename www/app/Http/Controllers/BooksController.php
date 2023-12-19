@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBookRequest;
 use App\Models\Books;
 use App\Models\Genre;
-use App\Models\Surrender;
-use App\Models\User;
-use App\Models\Reserve;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Services\NotificationsService;
 
 class BooksController
 {

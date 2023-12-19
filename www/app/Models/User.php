@@ -58,4 +58,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+    public function userBooks(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(User_Book::class, 'user_id');
+    }
+
+
 }

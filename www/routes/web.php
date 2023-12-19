@@ -22,7 +22,6 @@ use App\Http\Controllers\UserController;
 
 
 Route::group(['middleware' => ['web', 'auth']], function () {
-
 // Книги
     Route::get('/books', [BooksController::class, 'index']);
     Route::get('/books/create', [BooksController::class, 'create']);
@@ -38,15 +37,18 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
 //Резервация книг
 
-    Route::get('/books/reserve/{id}', [ReservationController::class, 'reserveBook']);
+    Route::get('/books/reserve/{id}', [ReservationController::class, 'reserveBookForm']);
     Route::post('/books/reserve/{id}', [ReservationController::class, 'reserveBook']);
     Route::get('/books/reserve', [ReservationController::class, 'allReserve']);
+    Route::post('/books/reserve', [ReservationController::class, 'issuanceReservedBook']);
+    Route::delete('/books/reserve/{id}', [ReservationController::class, 'deleteReservation']);
 
 // Выдача, сбор книг у учеников
 
     Route::get('/books/surrender/{id}', [IssuanceController::class, 'issuanceBookForm']);
     Route::post('/books/surrender/{id}', [IssuanceController::class, 'issuanceBook']);
     Route::get('/books/surrender', [IssuanceController::class, 'allIssuance']);
+    Route::post('/books/surrender', [IssuanceController::class, 'returningBook']);
 
     //Route::get('/books/test', [BooksController::class, 'bookTest']);
 
@@ -120,6 +122,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 });
 
 Route::group(['middleware' => 'web'], function () {
+
+    Route::get('/', function () {
+        return view('main');
+    });
+
     // Регистрация и вход
 
     Route::get('/register', function () {

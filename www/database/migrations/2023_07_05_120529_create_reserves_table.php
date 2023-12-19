@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reserves', function (Blueprint $table) {
+            $table->id();
             $table->integer('iduser');
             $table->integer('idbook');
             $table->string('date');
