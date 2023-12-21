@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,17 +21,20 @@ class UserController extends Controller
         ];
 
         $validator = Validator::make($request->all(), $rules);
-        // JSON
 
         $user = User::create([
             'name' => $request->input('name'),
-            'class' => $request->input('class'),
+            'class' => optional($request->input('class'))->orElse(null),
             'status' => $request->input('status'),
             'password' => Hash::make($request->input('password'))
         ]);
 
         Auth::login($user);
-        return redirect('/books');
+        if($request->input('status') == 1){
+            return redirect('/library');
+        } else {
+            return redirect('/');
+        }
     }
 
 
@@ -46,7 +50,7 @@ class UserController extends Controller
             'password' => $request->input('password'),
             'class' => $request->input('class')]))
         {
-            return redirect('/books');
+            return redirect('/');
         } else {
             return redirect()->back();
         }
@@ -57,7 +61,31 @@ class UserController extends Controller
         $user = User::where('id', Auth::id())->first();
 
         return view('account', compact('user'));
+    }
 
+    public function notificationsGet(Request $request): \Illuminate\Contracts\View\View
+    {
+        $notifications = Notification::where('user_id', Auth::id())->get();
+
+        return view('notifications', compact('notifications'));
+    }
+
+    public function notificationsDelete(Request $request, $id): bool
+    {
+        Notification::destroy($id);
+        return true;
+    }
+
+    public function notificationTest(Request $request)
+    {
+        Notification::create([
+            'user_id' => Auth::id(),
+            'event_name' => $request->input('event_name'),
+            'message' => $request->input('message'),
+            'read' => false
+        ]);
+
+        return redirect('/notificationstest');
     }
 
 }

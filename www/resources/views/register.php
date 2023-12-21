@@ -8,7 +8,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="title mb-30">
-                                <h2>Добавить пользователя</h2>
+                                <h2>Регистрация</h2>
                             </div>
                         </div>
                     </div>

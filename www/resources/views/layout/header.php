@@ -1,8 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use App\Services\PermissionService;
 
+$permissions = [
+    'CHANGE_BOOKS' => 1,
+    'DELETE_BOOKS' => 2,
+    'CREATE_BOOKS' => 4,
+    'ISSUE_RETURN_BOOKS' => 8,
+    'MANAGE_USERS' => 16,
+];
+//Потом это всё менять буду
 $user = Auth::user();
+$permission = new PermissionService();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +37,11 @@ $user = Auth::user();
 <body>
 <!-- ======== sidebar-nav start =========== -->
 <aside class="sidebar-nav-wrapper">
+    <div class="navbar-logo">
+        <a href="/">
+            <img class="logo" src="/resources/images/logo.png" width="180" height="40"/>
+        </a>
+    </div>
     <nav class="sidebar-nav">
         <ul>
             <li class="nav-item nav-item-has-children">
@@ -49,93 +64,50 @@ $user = Auth::user();
                     </li>
                 </ul>
             </li>
-            <li class="nav-item nav-item-has-children">
-                <a
-                    href="#0"
-                    class="collapsed"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#ddmenu_2"
-                    aria-controls="ddmenu_2"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-              <span class="icon">
-                  <i class="mdi mdi-book"></i>
-              </span>
-                    <span class="text">Книги</span>
-                </a>
-                <ul id="ddmenu_2" class="collapse dropdown-nav">
-                    <li>
-                        <a href="/books"> Все книги </a>
-                    </li>
-                    <li>
-                        <a href="/books/year"> Поиск по году </a>
-                    </li>
-                    <?php if (@$user->status == 1) { ?>
-                        <li>
-                            <a href="/books/create"> Добавить книгу </a>
-                        </li>
-                        <li>
-                            <a href="/books/genre"> Добавить жанр </a>
-                        </li>
-                    <?php } ?>
-                </ul>
-            </li>
-
-            <li class="nav-item nav-item-has-children">
-                <a
-                    href="#0"
-                    class="collapsed"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#ddmenu_4"
-                    aria-controls="ddmenu_4"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-              <span class="icon">
-                  <i class="mdi mdi-book-clock"></i>
-              </span>
-                    <span class="text">Резервация</span>
-                </a>
-                <ul id="ddmenu_4" class="collapse dropdown-nav">
-                    <?php if (@$user->status == 1) { ?>
-                        <li>
-                            <a href="/books/reserve"> Все резервированные книги </a>
-                        </li>
-                    <?php } ?>
-                    <li>
-                        <a href="/books"> Резервация (Все книги) </a>
-                    </li>
-                </ul>
-            </li>
-            <?php if (@$user->status == 1) { ?>
+            <?php if (!empty(@$user->unique_key)) { ?>
                 <li class="nav-item nav-item-has-children">
                     <a
                         href="#0"
                         class="collapsed"
                         data-bs-toggle="collapse"
-                        data-bs-target="#ddmenu_5"
-                        aria-controls="ddmenu_5"
+                        data-bs-target="#ddmenu_2"
+                        aria-controls="ddmenu_2"
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
               <span class="icon">
-                  <i class="mdi mdi-book-arrow-up"></i>
+                  <i class="mdi mdi-book"></i>
               </span>
-                        <span class="text">Книги у учеников</span>
+                        <span class="text">Книги</span>
                     </a>
-                    <ul id="ddmenu_5" class="collapse dropdown-nav">
+                    <ul id="ddmenu_2" class="collapse dropdown-nav">
                         <li>
-                            <a href="/books/surrender"> Все книги у учеников </a>
+                            <a href="/books"> Все книги </a>
                         </li>
                         <li>
-                            <a href="/books"> Дать книгу ученику(все книги) </a>
+                            <a href="/books/year"> Поиск по году </a>
                         </li>
-                        <li>
-                            <a href="/books/surrender"> Вернуть книгу в библиотеку </a>
-                        </li>
+                        <?php if (@$user->status == 1 || $permission->hasPermission($permissions['CREATE_BOOKS'])) { ?>
+                            <li>
+                                <a href="/books/create"> Добавить книгу </a>
+                            </li>
+                            <li>
+                                <a href="/books/genre"> Добавить жанр </a>
+                            </li>
+                        <?php } ?>
+                        <?php if (@$user->status == 1 || $permission->hasPermission($permissions['ISSUE_RETURN_BOOKS'])) { ?>
+                            <li>
+                                <a href="/books/surrender"> Выданные книги </a>
+                            </li>
+                            <li>
+                                <a href="/books/reserve"> Резервированные книги </a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </li>
+            <?php } ?>
+
+            <?php if (@$user->status) { ?>
                 <li class="nav-item nav-item-has-children">
                     <a
                         href="#0"
@@ -149,13 +121,22 @@ $user = Auth::user();
               <span class="icon">
                   <i class="mdi mdi-account-circle"></i>
               </span>
-                        <span class="text">Пользователи</span>
+                        <span class="text">Пользователь</span>
                     </a>
                     <ul id="ddmenu_6" class="collapse dropdown-nav">
                         <li>
                             <a href="/account"> Аккаунт </a>
                         </li>
-
+                        <?php if ($permission->hasPermission($permissions['MANAGE_USERS'])) { ?>
+                            <li>
+                                <a href="/library/users">Управление учениками</a>
+                            </li>
+                        <?php } ?>
+                        <?php if (!@$user->unique_key && @$user->status != 1) { ?>
+                            <li>
+                                <a href="/library/application">Подать заявку в библиотеку</a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </li>
             <?php } ?>
@@ -189,10 +170,8 @@ $user = Auth::user();
                         <li>
                             <a href="/login"> Войти </a>
                         </li>
-                    <?php } ?>
-                    <?php if (@$user->status == 1) { ?>
                         <li>
-                            <a href="/register"> Зарегистрировать пользователя </a>
+                            <a href="/register"> Регистрация </a>
                         </li>
                     <?php } ?>
                     <?php if (!empty($user->status)) { ?>
@@ -216,13 +195,27 @@ $user = Auth::user();
               <span class="icon">
                   <i class="mdi mdi-cog"></i>
               </span>
-                        <span class="text">Админ-панель</span>
+                        <span class="text">Панель библиотекаря</span>
                     </a>
                     <ul id="ddmenu_9" class="collapse dropdown-nav">
-
-                        <li>
-                            <a href="/library/settings"> Изменение библиотеки </a>
-                        </li>
+                        <?php if (@$user->unique_key) { ?>
+                            <li>
+                                <a href="/library/entrance">Поданные заявки в библиотеку</a>
+                            </li>
+                            <li>
+                                <a href="/library/roles">Создание и просмотр ролей</a>
+                            </li>
+                            <li>
+                                <a href="/library/logs">История изменений в библиотеке</a>
+                            </li>
+                            <li>
+                                <a href="/library/users">Управление учениками</a>
+                            </li>
+                        <?php } else { ?>
+                            <li>
+                                <a href="/library">Создать библиотеку</a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </li>
             <?php } ?>
@@ -260,7 +253,7 @@ $user = Auth::user();
                         </div>
                         <div class="header-search d-none d-md-flex">
                             <form method="GET" action="/books/search">
-                                <input name="tittle" type="text" placeholder="Поиск..."/>
+                                <input name="tittle" type="text" placeholder="Поиск книг..."/>
                                 <button><i class="lni lni-search-alt"></i></button>
                             </form>
                         </div>
@@ -270,21 +263,33 @@ $user = Auth::user();
                     <div class="header-right">
                         <!-- notification start -->
                         <div class="notification-box ml-15 d-none d-md-flex">
-                            <button
-                                class="dropdown-toggle"
-                                type="button"
-                                id="notification"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
+                            <button class="dropdown-toggle" type="button" id="notification" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
                                 <i class="lni lni-alarm"></i>
                             </button>
-                            <ul
-                                class="dropdown-menu dropdown-menu-end"
-                                aria-labelledby="notification"
-                            >
-                                <li>
-                                </li>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notification">
+                                <?php $notifications = \App\Models\Notification::where('user_id', Auth::id())->orderBy('created_at', 'desc')->take(2)->get();
+                                foreach ($notifications as $notification):
+                                    ?>
+                                    <li>
+                                        <div class="single-notification">
+                                            <div class=" notification">
+                                                <div class="image primary-bg" style="margin-top: 9px;">
+                                                    <span>Sys</span>
+                                                </div>
+                                                <a href="/notifications">
+                                                    <div class="content">
+                                                        <h6>
+                                                            <?= $notification->event_name ?>
+                                                        </h6>
+                                                        <p>
+                                                            <?= $notification->message ?>
+                                                        </p>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
                         <!-- notification end -->
@@ -299,8 +304,8 @@ $user = Auth::user();
                             >
                                 <div class="profile-info">
                                     <div class="info">
-                                        <?php if (!empty($user->name)): ?>
-                                            <h6><?php echo $user->name ?></h6>
+                                        <?php if (!empty(@$user->name)): ?>
+                                            <h6><?php echo @$user->name ?></h6>
                                         <?php else: ?>
                                             <h6>Пользователь</h6>
                                         <?php endif; ?>
@@ -318,14 +323,20 @@ $user = Auth::user();
                                 class="dropdown-menu dropdown-menu-end"
                                 aria-labelledby="profile"
                             >
-                                <li>
-                                    <a href="/account">
-                                        <i class="lni lni-user"></i> Профиль
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/logout"> <i class="lni lni-exit"></i> Выход </a>
-                                </li>
+                                <?php if (!empty(@$user->name)) { ?>
+                                    <li>
+                                        <a href="/account">
+                                            <i class="lni lni-user"></i> Профиль
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/logout"> <i class="lni lni-exit"></i> Выход </a>
+                                    </li>
+                                <?php } else { ?>
+                                    <li>
+                                        <a href="/login"> <i class="lni lni-exit"></i> Вход </a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div>
                         <!-- profile end -->
@@ -356,7 +367,11 @@ $user = Auth::user();
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>

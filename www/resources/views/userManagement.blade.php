@@ -68,7 +68,7 @@
                                                     <div class="action justify-content-end">
                                                         <button type="button" data-toggle="modal"
                                                                 data-target="#booksModal{{ $user->id }}">
-                                                            Показать взятые книги
+                                                            <i class="lni lni-calendar"></i>
                                                         </button>
                                                         <button type="button" data-toggle="modal"
                                                                 data-target="#showModal{{ $user->id }}"
@@ -150,10 +150,10 @@
                                         <table class="table">
                                             <thead>
                                             <tr>
-                                                <th>Название</th>
-                                                <th>Автор</th>
-                                                <th>Дата выдачи</th>
-                                                <th>Статус</th>
+                                                <th class="text-sm text-medium">Название</th>
+                                                <th class="text-sm text-medium">Автор</th>
+                                                <th class="text-sm text-medium">Дата выдачи</th>
+                                                <th class="text-sm text-medium">Статус</th>
                                             </tr>
                                             </thead>
                                             <tbody>

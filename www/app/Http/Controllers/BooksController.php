@@ -137,21 +137,27 @@ class BooksController
         $books = Books::where('library_id', $libraryId)->get();
 
         $genres = $books->pluck('genre')->unique()->toArray();
+        if($genres) {
 
-        $randomGenres = array_rand($genres, min(3, count($genres)));
+            $randomGenres = array_rand($genres, min(3, count($genres)));
 
-        $randomBooks = [];
-        foreach ($randomGenres as $genreIndex) {
-            $genre = $genres[$genreIndex];
-            $genreBooks = $books->where('genre', $genre)->shuffle()->take(6)->toArray();
-            $randomBooks[] = [
-                'name' => $genre,
-                'books' => $genreBooks,
-                'start' => 0,
-            ];
+            $randomBooks = [];
+            foreach ($randomGenres as $genreIndex) {
+                $genre = $genres[$genreIndex];
+                $genreBooks = $books->where('genre', $genre)->shuffle()->take(6)->toArray();
+                $randomBooks[] = [
+                    'name' => $genre,
+                    'books' => $genreBooks,
+                    'start' => 0,
+                ];
+            }
+
+            return view('booksTest', compact('randomBooks'));
+        } else{
+            $randomBooks = [];
+            return view('booksTest', compact('randomBooks'));
+
         }
-
-        return view('booksTest', compact('randomBooks'));
     }
 
 

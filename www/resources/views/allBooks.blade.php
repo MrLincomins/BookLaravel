@@ -1,5 +1,8 @@
 @extends('layout.layout')
-
+@php
+    use App\Services\PermissionService;
+    $permission = new PermissionService();
+@endphp
 @section('content')
     <body>
     <div id="loader" class="loader"></div>
@@ -67,33 +70,39 @@
                                             <p>@{{ book.isbn }}</p>
                                         </td>
                                         <td>
-                                            <div class="action justify-content-end">
-                                                <form method="get" :action="'books/edit/' + book.id">
-                                                    <button class="text-secondary" type="submit">
-                                                        <i class="mdi mdi-tools"></i>
+                                                <div class="action justify-content-end">
+                                                    @if($permission->hasPermission(1))
+                                                    <form method="get" :action="'books/edit/' + book.id">
+                                                        <button class="text-secondary" type="submit">
+                                                            <i class="mdi mdi-tools"></i>
+                                                        </button>
+                                                    </form>
+                                                    @endif
+                                                    @if($permission->hasPermission(2))
+                                                    <button @click="confirmDelete(book.id, book.tittle)" type="button"
+                                                            data-toggle="modal" data-target="#deleteModal"
+                                                            class="text-danger">
+                                                        <i class="lni lni-trash-can"></i>
                                                     </button>
-                                                </form>
-                                                <button @click="confirmDelete(book.id, book.tittle)" type="button"
-                                                        data-toggle="modal" data-target="#deleteModal"
-                                                        class="text-danger">
-                                                    <i class="lni lni-trash-can"></i>
-                                                </button>
+                                                        @endif
 
-                                                <button class="more-btn ml-10 dropdown-toggle" id="moreAction1"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="lni lni-more-alt"></i>
-                                                </button>
-                                                <ul class="dropdown-menu dropdown-menu-end"
-                                                    aria-labelledby="moreAction1">
-                                                    <li class="dropdown-item">
-                                                        <a :href="'books/reserve/' + book.id" class="text-gray">Резервация</a>
-                                                    </li>
-                                                    <li class="dropdown-item">
-                                                        <a :href="'books/surrender/' + book.id" class="text-gray">Выдача
-                                                            книг</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                                    <button class="more-btn ml-10 dropdown-toggle" id="moreAction1"
+                                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="lni lni-more-alt"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end"
+                                                        aria-labelledby="moreAction1">
+                                                        <li class="dropdown-item">
+                                                            <a :href="'books/reserve/' + book.id" class="text-gray">Резервация</a>
+                                                        </li>
+                                                        @if($permission->hasPermission(8))
+                                                        <li class="dropdown-item">
+                                                            <a :href="'books/surrender/' + book.id" class="text-gray">Выдача
+                                                                книги</a>
+                                                        </li>
+                                                        @endif
+                                                    </ul>
+                                                </div>
                                         </td>
                                     </tr>
                                     </tbody>

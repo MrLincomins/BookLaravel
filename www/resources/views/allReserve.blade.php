@@ -72,14 +72,15 @@
                                         </td>
                                         <td>
                                             <div class="action">
-                                            <button type="button" class="text-danger"
-                                                    @click="issuanceBook(reserves[index].id, book.id, users[index].id)">
-                                                <p>Выдача книги пользователю</p>
-                                            </button>
-                                            <button @click="deleteReservation(reserves[index].id, book.id)" type="button"
-                                                    class="text-danger">
-                                                <i class="lni lni-trash-can"></i>
-                                            </button>
+                                                <button type="button" class="text-danger"
+                                                        @click="issuanceBook(reserves[index].id, book.id, users[index].id)">
+                                                    <p>Выдача книги пользователю</p>
+                                                </button>
+                                                <button @click="deleteReservation(reserves[index].id, book.id)"
+                                                        type="button"
+                                                        class="text-danger">
+                                                    <i class="lni lni-trash-can"></i>
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>
@@ -108,18 +109,22 @@
                     this.showLoader();
                     axios.post(`/books/reserve`, {reserve: reserve, book: book, user: user})
                         .then(response => {
-                            this.hideLoader();
-                            this.showAlert('Книга была успешно выдана ученику', true);
+                                if (response.data) {
+                                    this.hideLoader();
+                                    this.showAlert('Книга была успешно выдана ученику', true);
 
-                            this.books = this.books.filter(b => b.id !== book);
-                        })
+                                    this.books = this.books.filter(b => b.id !== book);
+                                } else {
+                                    this.showAlert('У пользователя уже есть книга', false);
+                                }
+                            }
+                        )
                         .catch(error => {
                             this.hideLoader();
                             this.showAlert('Произошла ошибка в выдаче книги', false);
                         });
                 },
-                deleteReservation(reserve, book)
-                {
+                deleteReservation(reserve, book) {
                     this.showLoader();
                     axios.delete(`/books/reserve/${reserve}`)
                         .then(response => {
@@ -132,7 +137,8 @@
                             this.hideLoader();
                             this.showAlert('Произошла ошибка в удалении резервации', false);
                         });
-                },
+                }
+                ,
                 showAlert(message, bool) {
                     this.statusMessage = message;
                     this.isSuccess = bool;
@@ -141,13 +147,16 @@
                         this.statusMessage = '';
                         this.isSuccess = false;
                     }, 4000);
-                },
+                }
+                ,
                 showLoader() {
                     document.getElementById('loader').style.display = 'block';
-                },
+                }
+                ,
                 hideLoader() {
                     document.getElementById('loader').style.display = 'none';
-                },
+                }
+                ,
             }
         });
     </script>
