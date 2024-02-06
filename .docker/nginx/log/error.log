@@ -2903,3 +2903,943 @@
 2023/12/21 18:38:28 [error] 30#30: *286 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
 2023/12/21 18:38:28 [error] 30#30: *286 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
 2023/12/21 18:42:44 [warn] 30#30: *293 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000001, client: 172.18.0.1, server: , request: "POST /library HTTP/1.1", host: "localhost", referrer: "http://localhost/library"
+2023/12/21 20:24:25 [notice] 1#1: using the "epoll" event method
+2023/12/21 20:24:25 [notice] 1#1: nginx/1.21.6
+2023/12/21 20:24:25 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2023/12/21 20:24:25 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2023/12/21 20:24:25 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/12/21 20:24:25 [notice] 1#1: start worker processes
+2023/12/21 20:24:25 [notice] 1#1: start worker process 29
+2023/12/21 20:24:25 [notice] 1#1: start worker process 30
+2023/12/21 20:24:25 [notice] 1#1: start worker process 31
+2023/12/21 20:24:25 [notice] 1#1: start worker process 32
+2023/12/22 20:19:39 [notice] 1#1: using the "epoll" event method
+2023/12/22 20:19:39 [notice] 1#1: nginx/1.21.6
+2023/12/22 20:19:39 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2023/12/22 20:19:39 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2023/12/22 20:19:39 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/12/22 20:19:39 [notice] 1#1: start worker processes
+2023/12/22 20:19:39 [notice] 1#1: start worker process 30
+2023/12/22 20:19:39 [notice] 1#1: start worker process 31
+2023/12/22 20:19:39 [notice] 1#1: start worker process 32
+2023/12/22 20:19:39 [notice] 1#1: start worker process 33
+2023/12/23 04:22:28 [notice] 1#1: using the "epoll" event method
+2023/12/23 04:22:28 [notice] 1#1: nginx/1.21.6
+2023/12/23 04:22:28 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2023/12/23 04:22:28 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2023/12/23 04:22:28 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/12/23 04:22:28 [notice] 1#1: start worker processes
+2023/12/23 04:22:28 [notice] 1#1: start worker process 30
+2023/12/23 04:22:28 [notice] 1#1: start worker process 31
+2023/12/23 04:22:28 [notice] 1#1: start worker process 32
+2023/12/23 04:22:28 [notice] 1#1: start worker process 33
+2023/12/23 19:35:31 [notice] 1#1: using the "epoll" event method
+2023/12/23 19:35:31 [notice] 1#1: nginx/1.21.6
+2023/12/23 19:35:31 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2023/12/23 19:35:31 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2023/12/23 19:35:31 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/12/23 19:35:31 [notice] 1#1: start worker processes
+2023/12/23 19:35:31 [notice] 1#1: start worker process 31
+2023/12/23 19:35:31 [notice] 1#1: start worker process 32
+2023/12/23 19:35:31 [notice] 1#1: start worker process 33
+2023/12/23 19:35:31 [notice] 1#1: start worker process 34
+2023/12/25 14:59:31 [notice] 1#1: using the "epoll" event method
+2023/12/25 14:59:31 [notice] 1#1: nginx/1.21.6
+2023/12/25 14:59:31 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2023/12/25 14:59:31 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2023/12/25 14:59:31 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/12/25 14:59:31 [notice] 1#1: start worker processes
+2023/12/25 14:59:31 [notice] 1#1: start worker process 30
+2023/12/25 14:59:31 [notice] 1#1: start worker process 31
+2023/12/25 14:59:31 [notice] 1#1: start worker process 32
+2023/12/25 14:59:31 [notice] 1#1: start worker process 33
+2023/12/28 17:54:51 [notice] 1#1: using the "epoll" event method
+2023/12/28 17:54:51 [notice] 1#1: nginx/1.21.6
+2023/12/28 17:54:51 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2023/12/28 17:54:51 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2023/12/28 17:54:51 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/12/28 17:54:51 [notice] 1#1: start worker processes
+2023/12/28 17:54:51 [notice] 1#1: start worker process 30
+2023/12/28 17:54:51 [notice] 1#1: start worker process 31
+2023/12/28 17:54:51 [notice] 1#1: start worker process 32
+2023/12/28 17:54:51 [notice] 1#1: start worker process 33
+2023/12/30 05:37:38 [notice] 1#1: using the "epoll" event method
+2023/12/30 05:37:38 [notice] 1#1: nginx/1.21.6
+2023/12/30 05:37:38 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2023/12/30 05:37:38 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2023/12/30 05:37:38 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/12/30 05:37:38 [notice] 1#1: start worker processes
+2023/12/30 05:37:38 [notice] 1#1: start worker process 30
+2023/12/30 05:37:38 [notice] 1#1: start worker process 31
+2023/12/30 05:37:38 [notice] 1#1: start worker process 32
+2023/12/30 05:37:38 [notice] 1#1: start worker process 33
+2023/12/30 05:39:10 [warn] 33#33: *7 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000001, client: 172.18.0.1, server: , request: "POST /library HTTP/1.1", host: "localhost", referrer: "http://localhost/library"
+2023/12/30 08:31:45 [notice] 1#1: using the "epoll" event method
+2023/12/30 08:31:45 [notice] 1#1: nginx/1.21.6
+2023/12/30 08:31:45 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2023/12/30 08:31:45 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2023/12/30 08:31:45 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/12/30 08:31:45 [notice] 1#1: start worker processes
+2023/12/30 08:31:45 [notice] 1#1: start worker process 30
+2023/12/30 08:31:45 [notice] 1#1: start worker process 31
+2023/12/30 08:31:45 [notice] 1#1: start worker process 32
+2023/12/30 08:31:45 [notice] 1#1: start worker process 33
+2023/12/31 09:03:57 [notice] 1#1: using the "epoll" event method
+2023/12/31 09:03:57 [notice] 1#1: nginx/1.21.6
+2023/12/31 09:03:57 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2023/12/31 09:03:57 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2023/12/31 09:03:57 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/12/31 09:03:57 [notice] 1#1: start worker processes
+2023/12/31 09:03:57 [notice] 1#1: start worker process 30
+2023/12/31 09:03:57 [notice] 1#1: start worker process 31
+2023/12/31 09:03:57 [notice] 1#1: start worker process 32
+2023/12/31 09:03:57 [notice] 1#1: start worker process 33
+2023/12/31 16:48:34 [notice] 1#1: using the "epoll" event method
+2023/12/31 16:48:34 [notice] 1#1: nginx/1.21.6
+2023/12/31 16:48:34 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2023/12/31 16:48:34 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2023/12/31 16:48:34 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/12/31 16:48:34 [notice] 1#1: start worker processes
+2023/12/31 16:48:34 [notice] 1#1: start worker process 29
+2023/12/31 16:48:34 [notice] 1#1: start worker process 30
+2023/12/31 16:48:34 [notice] 1#1: start worker process 31
+2023/12/31 16:48:34 [notice] 1#1: start worker process 32
+2024/01/01 10:03:38 [notice] 1#1: using the "epoll" event method
+2024/01/01 10:03:38 [notice] 1#1: nginx/1.21.6
+2024/01/01 10:03:38 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/01 10:03:38 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/01 10:03:38 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/01 10:03:38 [notice] 1#1: start worker processes
+2024/01/01 10:03:38 [notice] 1#1: start worker process 30
+2024/01/01 10:03:38 [notice] 1#1: start worker process 31
+2024/01/01 10:03:38 [notice] 1#1: start worker process 32
+2024/01/01 10:03:38 [notice] 1#1: start worker process 33
+2024/01/02 09:06:42 [notice] 1#1: using the "epoll" event method
+2024/01/02 09:06:42 [notice] 1#1: nginx/1.21.6
+2024/01/02 09:06:42 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/02 09:06:42 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/02 09:06:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/02 09:06:42 [notice] 1#1: start worker processes
+2024/01/02 09:06:42 [notice] 1#1: start worker process 30
+2024/01/02 09:06:42 [notice] 1#1: start worker process 31
+2024/01/02 09:06:42 [notice] 1#1: start worker process 32
+2024/01/02 09:06:42 [notice] 1#1: start worker process 33
+2024/01/05 10:11:38 [notice] 1#1: using the "epoll" event method
+2024/01/05 10:11:38 [notice] 1#1: nginx/1.21.6
+2024/01/05 10:11:38 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/05 10:11:38 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/05 10:11:38 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/05 10:11:38 [notice] 1#1: start worker processes
+2024/01/05 10:11:38 [notice] 1#1: start worker process 30
+2024/01/05 10:11:38 [notice] 1#1: start worker process 31
+2024/01/05 10:11:38 [notice] 1#1: start worker process 32
+2024/01/05 10:11:38 [notice] 1#1: start worker process 33
+2024/01/06 09:13:10 [notice] 1#1: using the "epoll" event method
+2024/01/06 09:13:10 [notice] 1#1: nginx/1.21.6
+2024/01/06 09:13:10 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/06 09:13:10 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/06 09:13:10 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/06 09:13:10 [notice] 1#1: start worker processes
+2024/01/06 09:13:10 [notice] 1#1: start worker process 30
+2024/01/06 09:13:10 [notice] 1#1: start worker process 31
+2024/01/06 09:13:10 [notice] 1#1: start worker process 32
+2024/01/06 09:13:10 [notice] 1#1: start worker process 33
+2024/01/07 08:20:49 [notice] 1#1: using the "epoll" event method
+2024/01/07 08:20:49 [notice] 1#1: nginx/1.21.6
+2024/01/07 08:20:49 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/07 08:20:49 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/07 08:20:49 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/07 08:20:49 [notice] 1#1: start worker processes
+2024/01/07 08:20:49 [notice] 1#1: start worker process 30
+2024/01/07 08:20:49 [notice] 1#1: start worker process 31
+2024/01/07 08:20:49 [notice] 1#1: start worker process 32
+2024/01/07 08:20:49 [notice] 1#1: start worker process 33
+2024/01/07 12:33:45 [notice] 1#1: using the "epoll" event method
+2024/01/07 12:33:45 [notice] 1#1: nginx/1.21.6
+2024/01/07 12:33:45 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/07 12:33:45 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/07 12:33:45 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/07 12:33:45 [notice] 1#1: start worker processes
+2024/01/07 12:33:45 [notice] 1#1: start worker process 30
+2024/01/07 12:33:45 [notice] 1#1: start worker process 31
+2024/01/07 12:33:45 [notice] 1#1: start worker process 32
+2024/01/07 12:33:45 [notice] 1#1: start worker process 33
+2024/01/07 13:56:56 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2024/01/07 13:56:56 [notice] 33#33: signal 15 (SIGTERM) received, exiting
+2024/01/07 13:56:56 [notice] 33#33: exiting
+2024/01/07 13:56:56 [notice] 32#32: signal 15 (SIGTERM) received, exiting
+2024/01/07 13:56:56 [notice] 32#32: exiting
+2024/01/07 13:56:56 [notice] 31#31: signal 15 (SIGTERM) received, exiting
+2024/01/07 13:56:56 [notice] 30#30: signal 15 (SIGTERM) received, exiting
+2024/01/07 13:56:56 [notice] 33#33: exit
+2024/01/07 13:56:56 [notice] 32#32: exit
+2024/01/07 13:56:56 [notice] 31#31: exiting
+2024/01/07 13:56:56 [notice] 31#31: exit
+2024/01/07 13:56:56 [notice] 30#30: exiting
+2024/01/07 13:56:56 [notice] 30#30: exit
+2024/01/07 13:56:56 [notice] 1#1: signal 14 (SIGALRM) received
+2024/01/07 13:56:56 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2024/01/07 13:56:56 [notice] 1#1: worker process 30 exited with code 0
+2024/01/07 13:56:56 [notice] 1#1: worker process 31 exited with code 0
+2024/01/07 13:56:56 [notice] 1#1: worker process 32 exited with code 0
+2024/01/07 13:56:56 [notice] 1#1: worker process 33 exited with code 0
+2024/01/07 13:56:56 [notice] 1#1: exit
+2024/01/07 17:17:10 [notice] 1#1: using the "epoll" event method
+2024/01/07 17:17:10 [notice] 1#1: nginx/1.21.6
+2024/01/07 17:17:10 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/07 17:17:10 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/07 17:17:10 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/07 17:17:10 [notice] 1#1: start worker processes
+2024/01/07 17:17:10 [notice] 1#1: start worker process 30
+2024/01/07 17:17:10 [notice] 1#1: start worker process 31
+2024/01/07 17:17:10 [notice] 1#1: start worker process 32
+2024/01/07 17:17:10 [notice] 1#1: start worker process 33
+2024/01/08 11:13:14 [notice] 1#1: using the "epoll" event method
+2024/01/08 11:13:14 [notice] 1#1: nginx/1.21.6
+2024/01/08 11:13:14 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/08 11:13:14 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/08 11:13:14 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/08 11:13:14 [notice] 1#1: start worker processes
+2024/01/08 11:13:14 [notice] 1#1: start worker process 29
+2024/01/08 11:13:14 [notice] 1#1: start worker process 30
+2024/01/08 11:13:14 [notice] 1#1: start worker process 31
+2024/01/08 11:13:14 [notice] 1#1: start worker process 32
+2024/01/09 16:20:21 [notice] 1#1: using the "epoll" event method
+2024/01/09 16:20:21 [notice] 1#1: nginx/1.21.6
+2024/01/09 16:20:21 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/09 16:20:21 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/09 16:20:21 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/09 16:20:21 [notice] 1#1: start worker processes
+2024/01/09 16:20:21 [notice] 1#1: start worker process 29
+2024/01/09 16:20:21 [notice] 1#1: start worker process 30
+2024/01/09 16:20:21 [notice] 1#1: start worker process 31
+2024/01/09 16:20:21 [notice] 1#1: start worker process 32
+2024/01/10 17:17:36 [notice] 1#1: using the "epoll" event method
+2024/01/10 17:17:36 [notice] 1#1: nginx/1.21.6
+2024/01/10 17:17:36 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/10 17:17:36 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/10 17:17:36 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/10 17:17:36 [notice] 1#1: start worker processes
+2024/01/10 17:17:36 [notice] 1#1: start worker process 30
+2024/01/10 17:17:36 [notice] 1#1: start worker process 31
+2024/01/10 17:17:36 [notice] 1#1: start worker process 32
+2024/01/10 17:17:36 [notice] 1#1: start worker process 33
+2024/01/11 16:37:12 [notice] 1#1: using the "epoll" event method
+2024/01/11 16:37:12 [notice] 1#1: nginx/1.21.6
+2024/01/11 16:37:12 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/11 16:37:12 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/11 16:37:12 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/11 16:37:12 [notice] 1#1: start worker processes
+2024/01/11 16:37:12 [notice] 1#1: start worker process 29
+2024/01/11 16:37:12 [notice] 1#1: start worker process 30
+2024/01/11 16:37:12 [notice] 1#1: start worker process 31
+2024/01/11 16:37:12 [notice] 1#1: start worker process 32
+2024/01/13 16:15:15 [notice] 1#1: using the "epoll" event method
+2024/01/13 16:15:15 [notice] 1#1: nginx/1.21.6
+2024/01/13 16:15:15 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/13 16:15:15 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/13 16:15:15 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/13 16:15:15 [notice] 1#1: start worker processes
+2024/01/13 16:15:15 [notice] 1#1: start worker process 30
+2024/01/13 16:15:15 [notice] 1#1: start worker process 31
+2024/01/13 16:15:15 [notice] 1#1: start worker process 32
+2024/01/13 16:15:15 [notice] 1#1: start worker process 33
+2024/01/13 17:21:49 [notice] 1#1: using the "epoll" event method
+2024/01/13 17:21:49 [notice] 1#1: nginx/1.21.6
+2024/01/13 17:21:49 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/13 17:21:49 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/13 17:21:49 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/13 17:21:49 [notice] 1#1: start worker processes
+2024/01/13 17:21:49 [notice] 1#1: start worker process 30
+2024/01/13 17:21:49 [notice] 1#1: start worker process 31
+2024/01/13 17:21:49 [notice] 1#1: start worker process 32
+2024/01/13 17:21:49 [notice] 1#1: start worker process 33
+2024/01/16 17:30:01 [notice] 1#1: using the "epoll" event method
+2024/01/16 17:30:01 [notice] 1#1: nginx/1.21.6
+2024/01/16 17:30:01 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/16 17:30:01 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/16 17:30:01 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 17:30:01 [notice] 1#1: start worker processes
+2024/01/16 17:30:01 [notice] 1#1: start worker process 31
+2024/01/16 17:30:01 [notice] 1#1: start worker process 32
+2024/01/16 17:30:01 [notice] 1#1: start worker process 33
+2024/01/16 17:30:01 [notice] 1#1: start worker process 34
+2024/01/17 18:06:18 [notice] 1#1: using the "epoll" event method
+2024/01/17 18:06:18 [notice] 1#1: nginx/1.21.6
+2024/01/17 18:06:18 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/17 18:06:18 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/17 18:06:18 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/17 18:06:18 [notice] 1#1: start worker processes
+2024/01/17 18:06:18 [notice] 1#1: start worker process 30
+2024/01/17 18:06:18 [notice] 1#1: start worker process 31
+2024/01/17 18:06:18 [notice] 1#1: start worker process 32
+2024/01/17 18:06:18 [notice] 1#1: start worker process 33
+2024/01/18 17:39:23 [notice] 1#1: using the "epoll" event method
+2024/01/18 17:39:23 [notice] 1#1: nginx/1.21.6
+2024/01/18 17:39:23 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/18 17:39:23 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/18 17:39:23 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/18 17:39:23 [notice] 1#1: start worker processes
+2024/01/18 17:39:23 [notice] 1#1: start worker process 31
+2024/01/18 17:39:23 [notice] 1#1: start worker process 32
+2024/01/18 17:39:23 [notice] 1#1: start worker process 33
+2024/01/18 17:39:23 [notice] 1#1: start worker process 34
+2024/01/19 16:37:04 [notice] 1#1: using the "epoll" event method
+2024/01/19 16:37:04 [notice] 1#1: nginx/1.21.6
+2024/01/19 16:37:04 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/19 16:37:04 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/19 16:37:04 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/19 16:37:04 [notice] 1#1: start worker processes
+2024/01/19 16:37:04 [notice] 1#1: start worker process 30
+2024/01/19 16:37:04 [notice] 1#1: start worker process 31
+2024/01/19 16:37:04 [notice] 1#1: start worker process 32
+2024/01/19 16:37:04 [notice] 1#1: start worker process 33
+2024/01/19 16:51:44 [error] 33#33: *10 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/19 16:51:44 [error] 30#30: *11 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/19 16:51:44 [error] 33#33: *10 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/20 18:54:18 [notice] 1#1: using the "epoll" event method
+2024/01/20 18:54:18 [notice] 1#1: nginx/1.21.6
+2024/01/20 18:54:18 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/20 18:54:18 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/20 18:54:18 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/20 18:54:18 [notice] 1#1: start worker processes
+2024/01/20 18:54:18 [notice] 1#1: start worker process 29
+2024/01/20 18:54:18 [notice] 1#1: start worker process 30
+2024/01/20 18:54:18 [notice] 1#1: start worker process 31
+2024/01/20 18:54:18 [notice] 1#1: start worker process 32
+2024/01/21 16:07:25 [notice] 1#1: using the "epoll" event method
+2024/01/21 16:07:25 [notice] 1#1: nginx/1.21.6
+2024/01/21 16:07:25 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/21 16:07:25 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/21 16:07:25 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/21 16:07:25 [notice] 1#1: start worker processes
+2024/01/21 16:07:25 [notice] 1#1: start worker process 30
+2024/01/21 16:07:25 [notice] 1#1: start worker process 31
+2024/01/21 16:07:25 [notice] 1#1: start worker process 32
+2024/01/21 16:07:25 [notice] 1#1: start worker process 33
+2024/01/25 15:45:35 [notice] 1#1: using the "epoll" event method
+2024/01/25 15:45:35 [notice] 1#1: nginx/1.21.6
+2024/01/25 15:45:35 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/25 15:45:35 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/25 15:45:35 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/25 15:45:35 [notice] 1#1: start worker processes
+2024/01/25 15:45:35 [notice] 1#1: start worker process 29
+2024/01/25 15:45:35 [notice] 1#1: start worker process 30
+2024/01/25 15:45:35 [notice] 1#1: start worker process 31
+2024/01/25 15:45:35 [notice] 1#1: start worker process 32
+2024/01/25 16:39:28 [notice] 1#1: using the "epoll" event method
+2024/01/25 16:39:28 [notice] 1#1: nginx/1.21.6
+2024/01/25 16:39:28 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/25 16:39:28 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/25 16:39:28 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/25 16:39:28 [notice] 1#1: start worker processes
+2024/01/25 16:39:28 [notice] 1#1: start worker process 29
+2024/01/25 16:39:28 [notice] 1#1: start worker process 30
+2024/01/25 16:39:28 [notice] 1#1: start worker process 31
+2024/01/25 16:39:28 [notice] 1#1: start worker process 32
+2024/01/26 16:14:49 [notice] 1#1: using the "epoll" event method
+2024/01/26 16:14:49 [notice] 1#1: nginx/1.21.6
+2024/01/26 16:14:49 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/26 16:14:49 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/26 16:14:49 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/26 16:14:49 [notice] 1#1: start worker processes
+2024/01/26 16:14:49 [notice] 1#1: start worker process 29
+2024/01/26 16:14:49 [notice] 1#1: start worker process 30
+2024/01/26 16:14:49 [notice] 1#1: start worker process 31
+2024/01/26 16:14:49 [notice] 1#1: start worker process 32
+2024/01/26 18:47:40 [error] 29#29: *28 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:47:40 [error] 29#29: *27 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:47:40 [error] 29#29: *28 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 18:49:57 [error] 30#30: *30 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 18:49:57 [error] 30#30: *30 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:49:57 [error] 30#30: *30 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:51:56 [error] 29#29: *33 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 18:51:56 [error] 29#29: *33 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:51:56 [error] 29#29: *33 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:52:26 [error] 29#29: *33 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 18:52:27 [error] 29#29: *33 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:52:27 [error] 29#29: *33 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:55:04 [error] 29#29: *37 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 18:55:04 [error] 29#29: *37 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:55:04 [error] 29#29: *37 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:56:17 [error] 29#29: *41 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 18:56:17 [error] 29#29: *41 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:56:17 [error] 29#29: *41 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:58:57 [error] 29#29: *43 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 18:58:57 [error] 29#29: *43 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 18:58:57 [error] 29#29: *43 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 19:01:00 [error] 29#29: *46 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 19:01:00 [error] 29#29: *46 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 19:01:00 [error] 29#29: *46 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 19:01:24 [error] 29#29: *46 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 19:01:24 [error] 29#29: *46 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 19:01:24 [error] 29#29: *46 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 19:05:52 [error] 30#30: *51 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 19:05:53 [error] 30#30: *51 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 19:05:53 [error] 30#30: *51 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 19:12:59 [error] 30#30: *53 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 19:12:59 [error] 30#30: *53 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 19:12:59 [error] 30#30: *53 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 19:13:51 [error] 30#30: *53 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/26 19:13:51 [error] 30#30: *53 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/26 19:13:51 [error] 30#30: *53 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/27 13:09:00 [notice] 1#1: using the "epoll" event method
+2024/01/27 13:09:00 [notice] 1#1: nginx/1.21.6
+2024/01/27 13:09:00 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/27 13:09:00 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/27 13:09:00 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/27 13:09:00 [notice] 1#1: start worker processes
+2024/01/27 13:09:00 [notice] 1#1: start worker process 30
+2024/01/27 13:09:00 [notice] 1#1: start worker process 31
+2024/01/27 13:09:00 [notice] 1#1: start worker process 32
+2024/01/27 13:09:00 [notice] 1#1: start worker process 33
+2024/01/27 16:32:18 [notice] 1#1: using the "epoll" event method
+2024/01/27 16:32:18 [notice] 1#1: nginx/1.21.6
+2024/01/27 16:32:18 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/27 16:32:18 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/27 16:32:18 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/27 16:32:18 [notice] 1#1: start worker processes
+2024/01/27 16:32:18 [notice] 1#1: start worker process 30
+2024/01/27 16:32:18 [notice] 1#1: start worker process 31
+2024/01/27 16:32:18 [notice] 1#1: start worker process 32
+2024/01/27 16:32:18 [notice] 1#1: start worker process 33
+2024/01/28 09:42:09 [notice] 1#1: using the "epoll" event method
+2024/01/28 09:42:09 [notice] 1#1: nginx/1.21.6
+2024/01/28 09:42:09 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/28 09:42:09 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/28 09:42:09 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/28 09:42:09 [notice] 1#1: start worker processes
+2024/01/28 09:42:09 [notice] 1#1: start worker process 31
+2024/01/28 09:42:09 [notice] 1#1: start worker process 32
+2024/01/28 09:42:09 [notice] 1#1: start worker process 33
+2024/01/28 09:42:09 [notice] 1#1: start worker process 34
+2024/01/28 13:45:44 [notice] 1#1: using the "epoll" event method
+2024/01/28 13:45:44 [notice] 1#1: nginx/1.21.6
+2024/01/28 13:45:44 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/28 13:45:44 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/28 13:45:44 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/28 13:45:44 [notice] 1#1: start worker processes
+2024/01/28 13:45:44 [notice] 1#1: start worker process 30
+2024/01/28 13:45:44 [notice] 1#1: start worker process 31
+2024/01/28 13:45:44 [notice] 1#1: start worker process 32
+2024/01/28 13:45:44 [notice] 1#1: start worker process 33
+2024/01/28 14:54:21 [notice] 33#33: signal 15 (SIGTERM) received, exiting
+2024/01/28 14:54:21 [notice] 33#33: exiting
+2024/01/28 14:54:21 [notice] 33#33: exit
+2024/01/28 14:54:21 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2024/01/28 14:54:21 [notice] 32#32: signal 15 (SIGTERM) received, exiting
+2024/01/28 14:54:21 [notice] 32#32: exiting
+2024/01/28 14:54:21 [notice] 31#31: signal 15 (SIGTERM) received, exiting
+2024/01/28 14:54:21 [notice] 31#31: exiting
+2024/01/28 14:54:21 [notice] 30#30: signal 15 (SIGTERM) received, exiting
+2024/01/28 14:54:21 [notice] 30#30: exiting
+2024/01/28 14:54:21 [notice] 32#32: exit
+2024/01/28 14:54:21 [notice] 31#31: exit
+2024/01/28 14:54:21 [notice] 30#30: exit
+2024/01/28 14:54:21 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2024/01/28 14:54:21 [notice] 1#1: worker process 33 exited with code 0
+2024/01/28 14:54:21 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/28 14:54:21 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2024/01/28 14:54:21 [notice] 1#1: worker process 30 exited with code 0
+2024/01/28 14:54:21 [notice] 1#1: worker process 31 exited with code 0
+2024/01/28 14:54:21 [notice] 1#1: worker process 32 exited with code 0
+2024/01/28 14:54:21 [notice] 1#1: exit
+2024/01/29 15:48:42 [notice] 1#1: using the "epoll" event method
+2024/01/29 15:48:42 [notice] 1#1: nginx/1.21.6
+2024/01/29 15:48:42 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/29 15:48:42 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/29 15:48:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/29 15:48:42 [notice] 1#1: start worker processes
+2024/01/29 15:48:42 [notice] 1#1: start worker process 30
+2024/01/29 15:48:42 [notice] 1#1: start worker process 31
+2024/01/29 15:48:42 [notice] 1#1: start worker process 32
+2024/01/29 15:48:42 [notice] 1#1: start worker process 33
+2024/01/30 16:33:42 [notice] 1#1: using the "epoll" event method
+2024/01/30 16:33:42 [notice] 1#1: nginx/1.21.6
+2024/01/30 16:33:42 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/30 16:33:42 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/30 16:33:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/30 16:33:42 [notice] 1#1: start worker processes
+2024/01/30 16:33:42 [notice] 1#1: start worker process 30
+2024/01/30 16:33:42 [notice] 1#1: start worker process 31
+2024/01/30 16:33:42 [notice] 1#1: start worker process 32
+2024/01/30 16:33:42 [notice] 1#1: start worker process 33
+2024/01/30 16:38:45 [error] 33#33: *6 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/30 16:38:45 [error] 30#30: *13 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/30 16:38:45 [error] 30#30: *13 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/30 16:53:27 [error] 30#30: *22 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/30 16:53:27 [error] 30#30: *21 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/30 16:53:27 [error] 30#30: *21 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/30 18:14:32 [error] 31#31: *74 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/30 18:14:32 [error] 31#31: *73 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/30 18:14:32 [error] 31#31: *73 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/30 18:24:07 [error] 32#32: *88 open() "/var/www/resources/js/toast.vue" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/toast.vue HTTP/1.1", host: "localhost", referrer: "http://localhost/books"
+2024/01/30 18:24:48 [error] 32#32: *91 open() "/var/www/resources/js/toast.vue" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/toast.vue HTTP/1.1", host: "localhost", referrer: "http://localhost/books"
+2024/01/30 18:24:52 [error] 32#32: *91 open() "/var/www/resources/js/toast.vue" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/toast.vue HTTP/1.1", host: "localhost", referrer: "http://localhost/books"
+2024/01/30 18:25:19 [error] 32#32: *91 open() "/var/www/resources/js/toast.vue" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/toast.vue HTTP/1.1", host: "localhost", referrer: "http://localhost/books"
+2024/01/30 18:25:26 [error] 32#32: *91 open() "/var/www/resources/js/toast.vue" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/toast.vue HTTP/1.1", host: "localhost", referrer: "http://localhost/books"
+2024/01/30 18:49:58 [error] 33#33: *137 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/30 18:49:58 [error] 33#33: *144 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/30 18:49:58 [error] 33#33: *144 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/30 18:52:58 [error] 33#33: *150 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/01/30 18:52:58 [error] 30#30: *158 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/01/30 18:52:58 [error] 30#30: *158 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/01/31 16:19:31 [notice] 1#1: using the "epoll" event method
+2024/01/31 16:19:31 [notice] 1#1: nginx/1.21.6
+2024/01/31 16:19:31 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/01/31 16:19:31 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/01/31 16:19:31 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/31 16:19:31 [notice] 1#1: start worker processes
+2024/01/31 16:19:31 [notice] 1#1: start worker process 30
+2024/01/31 16:19:31 [notice] 1#1: start worker process 31
+2024/01/31 16:19:31 [notice] 1#1: start worker process 32
+2024/01/31 16:19:31 [notice] 1#1: start worker process 33
+2024/01/31 16:34:50 [notice] 33#33: signal 15 (SIGTERM) received, exiting
+2024/01/31 16:34:50 [notice] 31#31: signal 15 (SIGTERM) received, exiting
+2024/01/31 16:34:50 [notice] 31#31: exiting
+2024/01/31 16:34:50 [notice] 31#31: exit
+2024/01/31 16:34:50 [notice] 30#30: signal 15 (SIGTERM) received, exiting
+2024/01/31 16:34:50 [notice] 30#30: exiting
+2024/01/31 16:34:50 [notice] 33#33: exiting
+2024/01/31 16:34:50 [notice] 33#33: exit
+2024/01/31 16:34:50 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2024/01/31 16:34:50 [notice] 32#32: signal 15 (SIGTERM) received, exiting
+2024/01/31 16:34:50 [notice] 32#32: exiting
+2024/01/31 16:34:50 [notice] 30#30: exit
+2024/01/31 16:34:50 [notice] 32#32: exit
+2024/01/31 16:34:50 [notice] 1#1: signal 14 (SIGALRM) received
+2024/01/31 16:34:51 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2024/01/31 16:34:51 [notice] 1#1: worker process 31 exited with code 0
+2024/01/31 16:34:51 [notice] 1#1: worker process 33 exited with code 0
+2024/01/31 16:34:51 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/31 16:34:51 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2024/01/31 16:34:51 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2024/01/31 16:34:51 [notice] 1#1: worker process 30 exited with code 0
+2024/01/31 16:34:51 [notice] 1#1: worker process 32 exited with code 0
+2024/01/31 16:34:51 [notice] 1#1: exit
+2024/02/01 16:07:36 [notice] 1#1: using the "epoll" event method
+2024/02/01 16:07:36 [notice] 1#1: nginx/1.21.6
+2024/02/01 16:07:36 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/02/01 16:07:36 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/02/01 16:07:36 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/02/01 16:07:36 [notice] 1#1: start worker processes
+2024/02/01 16:07:36 [notice] 1#1: start worker process 30
+2024/02/01 16:07:36 [notice] 1#1: start worker process 31
+2024/02/01 16:07:36 [notice] 1#1: start worker process 32
+2024/02/01 16:07:36 [notice] 1#1: start worker process 33
+2024/02/01 16:35:33 [error] 30#30: *36 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 16:35:33 [error] 30#30: *35 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 16:35:33 [error] 30#30: *35 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 16:38:28 [error] 30#30: *39 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 16:38:28 [error] 31#31: *45 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 16:38:28 [error] 31#31: *45 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 16:38:59 [error] 31#31: *45 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 16:38:59 [error] 31#31: *45 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 16:38:59 [error] 31#31: *45 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 17:35:26 [error] 31#31: *65 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 17:35:26 [error] 31#31: *64 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 17:35:26 [error] 31#31: *64 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 17:36:19 [error] 31#31: *64 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 17:36:19 [error] 31#31: *65 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 17:36:19 [error] 31#31: *65 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 17:51:23 [error] 31#31: *78 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 17:51:23 [error] 31#31: *78 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 17:51:23 [error] 31#31: *78 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 17:52:23 [error] 31#31: *78 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 17:52:23 [error] 32#32: *82 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 17:52:23 [error] 32#32: *82 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 18:00:08 [error] 32#32: *106 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 18:00:08 [error] 31#31: *93 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 18:00:08 [error] 31#31: *93 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 18:00:35 [error] 31#31: *93 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 18:00:35 [error] 31#31: *93 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 18:00:35 [error] 31#31: *93 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 18:02:54 [error] 32#32: *117 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 18:02:54 [error] 32#32: *122 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 18:02:54 [error] 32#32: *122 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 18:04:32 [error] 32#32: *126 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 18:04:32 [error] 32#32: *125 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 18:04:32 [error] 32#32: *125 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 18:05:26 [error] 32#32: *126 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/01 18:05:26 [error] 32#32: *126 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/01 18:05:26 [error] 33#33: *131 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:02:49 [notice] 1#1: using the "epoll" event method
+2024/02/02 17:02:49 [notice] 1#1: nginx/1.21.6
+2024/02/02 17:02:49 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/02/02 17:02:49 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/02/02 17:02:49 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/02/02 17:02:49 [notice] 1#1: start worker processes
+2024/02/02 17:02:49 [notice] 1#1: start worker process 31
+2024/02/02 17:02:49 [notice] 1#1: start worker process 32
+2024/02/02 17:02:49 [notice] 1#1: start worker process 33
+2024/02/02 17:02:49 [notice] 1#1: start worker process 34
+2024/02/02 17:06:26 [error] 31#31: *13 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:06:26 [error] 32#32: *17 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:06:26 [error] 32#32: *17 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:06:30 [error] 32#32: *17 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:06:30 [error] 32#32: *17 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:06:30 [error] 32#32: *17 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:07:01 [error] 32#32: *17 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:07:01 [error] 31#31: *13 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:07:02 [error] 31#31: *13 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:07:31 [error] 31#31: *13 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:07:31 [error] 32#32: *17 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:07:31 [error] 32#32: *17 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:11:13 [error] 31#31: *41 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:11:13 [error] 31#31: *40 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:11:13 [error] 31#31: *40 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:11:27 [error] 31#31: *40 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:11:27 [error] 31#31: *40 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:11:27 [error] 31#31: *41 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:17:31 [error] 31#31: *63 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:17:31 [error] 31#31: *64 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:17:31 [error] 31#31: *64 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:17:58 [error] 31#31: *64 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:17:59 [error] 31#31: *64 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:17:59 [error] 31#31: *64 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:18:30 [error] 31#31: *64 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:18:30 [error] 31#31: *64 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:18:30 [error] 31#31: *64 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:20:32 [error] 31#31: *81 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:20:32 [error] 32#32: *82 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:20:32 [error] 32#32: *82 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:20:51 [error] 31#31: *64 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:20:51 [error] 31#31: *64 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:20:51 [error] 31#31: *64 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:33:11 [error] 32#32: *100 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:33:11 [error] 32#32: *109 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:33:11 [error] 32#32: *109 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:33:41 [error] 32#32: *101 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:33:41 [error] 32#32: *101 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:33:41 [error] 32#32: *101 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:36:51 [error] 32#32: *101 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:36:51 [error] 33#33: *123 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:36:51 [error] 33#33: *123 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:44:16 [error] 32#32: *147 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:44:16 [error] 32#32: *148 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:44:16 [error] 32#32: *148 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:58:21 [error] 32#32: *173 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:58:21 [error] 33#33: *175 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:58:21 [error] 32#32: *173 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:58:43 [error] 33#33: *175 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 17:58:43 [error] 33#33: *175 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:58:43 [error] 33#33: *175 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:59:29 [error] 32#32: *181 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:59:29 [error] 33#33: *182 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 17:59:29 [error] 33#33: *182 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:02:05 [error] 32#32: *184 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:02:05 [error] 32#32: *188 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:02:06 [error] 32#32: *188 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:02:40 [error] 32#32: *188 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:02:40 [error] 32#32: *188 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:02:40 [error] 32#32: *188 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:03:11 [error] 32#32: *188 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:03:11 [error] 33#33: *192 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:03:11 [error] 33#33: *192 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:03:17 [error] 33#33: *192 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:03:17 [error] 33#33: *192 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:03:17 [error] 32#32: *188 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:09:16 [error] 33#33: *201 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:09:16 [error] 34#34: *206 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:09:16 [error] 34#34: *206 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:10:28 [error] 34#34: *206 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:10:28 [error] 34#34: *206 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:10:28 [error] 34#34: *206 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:10:46 [error] 34#34: *206 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:10:46 [error] 34#34: *206 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:10:46 [error] 34#34: *206 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:06 [error] 34#34: *206 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:07 [error] 34#34: *206 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:07 [error] 34#34: *206 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:22 [error] 33#33: *224 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:22 [error] 33#33: *224 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:22 [error] 33#33: *224 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:32 [error] 33#33: *224 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:32 [error] 33#33: *224 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:32 [error] 33#33: *224 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:53 [error] 33#33: *224 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:53 [error] 33#33: *224 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:11:53 [error] 33#33: *224 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:16:29 [error] 33#33: *239 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:16:29 [error] 34#34: *241 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:16:29 [error] 34#34: *241 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:16:56 [error] 33#33: *239 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:16:56 [error] 33#33: *239 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:16:56 [error] 33#33: *239 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:20:14 [error] 33#33: *248 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:20:14 [error] 33#33: *248 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:20:14 [error] 33#33: *248 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:24:46 [error] 34#34: *258 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:24:46 [error] 34#34: *258 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:24:46 [error] 34#34: *258 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:28:13 [error] 34#34: *261 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 18:28:13 [error] 34#34: *261 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:28:13 [error] 34#34: *261 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:40:50 [error] 31#31: *319 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:40:50 [error] 34#34: *318 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 18:40:50 [error] 34#34: *318 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 19:05:34 [error] 31#31: *499 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 19:05:34 [error] 32#32: *513 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 19:05:34 [error] 32#32: *513 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 19:05:48 [error] 31#31: *518 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 19:05:48 [error] 32#32: *519 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 19:05:48 [error] 32#32: *513 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 19:11:55 [error] 31#31: *557 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 19:11:55 [error] 32#32: *558 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 19:11:55 [error] 32#32: *558 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 19:12:41 [error] 32#32: *558 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/02 19:12:42 [error] 31#31: *557 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/02 19:12:42 [error] 31#31: *557 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 10:01:42 [notice] 1#1: using the "epoll" event method
+2024/02/03 10:01:42 [notice] 1#1: nginx/1.21.6
+2024/02/03 10:01:42 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/02/03 10:01:42 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/02/03 10:01:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/02/03 10:01:42 [notice] 1#1: start worker processes
+2024/02/03 10:01:42 [notice] 1#1: start worker process 30
+2024/02/03 10:01:42 [notice] 1#1: start worker process 31
+2024/02/03 10:01:42 [notice] 1#1: start worker process 32
+2024/02/03 10:01:42 [notice] 1#1: start worker process 33
+2024/02/03 16:04:42 [notice] 1#1: using the "epoll" event method
+2024/02/03 16:04:42 [notice] 1#1: nginx/1.21.6
+2024/02/03 16:04:42 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/02/03 16:04:42 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/02/03 16:04:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/02/03 16:04:42 [notice] 1#1: start worker processes
+2024/02/03 16:04:42 [notice] 1#1: start worker process 30
+2024/02/03 16:04:42 [notice] 1#1: start worker process 31
+2024/02/03 16:04:42 [notice] 1#1: start worker process 32
+2024/02/03 16:04:42 [notice] 1#1: start worker process 33
+2024/02/03 16:37:00 [error] 30#30: *19 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:37:00 [error] 31#31: *21 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:37:01 [error] 31#31: *21 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 16:42:43 [error] 30#30: *22 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:42:43 [error] 31#31: *33 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:42:43 [error] 31#31: *33 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 16:42:48 [error] 31#31: *33 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 16:42:48 [error] 31#31: *33 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:42:48 [error] 31#31: *33 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:43:12 [error] 30#30: *22 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:43:12 [error] 31#31: *37 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:43:12 [error] 31#31: *37 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 16:43:56 [error] 31#31: *37 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 16:43:56 [error] 31#31: *37 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:43:56 [error] 31#31: *37 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:44:57 [error] 31#31: *37 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 16:44:57 [error] 31#31: *37 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:44:57 [error] 31#31: *37 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:46:43 [error] 30#30: *48 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 16:46:43 [error] 30#30: *48 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:46:43 [error] 30#30: *48 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:48:55 [error] 30#30: *51 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 16:48:55 [error] 30#30: *51 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:48:55 [error] 30#30: *51 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:49:13 [error] 31#31: *55 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 16:49:13 [error] 31#31: *55 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 16:49:13 [error] 31#31: *55 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 16:49:13 [error] 31#31: *55 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 17:22:24 [error] 30#30: *73 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 17:22:24 [error] 30#30: *72 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 17:22:24 [error] 30#30: *73 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 19:26:16 [error] 31#31: *106 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 19:26:16 [error] 31#31: *114 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 19:26:16 [error] 31#31: *114 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 19:26:16 [error] 31#31: *114 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/03 19:26:16 [error] 31#31: *114 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/03 19:26:16 [error] 31#31: *114 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/04 13:36:26 [notice] 1#1: using the "epoll" event method
+2024/02/04 13:36:26 [notice] 1#1: nginx/1.21.6
+2024/02/04 13:36:26 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/02/04 13:36:26 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/02/04 13:36:26 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/02/04 13:36:26 [notice] 1#1: start worker processes
+2024/02/04 13:36:26 [notice] 1#1: start worker process 30
+2024/02/04 13:36:26 [notice] 1#1: start worker process 31
+2024/02/04 13:36:26 [notice] 1#1: start worker process 32
+2024/02/04 13:36:26 [notice] 1#1: start worker process 33
+2024/02/05 16:27:02 [notice] 1#1: using the "epoll" event method
+2024/02/05 16:27:02 [notice] 1#1: nginx/1.21.6
+2024/02/05 16:27:02 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/02/05 16:27:02 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/02/05 16:27:02 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/02/05 16:27:02 [notice] 1#1: start worker processes
+2024/02/05 16:27:02 [notice] 1#1: start worker process 30
+2024/02/05 16:27:02 [notice] 1#1: start worker process 31
+2024/02/05 16:27:02 [notice] 1#1: start worker process 32
+2024/02/05 16:27:02 [notice] 1#1: start worker process 33
+2024/02/05 16:56:37 [error] 30#30: *49 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 16:56:37 [error] 31#31: *50 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 16:56:37 [error] 31#31: *50 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:25:17 [error] 30#30: *55 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:25:17 [error] 30#30: *54 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:25:17 [error] 30#30: *54 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:26:18 [error] 30#30: *54 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:26:19 [error] 30#30: *54 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:26:19 [error] 30#30: *54 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:27:23 [error] 30#30: *68 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:27:23 [error] 30#30: *72 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:27:23 [error] 30#30: *72 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:28:55 [error] 31#31: *76 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:28:55 [error] 31#31: *76 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:28:55 [error] 31#31: *76 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:29:21 [error] 30#30: *75 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:29:21 [error] 31#31: *76 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:29:21 [error] 31#31: *76 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:30:24 [error] 31#31: *76 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:30:25 [error] 31#31: *76 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:30:25 [error] 31#31: *76 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:32:43 [error] 31#31: *83 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:32:44 [error] 31#31: *83 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:32:44 [error] 31#31: *83 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:32:54 [error] 31#31: *83 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:32:54 [error] 31#31: *83 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:32:54 [error] 31#31: *83 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:32:55 [error] 31#31: *83 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:33:03 [error] 31#31: *83 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:33:03 [error] 32#32: *87 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:33:03 [error] 31#31: *82 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:33:03 [error] 32#32: *87 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:33:03 [error] 31#31: *83 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:33:03 [error] 32#32: *87 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:33:03 [error] 31#31: *82 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:33:03 [error] 31#31: *82 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:33:03 [error] 32#32: *87 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:33:03 [error] 32#32: *87 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:05 [error] 31#31: *89 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:05 [error] 31#31: *89 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:05 [error] 31#31: *89 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:29 [error] 31#31: *89 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:29 [error] 31#31: *89 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:29 [error] 31#31: *89 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:29 [error] 31#31: *89 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:34 [error] 31#31: *89 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:34 [error] 31#31: *89 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:35 [error] 31#31: *89 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:35 [error] 31#31: *89 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:39 [error] 31#31: *89 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:39 [error] 32#32: *90 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:39 [error] 32#32: *90 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:39 [error] 33#33: *95 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:39 [error] 31#31: *89 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:40 [error] 31#31: *89 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:40 [error] 33#33: *95 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:40 [error] 33#33: *95 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:44 [error] 33#33: *95 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:44 [error] 33#33: *95 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:44 [error] 33#33: *95 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:44 [error] 33#33: *95 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:45 [error] 33#33: *95 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:45 [error] 31#31: *89 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:45 [error] 32#32: *90 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:45 [error] 31#31: *89 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:45 [error] 33#33: *95 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:45 [error] 32#32: *90 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:45 [error] 32#32: *90 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:45 [error] 32#32: *90 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:45 [error] 33#33: *95 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:45 [error] 33#33: *95 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:50 [error] 33#33: *95 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:50 [error] 33#33: *95 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:50 [error] 33#33: *95 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:38:51 [error] 33#33: *95 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:44:09 [error] 31#31: *116 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:44:09 [error] 31#31: *116 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:44:09 [error] 31#31: *116 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:44:15 [error] 31#31: *121 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:44:16 [error] 31#31: *116 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 17:44:16 [error] 31#31: *116 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 17:44:16 [error] 31#31: *116 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 18:16:35 [error] 33#33: *407 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 18:16:35 [error] 32#32: *179 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 18:16:35 [error] 32#32: *179 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 19:30:19 [error] 33#33: *983 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 19:30:19 [error] 30#30: *986 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 19:30:19 [error] 30#30: *986 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 19:36:02 [error] 33#33: *999 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 19:36:02 [error] 30#30: *1019 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 19:36:02 [error] 30#30: *1019 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 19:37:46 [error] 33#33: *1023 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 19:37:47 [error] 33#33: *1023 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 19:37:47 [error] 33#33: *1023 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 19:47:57 [error] 30#30: *1031 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 19:47:57 [error] 30#30: *1031 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 19:47:57 [error] 30#30: *1031 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 20:07:23 [error] 30#30: *1034 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 20:07:23 [error] 31#31: *1035 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 20:07:23 [error] 31#31: *1035 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 20:07:54 [error] 30#30: *1034 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 20:07:54 [error] 30#30: *1034 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 20:07:54 [error] 30#30: *1034 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 20:08:24 [error] 30#30: *1034 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 20:08:24 [error] 30#30: *1034 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 20:08:24 [error] 30#30: *1034 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 20:09:32 [error] 30#30: *1049 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/05 20:09:32 [error] 30#30: *1049 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/05 20:09:32 [error] 30#30: *1049 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 15:42:55 [notice] 1#1: using the "epoll" event method
+2024/02/06 15:42:55 [notice] 1#1: nginx/1.21.6
+2024/02/06 15:42:55 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/02/06 15:42:55 [notice] 1#1: OS: Linux 5.10.102.1-microsoft-standard-WSL2
+2024/02/06 15:42:55 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/02/06 15:42:55 [notice] 1#1: start worker processes
+2024/02/06 15:42:55 [notice] 1#1: start worker process 30
+2024/02/06 15:42:55 [notice] 1#1: start worker process 31
+2024/02/06 15:42:55 [notice] 1#1: start worker process 32
+2024/02/06 15:42:55 [notice] 1#1: start worker process 33
+2024/02/06 18:47:44 [error] 30#30: *76 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:47:44 [error] 30#30: *75 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:47:44 [error] 30#30: *75 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 18:49:49 [error] 31#31: *79 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 18:49:49 [error] 31#31: *79 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:49:49 [error] 31#31: *79 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:50:43 [error] 31#31: *79 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 18:50:43 [error] 31#31: *79 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:50:43 [error] 31#31: *79 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:51:25 [error] 31#31: *79 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 18:51:25 [error] 31#31: *79 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:51:25 [error] 31#31: *79 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:52:03 [error] 31#31: *79 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 18:52:03 [error] 31#31: *79 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:52:03 [error] 31#31: *79 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:52:35 [error] 31#31: *79 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:52:35 [error] 32#32: *87 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:52:36 [error] 32#32: *87 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 18:53:23 [error] 32#32: *87 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 18:53:23 [error] 32#32: *87 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:53:23 [error] 31#31: *79 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:56:49 [error] 31#31: *91 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:56:49 [error] 31#31: *90 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 18:56:49 [error] 31#31: *90 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 19:01:11 [error] 31#31: *95 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:01:11 [error] 31#31: *94 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:01:11 [error] 31#31: *94 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 19:02:51 [error] 31#31: *99 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:02:51 [error] 31#31: *98 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:02:51 [error] 31#31: *98 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 19:10:32 [error] 31#31: *102 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:10:32 [error] 32#32: *106 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:10:33 [error] 32#32: *106 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 19:11:01 [error] 31#31: *103 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 19:11:01 [error] 31#31: *103 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:11:01 [error] 31#31: *103 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:13:45 [error] 31#31: *113 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:13:45 [error] 32#32: *114 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:13:45 [error] 32#32: *114 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 19:15:01 [error] 32#32: *114 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:15:01 [error] 31#31: *117 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:15:01 [error] 31#31: *117 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 19:15:05 [error] 32#32: *114 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 19:15:06 [error] 32#32: *114 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:15:06 [error] 32#32: *114 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:16:40 [error] 32#32: *123 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 19:16:41 [error] 32#32: *123 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:16:41 [error] 32#32: *124 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:17:34 [error] 32#32: *124 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 19:17:34 [error] 32#32: *124 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:17:34 [error] 32#32: *123 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:18:00 [error] 32#32: *123 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:18:00 [error] 32#32: *124 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:18:00 [error] 32#32: *124 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"
+2024/02/06 19:52:47 [error] 32#32: *174 open() "/var/www/resources/js/bootstrap.bundle.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/bootstrap.bundle.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:52:47 [error] 32#32: *173 open() "/var/www/resources/js/moment.min.js.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/js/moment.min.js.map HTTP/1.1", host: "localhost"
+2024/02/06 19:52:47 [error] 32#32: *173 open() "/var/www/resources/css/materialdesignicons.css.map" failed (2: No such file or directory), client: 172.18.0.1, server: , request: "GET /resources/css/materialdesignicons.css.map HTTP/1.1", host: "localhost"

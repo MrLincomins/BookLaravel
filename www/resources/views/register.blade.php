@@ -2,70 +2,69 @@
 
 @section('content')
     <body>
-    <div id="loader" class="loader"></div>
     <section class="tab-components" id="app">
-        <div class="container-fluid">
+        <div class="container-fluid offset-md-1">
             <section class="table-components">
                 <div class="container-fluid">
                     <div class="title-wrapper pt-30">
                         <div class="row align-items-center">
                             <div class="col-md-6">
                                 <div class="title mb-30">
-                                    <h2>Добавить книгу</h2>
+                                    <h2>Регистрация</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-elements-wrapper">
-                        <form action="/books/create" method="POST" @submit.prevent="addBook">
+                        <form action="/register" method="POST" @submit.prevent="register">
+                            @csrf
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-10">
+                                    <!-- input style start -->
                                     <div class="card-style mb-30">
                                         <h6 class="mb-25">Поля ввода</h6>
                                         <div class="input-style-2">
-                                            <label>Название книги</label>
-                                            <input v-model="bookData.tittle" type="text" placeholder="Название книги"/>
-                                            <span class="icon"> <i class="lni lni-bookmark"></i> </span>
+                                            <label>ФИО</label>
+                                            <input v-model="userData.name" name="name" type="text" placeholder="ФИО"/>
+                                            <span class="icon"> <i class="lni lni-user"></i>
                                         </div>
+                                        <!-- end input -->
                                         <div class="input-style-2">
-                                            <label>Автор</label>
-                                            <input v-model="bookData.author" type="text" placeholder="Автор"/>
-                                            <span class="icon"> <i class="lni lni-user"></i> </span>
+                                            <label>Класс</label>
+                                            <input v-model="userData.class" name="class" type="text"
+                                                   placeholder="Класс"/>
+                                            <span class="icon"> <i class="lni lni-briefcase"></i> </span>
                                         </div>
-                                        <div class="input-style-2">
-                                            <label>Год</label>
-                                            <input v-model="bookData.year" type="text" placeholder="Год"/>
-                                            <span class="icon"> <i class="lni lni-calendar"></i> </span>
-                                        </div>
+                                        <!-- end input -->
                                         <div class="select-style-1">
-                                            <label>Выбрать жанр</label>
+                                            <label>Выберите статус</label>
                                             <div class="select-position">
-                                                <select class="light-bg" v-model="bookData.genre">
-                                                    @foreach($genres as $genre)
-                                                        <option
-                                                            value="{{ $genre['genre'] }}">{{ $genre['genre'] }}</option>
-                                                    @endforeach
+                                                <select class="light-bg" name="status" v-model="userData.status">
+                                                    <option value="2">Ученик</option>
+                                                    <option value="1">Библиотекарь</option>
                                                 </select>
                                             </div>
                                         </div>
+                                        <!-- end input -->
                                         <div class="input-style-2">
-                                            <label>ISBN</label>
-                                            <input v-model="bookData.isbn" type="text" placeholder="ISBN"/>
-                                            <span class="icon"> <i class="lni lni-paperclip"></i> </span>
+                                            <label>Пароль</label>
+                                            <input v-model="userData.password" name="password" type="password"
+                                                   placeholder="Пароль"/>
+                                            <span class="icon"> <i class="lni lni-key"></i> </span>
                                         </div>
-                                        <div class="input-style-2">
-                                            <label>Число книг</label>
-                                            <input v-model="bookData.count" type="text" placeholder="Число книг"/>
-                                            <span class="icon"> <i class="lni lni-calculator"></i> </span>
-                                        </div>
+                                        <!-- end input -->
                                         <div class="col-12">
                                             <div class="button-group d-flex justify-content-center flex-wrap">
                                                 <button class="main-btn primary-btn btn-hover w-100 text-center"
-                                                        type="submit">Добавить
+                                                        type="submit">
+                                                    Добавить
                                                 </button>
                                             </div>
                                         </div>
+                                        <!-- end button -->
                                     </div>
+                                    <p align="center">Уже есть аккаунт? <a href="/login" class="btn-registration">Авторизация</a>
+                                    </p>
                                 </div>
                             </div>
                         </form>
@@ -91,43 +90,35 @@
     </body>
     <script src="/resources/js/loader.js"></script>
     <script src="/resources/js/toast.js"></script>
-
     <script>
-        var bookData = {!! json_encode([
-        'tittle' => '',
-        'author' => '',
-        'year' => '',
-        'genre' => '',
-        'isbn' => '',
-        'count' => '',
-    ]) !!};
-
         new Vue({
             el: '#app',
             data: {
-                bookData: bookData,
-                toasts: []
+                toasts: [],
+                userData: {!! json_encode(['name' => '', 'class' => '', 'status' => '', 'password' => '']) !!}
             },
             methods: {
-                addBook(event) {
-                    event.preventDefault();
+                register() {
                     this.showLoader();
-
-                    this.bookData.year = parseInt(this.bookData.year);
-                    this.bookData.isbn = parseInt(this.bookData.isbn);
-
-                    axios.post('/books/create', this.bookData)
+                    axios.post(`/register`, this.userData)
                         .then(response => {
-                            this.showToast(response.data.status, response.data.message)
+                            if (response.data.status === 'error') {
+                                this.showToast(response.data.status, response.data.message)
+                            } else if (response.data.redirect) {
+                                window.location.href = response.data.redirect;
+                            } else {
+                                this.showToast('error', 'Неизвестная ошибка при регистрации')
+                            }
                         })
                         .catch(error => {
-                            this.showToast('error', 'Ошибка удалении книги!')
+                            this.showToast('error', 'Неизвестная ошибка при регистрации')
                         })
                         .finally(() => {
                             this.hideLoader();
                         });
                 },
-            }
+            },
         });
     </script>
 @endsection
+

@@ -1,39 +1,40 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\RegisterUserRequest;
 use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Services\NotificationsService;
 
 
 class UserController extends Controller
 {
-    public function register(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
+    public function register(RegisterUserRequest $request): \Illuminate\Http\JsonResponse
     {
-        $rules = [
-            'name' => 'required',
-            'class' => 'required|max:4',
-            'status' => 'required|numeric',
-            'password' => 'required|max:40',
-        ];
-
-        $validator = Validator::make($request->all(), $rules);
-
         $user = User::create([
             'name' => $request->input('name'),
-            'class' => optional($request->input('class'))->orElse(null),
+            'class' => $request->input('class'),
             'status' => $request->input('status'),
             'password' => Hash::make($request->input('password'))
         ]);
 
+        (new NotificationsService())->createNotification(
+            $user->id,
+            'Sys',
+            'Приветствие',
+            'Добро пожаловать в библиотеку! Пройдите по ссылке чтобы посмотреть инструкцию пользования! '
+        );
+
         Auth::login($user);
         if($request->input('status') == 1){
-            return redirect('/library');
+            return response()->json(['redirect' => '/library']);
         } else {
-            return redirect('/');
+            return response()->json(['redirect' => '/']);
         }
     }
 
@@ -44,15 +45,15 @@ class UserController extends Controller
         return redirect('/');
     }
 
-    public function login(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
+    public function login(Request $request): \Illuminate\Http\JsonResponse
     {
         if(Auth::attempt(['name' =>  $request->input('name'),
             'password' => $request->input('password'),
-            'class' => $request->input('class')]))
+            ]))
         {
-            return redirect('/');
+            return response()->json(['redirect' => '/']);
         } else {
-            return redirect()->back();
+            return response()->json(['message' => 'Логин или пароль не верен', 'status' => 'error']);
         }
     }
 
@@ -65,7 +66,7 @@ class UserController extends Controller
 
     public function notificationsGet(Request $request): \Illuminate\Contracts\View\View
     {
-        $notifications = Notification::where('user_id', Auth::id())->get();
+        $notifications = Notification::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
 
         return view('notifications', compact('notifications'));
     }
@@ -87,5 +88,4 @@ class UserController extends Controller
 
         return redirect('/notificationstest');
     }
-
 }

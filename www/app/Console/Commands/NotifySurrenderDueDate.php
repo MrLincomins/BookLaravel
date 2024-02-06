@@ -23,7 +23,7 @@ class NotifySurrenderDueDate extends Command
 
     public function handle()
     {
-        $notificationDate = Carbon::now()->subDay();
+        $notificationDate = Carbon::now()->addDay();
 
         $surrenders = Surrender::where('date', $notificationDate->toDateString())->get();
 
@@ -36,8 +36,9 @@ class NotifySurrenderDueDate extends Command
     {
         $this->notificationsService->createNotification(
             $surrender->iduser,
-            'Возврат книги в библиотеку',
-            'Завтра вы должны сдать книгу ' . $surrender->book->tittle
+            'Sys',
+            'Возврат',
+            'Завтра вы должны сдать книгу: ' . $surrender->book->tittle
         );
     }
 }

@@ -75,7 +75,8 @@
         </div>
     </section>
     </body>
-
+    <script src="/resources/js/loader.js"></script>
+    
     <script>
         new Vue({
             el: '#app',
@@ -98,12 +99,6 @@
                         .finally(() => {
                             this.hideLoader();
                         });
-                },
-                showLoader() {
-                    document.getElementById('loader').style.display = 'block';
-                },
-                hideLoader() {
-                    document.getElementById('loader').style.display = 'none';
                 },
             }
         });

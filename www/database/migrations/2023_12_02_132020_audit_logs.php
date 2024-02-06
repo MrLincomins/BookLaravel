@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('action');
             $table->string('entity_type')->nullable();
             $table->unsignedBigInteger('entity_id')->nullable();
-            $table->text('changes')->nullable();
+            $table->text('changes_entity')->nullable();
             $table->string('unique_key');
             $table->timestamps();
         });

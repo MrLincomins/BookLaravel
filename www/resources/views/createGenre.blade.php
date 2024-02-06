@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container px-4" id="app">
-        <div id="loader" class="loader"></div>
         <div class="row gx-5">
             <div class="col-5 mt-4">
                 <div class="card-style mb-25">
@@ -12,9 +11,6 @@
                         <input v-model="newGenre" type="text" placeholder="Название жанра">
                     </div>
                     <button @click="addGenre" class="main-btn primary-btn btn-hover">Добавить</button>
-                    <div v-if="showPopup" class="alert alert-primary mt-2">
-                        <p>@{{ popupMessage }}</p>
-                    </div>
                 </div>
             </div>
             <div class="col-lg-6 mt-4">
@@ -50,14 +46,31 @@
                 </div>
             </div>
         </div>
+        <div class="toasts">
+            <div v-for="(toast, index) in toasts" :key="index" class="toast-notification"
+                 :class="'toast-' + (index + 1) + ' toast-notification ' + toast.animation">
+                <div class="toast-content">
+                    <div class="toast-icon" :style="{ 'background-color': toast.iconColor }">
+                        <i class="fas" :class="toast.icon"></i>
+                    </div>
+                    <div class="toast-msg">@{{ toast.message }}</div>
+                </div>
+                <div class="toast-progress">
+                    <div class="toast-progress-bar" :style="{ width: '100%' }"></div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="/resources/js/loader.js"></script>
+    <script src="/resources/js/toast.js"></script>
+
     <script>
         new Vue({
             el: '#app',
             data: {
                 newGenre: '',
-                genres: [],
-                showPopup: false,
+                genres: @json($genres),
+                toasts: []
             },
             methods: {
                 loadGenres() {
@@ -77,18 +90,16 @@
                     this.showLoader();
                     axios.post('/books/genre', {genre: this.newGenre})
                         .then(response => {
-                            if (response.data.status) {
+                            if(response.data.status === 'success') {
                                 this.genres.push({genre: this.newGenre});
-
                                 this.loadGenres();
                                 this.newGenre = '';
-                                this.showSuccessPopup('Вы успешно добавили жанр');
-                            } else {
-                                this.showSuccessPopup('Ошибка при добавлении жанра');
                             }
+
+                            this.showToast(response.data.status, response.data.message)
                         })
                         .catch(error => {
-                            this.showSuccessPopup('Ошибка при добавлении жанра');
+                            this.showToast('error', 'Ошибка при добавлении жанра')
                         })
                         .finally(() => {
                             this.hideLoader();
@@ -98,42 +109,21 @@
                     this.showLoader();
                     axios.delete(`/books/genre/${id}`)
                         .then(response => {
-                            if (response.data.status) {
-
+                            if(response.data.status === 'success') {
                                 const index = this.genres.findIndex(genre => genre.id === id);
                                 this.genres.splice(index, 1);
-
                                 this.loadGenres();
-                                this.showSuccessPopup(response.data.message);
-                            } else {
-                                this.showSuccessPopup(response.data.message);
                             }
+                            this.showToast(response.data.status, response.data.message)
                         })
                         .catch(error => {
-                            console.error(error);
+                            this.showToast('error', 'Ошибка при удалении жанра')
                         })
                         .finally(() => {
                             this.hideLoader();
                         });
                 },
-                showSuccessPopup(message) {
-                    this.popupMessage = message;
-                    this.showPopup = true;
-
-                    setTimeout(() => {
-                        this.showPopup = false;
-                    }, 3000);
-                },
-                showLoader() {
-                    document.getElementById('loader').style.display = 'block';
-                },
-                hideLoader() {
-                    document.getElementById('loader').style.display = 'none';
-                }
             },
-            mounted() {
-                this.loadGenres();
-            }
         });
     </script>
 @endsection

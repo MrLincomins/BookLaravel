@@ -12,22 +12,5 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        'http://localhost/books/genre',
-        'http://localhost/books/create',
-        'http://localhost/books/delete/*',
-        'http://localhost/books/edit/*',
-        'http://localhost/register',
-        'http://localhost/login',
-        'http://localhost/books/year',
-        'http://localhost/books/reserve/*',
-        'http://localhost/books/surrender/*',
-        'http://localhost/books/surrender/*',
-        'http://localhost/library/settings',
-        'http://localhost/library/entrance',
-        'http://localhost/library',
-        'http://localhost/library/setting',
-        'http://localhost/library/roles',
-        'http://localhost/*',
-        //Исправить
     ];
 }

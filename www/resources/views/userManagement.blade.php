@@ -72,7 +72,7 @@
                                                         </button>
                                                         <button type="button" data-toggle="modal"
                                                                 data-target="#showModal{{ $user->id }}"
-                                                                @click="selectedUserId = {{ $user->id }}">
+                                                                @click="selectedUserId = {{ $user->id }}, showModal = true">
                                                             <i class="lni lni-user"></i>
                                                         </button>
                                                         <form method="post"
@@ -86,16 +86,19 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <div class="modal fade" tabindex="-1" id="showModal{{ $user->id }}"
+                                            <div class="modal fade" tabindex="-1" ref="modal"
+                                                 id="showModal{{ $user->id }}"
                                                  aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title">Выбор роли</h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
+                                                            <div class="action">
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                    <span @click="showModal = false" aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="select-style-1">
@@ -111,18 +114,12 @@
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
+                                                                            @click="showModal = false"
                                                                             data-dismiss="modal">Отмена
                                                                     </button>
                                                                     <button type="button" class="btn btn-primary"
-                                                                            @click="updateUserRole">Готово
+                                                                            data-dismiss="modal" @click="updateUserRole">Готово
                                                                     </button>
-                                                                </div>
-                                                                <div class="mb-2">
-                                                                    <div class="alert"
-                                                                         :class="{ 'alert-success': isSuccess, 'alert-danger': !isSuccess }"
-                                                                         v-if="statusMessage">
-                                                                        @{{ statusMessage }}
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -174,20 +171,38 @@
                     @endforeach
                 @endforeach
             </div>
+            <div class="toasts">
+                <div v-for="(toast, index) in toasts" :key="index" class="toast-notification"
+                     :class="'toast-' + (index + 1) + ' toast-notification ' + toast.animation">
+                    <div class="toast-content">
+                        <div class="toast-icon" :style="{ 'background-color': toast.iconColor }">
+                            <i class="fas" :class="toast.icon"></i>
+                        </div>
+                        <div class="toast-msg">@{{ toast.message }}</div>
+                    </div>
+                    <div class="toast-progress">
+                        <div class="toast-progress-bar" :style="{ width: '100%' }"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     </body>
+    <script src="/resources/js/loader.js"></script>
+    <script src="/resources/js/toast.js"></script>
+
     <script>
         new Vue({
             el: '#app',
             data: {
                 selectedRole: null,
                 selectedUserId: null,
-                statusMessage: '',
-                isSuccess: false
+                showModal: false,
+                toasts: []
             },
             methods: {
                 updateUserRole() {
+                    this.showModal = false
                     this.showLoader();
                     axios.post('/library/users/', {
                         idUser: this.selectedUserId,
@@ -195,33 +210,19 @@
 
                     })
                         .then(response => {
-                            this.hideLoader();
-                            if (response.data) {
-                                this.showAlert('Роль успешно обновлена', true);
-                            } else {
-                                this.showAlert('Ошибка при обновлении роли', false);
-                            }
+                            this.showToast(response.data.status, response.data.message)
                         })
                         .catch(error => {
+                            this.showToast('error', 'Ошибка при обновлении роли')
+                        })
+                        .finally(() => {
                             this.hideLoader();
-                            this.showAlert('Ошибка при обновлении роли', false);
-                            console.error('Ошибка при обновлении роли', error);
                         });
                 },
-                showLoader() {
-                    document.getElementById('loader').style.display = 'block';
-                },
-                hideLoader() {
-                    document.getElementById('loader').style.display = 'none';
-                },
-                showAlert(message, bool) {
-                    this.statusMessage = message;
-                    this.isSuccess = bool;
-
-                    setTimeout(() => {
-                        this.statusMessage = '';
-                        this.isSuccess = false;
-                    }, 4000);
+            },
+            watch: {
+                showModal(val) {
+                    $(this.$refs.modal).modal(val ? 'show' : 'hide');
                 },
             },
         });

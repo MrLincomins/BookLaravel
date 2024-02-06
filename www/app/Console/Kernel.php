@@ -10,7 +10,7 @@ class Kernel extends ConsoleKernel
 
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('notify:surrender')->everyMinute();
+        $schedule->command('notify:reserves')->everyMinute();
     }
 
     protected function commands(): void

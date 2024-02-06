@@ -23,60 +23,59 @@ use App\Http\Controllers\UserController;
 
 Route::group(['middleware' => ['web', 'auth']], function () {
 // Книги
-    Route::get('/books', [BooksController::class, 'index']);
+    Route::middleware(['library.check'])->group(function () {
 
-    Route::middleware(['check.permissions:CREATE_BOOKS'])->group(function () {
-        Route::get('/books/create', [BooksController::class, 'create']);
-        Route::post('/books/create', [BooksController::class, 'store']);
-    });
+        Route::get('/books', [BooksController::class, 'index']);
 
-    Route::middleware(['check.permissions:DELETE_BOOKS'])->group(function () {
-        Route::delete('/books/{id}', [BooksController::class, 'delete']);
-    });
+        Route::middleware(['check.permissions:CREATE_BOOKS'])->group(function () {
+            Route::get('/books/create', [BooksController::class, 'create']);
+            Route::post('/books/create', [BooksController::class, 'store']);
+        });
 
-    Route::middleware(['check.permissions:CHANGE_BOOKS'])->group(function () {
+        Route::middleware(['check.permissions:DELETE_BOOKS'])->group(function () {
+            Route::delete('/books/{id}', [BooksController::class, 'delete']);
+        });
 
-        Route::get('/books/edit/{id}', [BooksController::class, 'edit']);
-        Route::post('/books/edit/{id}', [BooksController::class, 'refactor']);
-    });
+        Route::middleware(['check.permissions:CHANGE_BOOKS'])->group(function () {
 
-    Route::get('/books/search', [BooksController::class, 'search']);
-    Route::get('/books/year', function () {
-        return view('yearSearch');
-    });
-    Route::post('/books/year', [BooksController::class, 'yearSearch']);
+            Route::get('/books/edit/{id}', [BooksController::class, 'edit']);
+            Route::post('/books/edit/{id}', [BooksController::class, 'refactor']);
+        });
+
+        Route::get('/books/search', [BooksController::class, 'search']);
+        Route::get('/books/year', function () {
+            return view('yearSearch');
+        });
+        Route::post('/books/year', [BooksController::class, 'yearSearch']);
 
 //Резервация книг
 
-    Route::get('/books/reserve/{id}', [ReservationController::class, 'reserveBookForm']);
-    Route::post('/books/reserve/{id}', [ReservationController::class, 'reserveBook']);
+        Route::get('/books/reserve/{id}', [ReservationController::class, 'reserveBookForm']);
+        Route::post('/books/reserve/{id}', [ReservationController::class, 'reserveBook']);
 
-    Route::middleware(['check.permissions:ISSUE_RETURN_BOOKS'])->group(function () {
-        Route::get('/books/reserve', [ReservationController::class, 'allReserve']);
-        Route::post('/books/reserve', [ReservationController::class, 'issuanceReservedBook']);
-        Route::delete('/books/reserve/{id}', [ReservationController::class, 'deleteReservation']);
-    });
+        Route::middleware(['check.permissions:ISSUE_RETURN_BOOKS', 'library.check'])->group(function () {
+            Route::get('/books/reserve', [ReservationController::class, 'allReserve']);
+            Route::post('/books/reserve', [ReservationController::class, 'issuanceReservedBook']);
+            Route::delete('/books/reserve/{id}', [ReservationController::class, 'deleteReservation']);
+        });
 
 // Выдача, сбор книг у учеников
 
-    Route::middleware(['check.permissions:ISSUE_RETURN_BOOKS'])->group(function () {
-        Route::get('/books/surrender/{id}', [IssuanceController::class, 'issuanceBookForm']);
-        Route::post('/books/surrender/{id}', [IssuanceController::class, 'issuanceBook']);
-        Route::get('/books/surrender', [IssuanceController::class, 'allIssuance']);
-        Route::post('/books/surrender', [IssuanceController::class, 'returningBook']);
-    });
-
-// Жанры
-    Route::middleware(['check.permissions:CHANGE_BOOKS,DELETE_BOOKS'])->group(function () {
-
-        Route::get('/books/genre', function () {
-            return view('createGenre');
+        Route::middleware(['check.permissions:ISSUE_RETURN_BOOKS', 'library.check'])->group(function () {
+            Route::get('/books/surrender/{id}', [IssuanceController::class, 'issuanceBookForm']);
+            Route::post('/books/surrender/{id}', [IssuanceController::class, 'issueFromTransaction']);
+            Route::get('/books/surrender', [IssuanceController::class, 'allIssuance']);
+            Route::post('/books/surrender', [IssuanceController::class, 'returningBook']);
         });
 
-        Route::get('/books/genre/show', [GenreController::class, 'showGenre']);
+// Жанры
+        Route::middleware(['check.permissions:CHANGE_BOOKS,DELETE_BOOKS'])->group(function () {
 
-        Route::post('/books/genre', [GenreController::class, 'storeGenre']);
-        Route::delete('/books/genre/{id}', [GenreController::class, 'deleteGenre']);
+            Route::get('/books/genre', [GenreController::class, 'allGenres']);
+            Route::get('/books/genre/show', [GenreController::class, 'allGenresJson']);
+            Route::post('/books/genre', [GenreController::class, 'storeGenre']);
+            Route::delete('/books/genre/{id}', [GenreController::class, 'deleteGenre']);
+        });
     });
 
 // Пользователи
@@ -100,40 +99,34 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
 
     Route::group(['middleware' => 'librarian'], function () {
-        Route::get('/library/entrance', function () {
-            return view('acceptApplications');
+        Route::middleware(['library.check'])->group(function () {
+
+            Route::get('/library/entrance', [LibraryController::class, 'libraryGetApplications']);
+            Route::post('/library/entrance', [LibraryController::class, 'libraryAcceptApplication']);
+            Route::delete('/library/entrance', [LibraryController::class, 'libraryDeleteApplication']);
+            Route::get('/library/entrance/get', [LibraryController::class, 'libraryGetApplicationsJson']);
+
+            Route::post('/library/delete', [LibraryController::class, 'deleteLibrary']);
+
+            Route::get('/library/roles', [LibraryController::class, 'createRole']);
+            Route::get('/library/roles/show', [LibraryController::class, 'getRolesJson']);
+
+            Route::post('/library/roles', [LibraryController::class, 'storeRole']);
+
+            Route::delete('/library/roles/{id}', [LibraryController::class, 'deleteRole']);
+
+            Route::get('/library/logs', [LibraryController::class, 'allLogs']);
+
         });
-        Route::post('/library/entrance', [LibraryController::class, 'libraryAcceptApplication']);
-        Route::delete('/library/entrance', [LibraryController::class, 'libraryDeleteApplication']);
-        Route::get('/library/entrance/get', [LibraryController::class, 'libraryGetApplications']);
-
-        Route::post('/library/delete', [LibraryController::class, 'deleteLibrary']);
-
-
         Route::get('/library', function () {
             return view('createLibrary');
         });
 
         Route::post('/library', [LibraryController::class, 'storeLibrary']);
 
-        Route::get('/library/settings', function () {
-            return view('globalSettings');
-        });
-
-        Route::post('/library/settings', [LibraryController::class, 'globalSettings']);
-
-        Route::get('/library/roles', [LibraryController::class, 'createRole']);
-
-
-        Route::post('/library/roles', [LibraryController::class, 'storeRole']);
-
-        Route::delete('/library/roles/{id}', [LibraryController::class, 'deleteRole']);
-
-        Route::get('/library/logs', [LibraryController::class, 'allLogs']);
-
     });
 
-    Route::middleware(['check.permissions:MANAGE_USERS'])->group(function () {
+    Route::middleware(['check.permissions:MANAGE_USERS', 'library.check'])->group(function () {
 
         Route::get('/library/users', [LibraryController::class, 'allUsers']);
 
@@ -142,8 +135,12 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::delete('/library/users/{id}', [LibraryController::class, 'kickUser']);
 
     });
-        // Админ панель
-        //Route::get('/admin/permissions', [AdminController::class, 'createPermission']);
+
+    Route::group(['middleware' => 'basic.user', 'library.check'], function () {
+        Route::get('/library/exit', [LibraryController::class, 'exitLibrary']);
+    });
+    // Админ панель
+    //Route::get('/admin/permissions', [AdminController::class, 'createPermission']);
 
     Route::post('/notificationstest', [UserController::class, 'notificationTest']);
     Route::get('/notificationstest', function () {
@@ -153,24 +150,24 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
 });
 
-    Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => 'web'], function () {
 
-        Route::get('/', function () {
-            return view('main');
-        });
-
-        // Регистрация и вход
-
-        Route::get('/register', function () {
-            return view('register');
-        });
-        Route::post('/register', [UserController::class, 'register']);
-
-        Route::get('/login', function () {
-            return view('login');
-        })->name('login');
-
-        Route::post('/login', [UserController::class, 'login']);
-
+    Route::get('/', function () {
+        return view('main');
     });
+
+    // Регистрация и вход
+
+    Route::get('/register', function () {
+        return view('register');
+    });
+    Route::post('/register', [UserController::class, 'register']);
+
+    Route::get('/login', function () {
+        return view('login');
+    })->name('login');
+
+    Route::post('/login', [UserController::class, 'login']);
+
+});
 

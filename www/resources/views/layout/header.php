@@ -15,7 +15,7 @@ $user = Auth::user();
 $permission = new PermissionService();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -33,6 +33,7 @@ $permission = new PermissionService();
     <link rel="stylesheet" href="/resources/css/fullcalendar.css"/>
     <link rel="stylesheet" href="/resources/css/fullcalendar.css"/>
     <link rel="stylesheet" href="/resources/css/main.css"/>
+    <link rel="stylesheet" href="/resources/css/flud.css"/>
 </head>
 <body>
 <!-- ======== sidebar-nav start =========== -->
@@ -181,6 +182,30 @@ $permission = new PermissionService();
                     <?php } ?>
                 </ul>
             </li>
+            <?php if (@$user->status == 2 and @$user->unique_key) { ?>
+                <li class="nav-item nav-item-has-children">
+                    <a
+                        href="#0"
+                        class="collapsed"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#ddmenu_10"
+                        aria-controls="ddmenu_10"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+              <span class="icon">
+                  <i class="mdi mdi-cog"></i>
+              </span>
+                        <span class="text">Библиотека</span>
+                    </a>
+                    <ul id="ddmenu_10" class="collapse dropdown-nav">
+                            <li>
+                                <a href="/library/exit">Выход из библиотеки</a>
+                            </li>
+                    </ul>
+                </li>
+            <?php } ?>
+
             <?php if (@$user->status == 1) { ?>
                 <li class="nav-item nav-item-has-children">
                     <a
@@ -219,6 +244,7 @@ $permission = new PermissionService();
                     </ul>
                 </li>
             <?php } ?>
+
 
             <span class="divider"><hr/></span>
 
@@ -268,32 +294,25 @@ $permission = new PermissionService();
                                 <i class="lni lni-alarm"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notification">
-                                <?php $notifications = \App\Models\Notification::where('user_id', Auth::id())->orderBy('created_at', 'desc')->take(2)->get();
-                                foreach ($notifications as $notification):
-                                    ?>
-                                    <li>
-                                        <div class="single-notification">
-                                            <div class=" notification">
-                                                <div class="image primary-bg" style="margin-top: 9px;">
-                                                    <span>Sys</span>
-                                                </div>
-                                                <a href="/notifications">
-                                                    <div class="content">
-                                                        <h6>
-                                                            <?= $notification->event_name ?>
-                                                        </h6>
-                                                        <p>
-                                                            <?= $notification->message ?>
-                                                        </p>
-                                                    </div>
-                                            </div>
+                                <?php $notification = \App\Models\Notification::where('user_id', Auth::id())->orderBy('created_at', 'desc')->first(); ?>
+                                <li>
+                                    <a href="/notifications">
+                                        <div class="image">
+                                            <img src="/resources/images/149452.png" alt="">
                                         </div>
-                                    </li>
-                                <?php endforeach; ?>
+                                        <div class="content">
+                                            <h6 class="mr-2"><?= @$notification->sender ?><span
+                                                    class="text-regular"><?= @$notification->event_name ?></span></h6>
+                                            <p>
+                                                <?= @$notification->message ?>
+                                            </p>
+                                            <span><?= @$notification->updated_at ?></span>
+                                        </div>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
-                        <!-- notification end -->
-                        <!-- profile start -->
+
                         <div class="profile-box ml-15">
                             <button
                                 class="dropdown-toggle bg-transparent border-0"
@@ -345,33 +364,11 @@ $permission = new PermissionService();
             </div>
         </div>
     </header>
-    <div class="overlay"></div>
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
 
+    <div class="overlay"></div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <style>
-        .loader {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 2s linear infinite;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            display: none;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>

@@ -6,14 +6,15 @@ use App\Models\Books;
 use App\Models\Reserve;
 use App\Models\Surrender;
 use App\Models\User;
+use App\Services\NotificationsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ReservationController extends Controller
+class ReservationController extends BookTransactionController
 {
-    public function reserveBook(Request $request, $id): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+    public function reserveBook(Request $request, $id): \Illuminate\Http\JsonResponse
     {
-        if (Reserve::where('iduser', (Auth::user())->id)->count() == 0) {
+        if (Reserve::where('iduser', Auth::id())->count() == 0) {
             $date = now()->addDays(2)->format('Y-m-d');
 
             $book = Books::find($id);
@@ -21,15 +22,25 @@ class ReservationController extends Controller
                 $book->count = $book->count - 1;
                 $book->save();
 
-                Reserve::create([
+                $reserve = Reserve::create([
                     'idbook' => $id,
                     'iduser' => (Auth::user())->id,
                     'date' => $date,
                     'unique_key' => Auth::user()->unique_key
                 ]);
+            } else {
+                return response()->json(['message' => 'К сожалению на данный момент книга отсутствует в библиотеке', 'status' => 'warning']);
             }
+        } else {
+            return response()->json(['message' => 'У вас уже есть зарезервированная книга!', 'status' => 'error']);
         }
-        return redirect('/books');
+        (new NotificationsService())->createNotification(
+            Auth::id(),
+            'Sys',
+            'Резервация',
+            'Вы резервировали книгу: '. $reserve->book->tittle .', вы можете получить книгу до '. $date
+        );
+        return response()->json(['redirect' => '/books']);
 
     }
 
@@ -52,27 +63,28 @@ class ReservationController extends Controller
 
     public function issuanceReservedBook(Request $request): \Illuminate\Http\JsonResponse
     {
-        if(Surrender::where('iduser', $request->get('user'))->count() < 0) {
-            Reserve::destroy($request->get('reserve'));
+        if(Reserve::where('iduser', $request->get('user'))->exists()) {
+            //хз верно это или нет, но не вставлять же абсолютно одинаковую функцию в два контроллера
+            $responceIssuance = parent::issuanceBook($request->get('user'), $request->get('book'), true);
+            if(key_exists('redirect', $responceIssuance)) {
+                Reserve::destroy($request->get('reserve'));
+            }
+            return response()->json($responceIssuance);
 
-            $date = now()->addDays(7)->format('Y-m-d');
-            Surrender::create([
-                'idbook' => $request->get('book'),
-                'iduser' => $request->get('user'),
-                'date' => $date,
-                'unique_key' => Auth::user()->unique_key
-            ]);
-
-            return response()->json('true');
         } else {
-            return response()->json('false');
+            return response()->json(['message' => 'У пользователя нет резервированных книг', 'status' => 'error']);
         }
     }
 
-    public function deleteReservation(Request $request, $id): \Illuminate\Http\JsonResponse
-    {
-        Reserve::destroy($id);
 
-        return response()->json('true');
+public function deleteReservation(Request $request, $id): \Illuminate\Http\JsonResponse
+    {
+        if(Reserve::find($id)->exists()) {
+            Reserve::destroy($id);
+        } else {
+            return response()->json(['message' => 'У пользователя нет резервированных книг', 'status' => 'error']);
+        }
+        return response()->json(['message' => 'Резервация успешно удалена', 'status' => 'success']);
+
     }
 }

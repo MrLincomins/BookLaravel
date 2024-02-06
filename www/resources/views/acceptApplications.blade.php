@@ -37,39 +37,39 @@
                     </div>
                 </div>
             </div>
+            <div class="toasts">
+                <div v-for="(toast, index) in toasts" :key="index" class="toast-notification"
+                     :class="'toast-' + (index + 1) + ' toast-notification ' + toast.animation">
+                    <div class="toast-content">
+                        <div class="toast-icon" :style="{ 'background-color': toast.iconColor }">
+                            <i class="fas" :class="toast.icon"></i>
+                        </div>
+                        <div class="toast-msg">@{{ toast.message }}</div>
+                    </div>
+                    <div class="toast-progress">
+                        <div class="toast-progress-bar" :style="{ width: '100%' }"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </template>
     </body>
+    <script src="/resources/js/loader.js"></script>
+    <script src="/resources/js/toast.js"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                notifications: [],
-                users: [],
+                notifications: @json($applications),
+                users: @json($users),
+                toasts: []
             },
             mounted() {
-                this.fetchNotifications();
                 this.getNotifications();
             },
             methods: {
-                fetchNotifications() {
-                    this.showLoader();
-                    axios
-                        .get('/library/entrance/get')
-                        .then((response) => {
-                            this.hideLoader();
-                            this.notifications = response.data['applications'];
-                            this.users = response.data['users'];
-                        })
-                        .catch((error) => {
-                            this.hideLoader();
-                            console.error(error);
-                        });
-                },
-
                 getNotifications() {
-                    axios
-                        .get('/library/entrance/get')
+                    axios.get('/library/entrance/get')
                         .then((response) => {
                             this.notifications = response.data['applications'];
                             this.users = response.data['users'];
@@ -116,14 +116,16 @@
                         id: applicationId,
                     })
                         .then(response => {
-                            this.hideLoader();
-                            if (response.data === true) {
+                            if (response.data.status === 'success') {
                                 this.notifications = this.notifications.filter(notification => notification.id !== applicationId);
                             }
+                            this.showToast(response.data.status, response.data.message)
                         })
                         .catch(error => {
+                            this.showToast('error', 'Ошибка при принятии заявки!')
+                        })
+                        .finally(() => {
                             this.hideLoader();
-                            console.error(error);
                         });
                 },
                 deleteApplication(applicationId) {
@@ -134,21 +136,17 @@
                         }
                     })
                         .then(response => {
-                            this.hideLoader();
-                            if (response.data === true) {
+                            if (response.data.status === 'success') {
                                 this.notifications = this.notifications.filter(notification => notification.id !== applicationId);
                             }
+                            this.showToast(response.data.status, response.data.message)
                         })
                         .catch(error => {
-                            this.hideLoader();
                             console.error(error);
+                        })
+                        .finally(() => {
+                            this.hideLoader();
                         });
-                },
-                showLoader() {
-                    document.getElementById('loader').style.display = 'block';
-                },
-                hideLoader() {
-                    document.getElementById('loader').style.display = 'none';
                 },
             }
         });

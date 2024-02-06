@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterUserRequest;
 use App\Http\Requests\StoreBookRequest;
 use App\Models\Books;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
-use App\Services\NotificationsService;
 
 class BooksController
 {
@@ -38,7 +37,7 @@ class BooksController
 
         $picture = "https://pictures.abebooks.com/isbn/" . $request->input('isbn') . "-us-300.jpg";
         $book = Books::where('isbn', $request->input('isbn'))->where('library_id', $unique_key)->first();
-        if(!$book) {
+        if (!$book) {
             Books::create([
                 'tittle' => $request->input('tittle'),
                 'author' => $request->input('author'),
@@ -49,12 +48,11 @@ class BooksController
                 'picture' => $picture,
                 'library_id' => $unique_key
             ]);
-        } elseif($book) {
-            $book->count++;
-            $book->save();
+        } elseif ($book) {
+            return response()->json(['message' => 'Книга уже есть на сервере', 'status' => 'warning'], 200);
         }
+        return response()->json(['message' => 'Вы успешно добавили книгу', 'status' => 'success'], 200);
 
-        return response()->json(['message' => 'Вы успешно добавили книгу', 'status' => true], 200);
     }
 
     // Добавляет книги в бд
@@ -72,6 +70,7 @@ class BooksController
 
         return response()->json(['status' => true, 'message' => 'Книга успешно удалена']);
     }
+
     // Удаляет книгу
 
     public function edit(Request $request, $id): \Illuminate\Contracts\View\View
@@ -83,29 +82,22 @@ class BooksController
 
     // Открывает форму для изменения книги
 
-    public function refactor(Request $request, $id): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
+    public function refactor(StoreBookRequest $request, $id): \Illuminate\Http\JsonResponse
     {
-        $rules = [
-            'tittle' => 'required|max:200',
-            'author' => 'required|max:200',
-            'year' => 'required|numeric|max:5',
-            'isbn' => 'required|max:13',
-            'count' => 'required|numeric|max:9999',
-            'genre' => 'required',
-        ];
-
-        $validator = Validator::make($request->all(), $rules);
-        // JSON
-
         $book = Books::find($id);
-        $book->tittle = $request->input('tittle');
-        $book->author = $request->input('author');
-        $book->year = $request->input('year');
-        $book->isbn = $request->input('isbn');
-        //$book->count = $request->input('count');
-        $book->genre = $request->input('genre');
-        $book->save();
-        return redirect('/books');
+        if ($book) {
+            $book->tittle = $request->input('tittle');
+            $book->author = $request->input('author');
+            $book->year = $request->input('year');
+            $book->isbn = $request->input('isbn');
+            $book->count = $request->input('count');
+            $book->genre = $request->input('genre');
+            $book->save();
+        } else {
+            return response()->json(['message' => 'Книга не была найдена', 'status' => 'error'], 200);
+        }
+        return response()->json(['message' => 'Вы успешно изменили книгу', 'status' => 'success'], 200);
+
     }
 
     // Изменяет книгу
@@ -128,16 +120,13 @@ class BooksController
     }
 
 
-
-
-
     public function bookTest(Request $request)
     {
         $libraryId = Auth::user()->unique_key;
         $books = Books::where('library_id', $libraryId)->get();
 
         $genres = $books->pluck('genre')->unique()->toArray();
-        if($genres) {
+        if ($genres) {
 
             $randomGenres = array_rand($genres, min(3, count($genres)));
 
@@ -153,7 +142,7 @@ class BooksController
             }
 
             return view('booksTest', compact('randomBooks'));
-        } else{
+        } else {
             $randomBooks = [];
             return view('booksTest', compact('randomBooks'));
 

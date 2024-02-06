@@ -4,41 +4,17 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Books;
-use App\Models\Reserve;
 use App\Models\Surrender;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Services\UserBookService;
 use Illuminate\Support\Facades\Auth;
 
-class IssuanceController extends Controller
+class IssuanceController extends BookTransactionController
 {
-    public function issuanceBook(Request $request, $id): \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\Http\JsonResponse
+    public function issueFromTransaction(Request $request, $id): \Illuminate\Http\JsonResponse
     {
-        if (Surrender::where('iduser', (Auth::user())->id)->count() == 0) {
-            $date = now()->addDays(7)->format('Y-m-d');
-
-            $book = Books::find($id);
-            if ($book->count > 0) {
-                $book->count = $book->count - 1;
-                $book->save();
-
-                $surrender = Surrender::create([
-                    'idbook' => $id,
-                    'iduser' => $request->input('iduser'),
-                    'date' => $date,
-                    'unique_key' => Auth::user()->unique_key
-                ]);
-
-                (new UserBookService)->createUserBook($request->input('iduser'), $id, $surrender->id);
-
-                return redirect('/books');
-            } else {
-                return response()->json('false');
-            }
-        } else {
-            return response()->json('false');
-        }
+        return response()->json(parent::issuanceBook($request->input('iduser'), $id));
     }
 
     public function issuanceBookForm(Request $request, $id): \Illuminate\Contracts\View\View
@@ -59,13 +35,21 @@ class IssuanceController extends Controller
 
     public function returningBook(Request $request): \Illuminate\Http\JsonResponse
     {
-        Surrender::destroy($request->get('issuance'));
-        $book = Books::find($request->get('book'));
-        $book->count = $book->count + 1;
-        $book->save();
+        $idIssuance = $request->get('issuance');
+        $idBook = $request->get('book');
 
-        (new UserBookService)->editUserBook($request->get('issuance'));
+        if (Surrender::find($idIssuance)->exists()) {
+            Surrender::destroy($idIssuance);
+            if (Books::find($idBook)->exists()) {
+                $book = Books::find($idBook);
+                $book->count = $book->count + 1;
+                $book->save();
+            }
+            (new UserBookService)->editUserBook($idIssuance);
+        } else {
+            return response()->json(['message' => 'У пользователя нету книг', 'status' => 'error']);
+        }
 
-        return response()->json('true');
+        return response()->json(['message' => 'Книга успешно возвращена в библиотеку', 'status' => 'success']);
     }
 }

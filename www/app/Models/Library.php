@@ -14,11 +14,9 @@ class Library extends Model
         'libraryName',
         'unique_key',
         'organisation',
-        'library_img',
         'description',
 
     ];
-
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);

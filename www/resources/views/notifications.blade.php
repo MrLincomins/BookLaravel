@@ -39,6 +39,8 @@
         </div>
     </div>
 </div>
+<script src="/resources/js/loader.js"></script>
+<script src="/resources/js/showAlert.js"></script>
 
 <script>
     new Vue({
@@ -87,21 +89,6 @@
                         this.showAlert('Ошибка в удалении уведомления', false)
                         console.error('Произошла ошибка при удалении уведомления', error);
                     });
-            },
-            showLoader() {
-                document.getElementById('loader').style.display = 'block';
-            },
-            hideLoader() {
-                document.getElementById('loader').style.display = 'none';
-            },
-            showAlert(message, bool) {
-                this.statusMessage = message;
-                this.isSuccess = bool;
-
-                setTimeout(() => {
-                    this.statusMessage = '';
-                    this.isSuccess = false;
-                }, 4000);
             },
         },
     });

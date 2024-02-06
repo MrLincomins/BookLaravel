@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\StoreGenreRequest;
+use App\Http\Requests\StoreLibraryRequest;
 use Illuminate\Http\Request;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Auth;
@@ -8,24 +10,26 @@ use Illuminate\Support\Facades\Validator;
 
 class GenreController
 {
-    public function showGenre(Request $request): \Illuminate\Http\JsonResponse
+    public function allGenresJson(Request $request): \Illuminate\Http\JsonResponse
     {
         $unique_key = Auth::user()->unique_key;
         $genres = Genre::where('library_id', $unique_key)->get();
         if($genres) {
-            return response()->json(['data' => json_encode($genres), 'status' => true]);
+            return response()->json(['data' => json_encode($genres)]);
         } else {
-            return response()->json(['data' => null, 'status' => 'Произошла ошибка']);
+            return response()->json(['data' => null]);
         }
     }
 
-    public function storeGenre(Request $request): \Illuminate\Http\JsonResponse
+    public function allGenres(Request $request): \Illuminate\Contracts\View\View
     {
-        $rules = [
-            'genre' => 'required|max:100',
-        ];
-        $validator = Validator::make($request->all(), $rules);
+        $unique_key = Auth::user()->unique_key;
+        $genres = Genre::where('library_id', $unique_key)->get();
+        return view('createGenre', compact('genres'));
+    }
 
+    public function storeGenre(StoreGenreRequest $request): \Illuminate\Http\JsonResponse
+    {
         $unique_key = Auth::user()->unique_key;
 
         Genre::create([
@@ -33,7 +37,7 @@ class GenreController
             'library_id' => $unique_key
         ]);
 
-        return response()->json(['message' => 'Вы успешно добавили жанр', 'status' => true], 200);
+        return response()->json(['message' => 'Вы успешно добавили жанр', 'status' => 'success'], 200);
     }
 
       public function deleteGenre(Request $request, $id): \Illuminate\Http\JsonResponse
@@ -41,10 +45,10 @@ class GenreController
           $genre = Genre::find($id);
 
           if (!$genre) {
-              return response()->json(['status' => false, 'message' => 'Жанр не найден']);
+              return response()->json(['status' => 'error', 'message' => 'Жанр не был найден']);
           }
 
           $genre->delete();
-          return response()->json(['status' => true, 'message' => 'Жанр успешно удален',]);
+          return response()->json(['status' => 'success', 'message' => 'Жанр успешно удален',]);
       }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('tittle');
             $table->string('author');
             $table->integer('year');
-            $table->integer('isbn');
+            $table->bigInteger('isbn');
             $table->string('count');
             $table->string('genre');
             $table->string('picture');

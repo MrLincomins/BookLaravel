@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid" id="app">
     <div class="title-wrapper pt-30">
         <div class="row align-items-center">
             <div class="col-md-6">
@@ -58,7 +58,7 @@
                                 <div class="card-style">
                                     <h6 class="mb-25">Введите id ученика</h6>
                                     <div class="input-style-1">
-                                        <input form="id" type="text" name='iduser' placeholder="idUser"/>
+                                        <input v-model="idUser" form="id" type="text" name='iduser' placeholder="id"/>
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                 </a>
                             </li>
                             <li class="m-2">
-                                <form method="post" id="id" action="/books/surrender/{{ $book->id }}">
+                                <form method="post" id="id" action="/books/surrender/{{ $book->id }}" @submit.prevent="surrender">
                                     @csrf
                                     <button class="main-btn primary-btn btn-hover" type="submit">
                                         Выдать
@@ -85,6 +85,52 @@
             </div>
         </div>
     </div>
+    <div class="toasts">
+        <div v-for="(toast, index) in toasts" :key="index" class="toast-notification"
+             :class="'toast-' + (index + 1) + ' toast-notification ' + toast.animation">
+            <div class="toast-content">
+                <div class="toast-icon" :style="{ 'background-color': toast.iconColor }">
+                    <i class="fas" :class="toast.icon"></i>
+                </div>
+                <div class="toast-msg">@{{ toast.message }}</div>
+            </div>
+            <div class="toast-progress">
+                <div class="toast-progress-bar" :style="{ width: '100%' }"></div>
+            </div>
+        </div>
+    </div>
 </div>
-
+<script src="/resources/js/loader.js"></script>
+<script src="/resources/js/toast.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            toasts: [],
+            book: @json($book),
+            idUser: null,
+        },
+        methods: {
+            surrender() {
+                this.showLoader();
+                axios.post(`/books/surrender/${this.book.id}`, { iduser: this.idUser })
+                    .then(response => {
+                        if (response.data.status) {
+                            this.showToast(response.data.status, response.data.message)
+                        } else if (response.data.redirect) {
+                            window.location.href = response.data.redirect;
+                        } else {
+                            this.showToast('error', 'Неизвестная ошибка при резервации')
+                        }
+                    })
+                    .catch(error => {
+                        this.showToast('error', 'Неизвестная ошибка при резервации')
+                    })
+                    .finally(() => {
+                        this.hideLoader();
+                    });
+            },
+        },
+    });
+</script>
 @endsection

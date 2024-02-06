@@ -49,7 +49,8 @@ trait Auditable
 
         $data = match ($action) {
             'created' => $serviceName::createdFormat($model->getAttributes()),
-            'updated' => $serviceName::changedFormat($model->getOriginal(), $model->getAttributes()),
+            'updated' => $serviceName::changedFormat($model->getOriginal(),
+                $model->getAttributes()),
             default => null,
         };
 

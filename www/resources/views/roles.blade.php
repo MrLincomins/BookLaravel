@@ -14,52 +14,30 @@
                 </div>
             </div>
             <div class="d-flex flex-row">
-                <form method="post" action="{{ url('/library/roles') }}" class="w-40">
-                    @csrf
+                <div class="w-40">
                     <div class="card-style mb-3">
                         <h6 class="mb-25">Создание роли</h6>
                         <div class="input-style-2">
                             <label>
-                                <input type="text" name="name" placeholder="Название">
+                                <input type="text" v-model="roleName" placeholder="Название">
                             </label>
                             <span class="icon"> <i class="lni lni-information"></i> </span>
                         </div>
-                        <div class="form-check form-check-inline checkbox-style checkbox-success mb-20">
-                            <input class="form-check-input" type="checkbox" value="1" name="permissions[]"
-                                   id="checkbox-1">
-                            <label class="form-check-label" for="checkbox-1">
-                                Изменение книг и жанров</label>
-                        </div>
-                        <div class="form-check form-check-inline checkbox-style checkbox-success mb-20">
-                            <input class="form-check-input" type="checkbox" value="2" name="permissions[]"
-                                   id="checkbox-2">
-                            <label class="form-check-label" for="checkbox-2">
-                                Удаление книг и жанров</label>
-                        </div>
-                        <div class="form-check form-check-inline checkbox-style checkbox-success mb-20">
-                            <input class="form-check-input" type="checkbox" value="4" name="permissions[]"
-                                   id="checkbox-3">
-                            <label class="form-check-label" for="checkbox-3">
-                                Создание книг и жанров</label>
-                        </div>
-                        <div class="form-check form-check-inline checkbox-style checkbox-success mb-20">
-                            <input class="form-check-input" type="checkbox" value="8" name="permissions[]"
-                                   id="checkbox-4">
-                            <label class="form-check-label" for="checkbox-4">
-                                Выдача книг ученикам, возврат</label>
-                        </div>
-                        <div class="form-check form-check-inline checkbox-style checkbox-success mb-20">
-                            <input class="form-check-input" type="checkbox" value="16" name="permissions[]"
-                                   id="checkbox-5">
-                            <label class="form-check-label" for="checkbox-5">
-                                Просмотр учеников, управление ими</label>
+                        <div v-for="(permission, index) in permissions" :key="index"
+                             class="form-check form-check-inline checkbox-style checkbox-success mb-20">
+                            <input class="form-check-input" type="checkbox" :value="permission.value"
+                                   v-model="selectedPermissions" :id="'checkbox-' + permission.value">
+                            <label class="form-check-label" :for="'checkbox-' + permission.value">
+                                @{{ permission.label }}
+                            </label>
                         </div>
                         <div>
-                            <button type="submit" class="main-btn success-btn-outline square-btn btn-hover">Добавить
+                            <button class="main-btn success-btn-outline square-btn btn-hover" @click="addRole">
+                                Добавить
                             </button>
                         </div>
                     </div>
-                </form>
+                </div>
                 <div class="card-style mb-3 w-50">
                     <h6 class="mb-10">Созданные роли</h6>
                     <p class="text-sm mb-20">
@@ -79,62 +57,62 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($roles as $role)
-                                <tr>
-                                    <td>
-                                        <p>{{ $role->name }} </p>
-                                    </td>
-                                    <td>
-                                        <div class="action">
-                                            <button type="button" data-toggle="modal" data-target="#showModal{{ $role->id }}" data-permissions="{{ $role->permissions }}"
-                                                    class="text-dark">
-                                                <i class="mdi mdi-cursor-default-click"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="action justify-content-end">
-                                            <form method="post" action="{{ url('/library/roles/' . $role->id) }}">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button class="text-danger" type="submit">
-                                                    <i class="lni lni-trash-can"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <div class="modal fade" tabindex="-1" id="showModal{{ $role->id }}" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Показ прав</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>Название роли: {{ $role->name }}</p>
-                                                <p>Права:</p>
-                                                <?php
-                                                $permissions = [
-                                                    1 => 'Изменение книг и жанров',
-                                                    2 => 'Удаление книг и жанров',
-                                                    4 => 'Создание книг и жанров',
-                                                    8 => 'Выдача книг ученикам, возврат',
-                                                    16 => 'Просмотр учеников, управление ими',
-                                                ];
-                                                ?>
-                                                @foreach($permissions as $key => $value)
-                                                    <p>{{ $value }}: {{ ($role->permissions & $key) === $key ? 'Да' : 'Нет' }}</p>
-                                                @endforeach
-                                            </div>
-                                        </div>
+                            <tr v-for="(role, index) in roles" :key="index">
+                                <td>
+                                    <p>@{{ role.name }} </p>
+                                </td>
+                                <td>
+                                    <div class="action">
+                                        <button type="button" @click="showPermissions(role)" class="text-dark">
+                                            <i class="mdi mdi-cursor-default-click"></i>
+                                        </button>
                                     </div>
-                                </div>
-                            @endforeach
+                                </td>
+                                <td>
+                                    <div class="action justify-content-end">
+                                        <button type="button" class="text-danger" @click="deleteRole(role.id)">
+                                            <i class="lni lni-trash-can"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="toasts">
+                <div v-for="(toast, index) in toasts" :key="index" class="toast-notification"
+                     :class="'toast-' + (index + 1) + ' toast-notification ' + toast.animation">
+                    <div class="toast-content">
+                        <div class="toast-icon" :style="{ 'background-color': toast.iconColor }">
+                            <i class="fas" :class="toast.icon"></i>
+                        </div>
+                        <div class="toast-msg">@{{ toast.message }}</div>
+                    </div>
+                    <div class="toast-progress">
+                        <div class="toast-progress-bar" :style="{ width: '100%' }"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="permissionsModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Права роли</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" v-if="showModal">
+                        <p>Название роли: @{{ selectedRole.name }}</p>
+                        <p>Права:</p>
+                        <ul>
+                            <li v-for="(permission, index) in selectedRolePermissions" :key="index">
+                                @{{ permission }}
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -142,5 +120,90 @@
     </section>
     </body>
 
-@endsection
+    <script src="/resources/js/loader.js"></script>
+    <script src="/resources/js/toast.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                roleName: '',
+                selectedPermissions: [],
+                permissions: [
+                    {label: 'Изменение книг и жанров', value: 1},
+                    {label: 'Удаление книг и жанров', value: 2},
+                    {label: 'Создание книг и жанров', value: 4},
+                    {label: 'Выдача книг ученикам, возврат', value: 8},
+                    {label: 'Просмотр учеников, управление ими', value: 16}
+                ],
+                roles: @json($roles),
+                toasts: [],
+                selectedRole: null,
+                selectedRolePermissions: [],
+                showModal: false
+            },
+            methods: {
+                loadRoles() {
+                    this.showLoader();
+                    axios.get('/library/roles/show')
+                        .then(response => {
+                            this.roles = JSON.parse(response.data.data);
+                        })
+                        .catch(error => {
+                            console.error('Ошибка при загрузке ролей', error);
+                        })
+                        .finally(() => {
+                            this.hideLoader();
+                        });
+                },
+                addRole() {
+                    this.showLoader();
+                    axios.post('/library/roles', {name: this.roleName, permissions: this.selectedPermissions})
+                        .then(response => {
+                            if (response.data.status === 'success') {
+                                this.roles.push({name: this.roleName});
+                                this.loadRoles();
+                                this.roleName = '';
+                                this.selectedPermissions = [];
+                            }
+                            this.showToast(response.data.status, response.data.message)
+                        })
+                        .catch(error => {
+                            this.showToast('error', 'Ошибка при добавлении роли')
+                        })
+                        .finally(() => {
+                            this.hideLoader();
+                        });
+                },
+                deleteRole(roleId) {
+                    this.showLoader();
+                    axios.delete(`/library/roles/${roleId}`)
+                        .then(response => {
+                            this.showToast(response.data.status, response.data.message)
+                            if (response.data.status === 'success') {
+                                this.loadRoles();
+                            }
+                        })
+                        .catch(error => {
+                            this.showToast('error', 'Ошибка при удалении роли')
+                        })
+                        .finally(() => {
+                            this.hideLoader();
+                        });
+                },
+                showPermissions: function(role) {
+                    this.selectedRole = role;
+                    this.selectedRolePermissions = [];
 
+                    this.permissions.forEach(permission => {
+                        if ((role.permissions & permission.value) === permission.value) {
+                            this.selectedRolePermissions.push(permission.label);
+                        }
+                    });
+
+                    this.showModal = true;
+                    $('#permissionsModal').modal('show');
+                }
+            },
+        });
+    </script>
+@endsection

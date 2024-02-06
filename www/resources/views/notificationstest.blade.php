@@ -1,4 +1,6 @@
-<?php require_once "layout/header.php"; ?>
+@extends('layout.layout')
+
+@section('content')
 <body class="app">
 <section class="tab-components" id="app">
     <div class="container-fluid">
@@ -14,6 +16,7 @@
             </div>
             <div class="d-flex flex-row">
                 <form method="post" action="/notificationstest" class="w-40">
+                    @csrf
                     <div class="card-style mb-3">
                         <div class="input-style-2">
                             <label>
@@ -32,5 +35,5 @@
         </div>
     </div>
 </section>
-<?php require_once "layout/footer.php"; ?>
+@endsection
 

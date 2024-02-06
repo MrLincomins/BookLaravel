@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('libraryName');
             $table->string('unique_key')->unique();
             $table->string('organisation')->nullable();
-            $table->string('library_img')->unique()->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
 

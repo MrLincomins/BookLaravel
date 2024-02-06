@@ -5,8 +5,6 @@
 @endphp
 @section('content')
     <body>
-    <div id="loader" class="loader"></div>
-
     <section class="table-components" id="app">
         <div class="container-fluid">
             <div class="title-wrapper pt-30">
@@ -70,39 +68,39 @@
                                             <p>@{{ book.isbn }}</p>
                                         </td>
                                         <td>
-                                                <div class="action justify-content-end">
-                                                    @if($permission->hasPermission(1))
+                                            <div class="action justify-content-end">
+                                                @if($permission->hasPermission(1))
                                                     <form method="get" :action="'books/edit/' + book.id">
                                                         <button class="text-secondary" type="submit">
                                                             <i class="mdi mdi-tools"></i>
                                                         </button>
                                                     </form>
-                                                    @endif
-                                                    @if($permission->hasPermission(2))
+                                                @endif
+                                                @if($permission->hasPermission(2) )
                                                     <button @click="confirmDelete(book.id, book.tittle)" type="button"
                                                             data-toggle="modal" data-target="#deleteModal"
                                                             class="text-danger">
                                                         <i class="lni lni-trash-can"></i>
                                                     </button>
-                                                        @endif
+                                                @endif
 
-                                                    <button class="more-btn ml-10 dropdown-toggle" id="moreAction1"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="lni lni-more-alt"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown-menu-end"
-                                                        aria-labelledby="moreAction1">
-                                                        <li class="dropdown-item">
-                                                            <a :href="'books/reserve/' + book.id" class="text-gray">Резервация</a>
-                                                        </li>
-                                                        @if($permission->hasPermission(8))
+                                                <button class="more-btn ml-10 dropdown-toggle" id="moreAction1"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="lni lni-more-alt"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end"
+                                                    aria-labelledby="moreAction1">
+                                                    <li class="dropdown-item">
+                                                        <a :href="'books/reserve/' + book.id" class="text-gray">Резервация</a>
+                                                    </li>
+                                                    @if($permission->hasPermission(8))
                                                         <li class="dropdown-item">
                                                             <a :href="'books/surrender/' + book.id" class="text-gray">Выдача
                                                                 книги</a>
                                                         </li>
-                                                        @endif
-                                                    </ul>
-                                                </div>
+                                                    @endif
+                                                </ul>
+                                            </div>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -111,14 +109,14 @@
                             <nav v-if="shouldShowPagination">
                                 <ul class="pagination">
                                     <li class="page-item" :class="{ disabled: currentPage === 1 }">
-                                        <a class="page-link" @click="prevPage">Previous</a>
+                                        <a class="page-link" @click="prevPage"><<</a>
                                     </li>
                                     <li class="page-item" v-for="page in totalPages" :key="page"
                                         :class="{ active: currentPage === page }">
                                         <a class="page-link" @click="changePage(page)">@{{ page }}</a>
                                     </li>
                                     <li class="page-item" :class="{ disabled: currentPage === totalPages }">
-                                        <a class="page-link" @click="nextPage">Next</a>
+                                        <a class="page-link" @click="nextPage">>></a>
                                     </li>
                                 </ul>
                             </nav>
@@ -150,8 +148,39 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <button @click="showToast('success', 'Книга добавлена')">
+                Успех
+            </button>
+            <button @click="showToast('error', 'Книга не была добавлена!')">
+                Ошибка
+            </button>
+            <button @click="showToast('info', 'Да да да')">
+                Информация
+            </button>
+            <button
+                @click="showToast('warning', 'Your content is not saved yet!')">
+                Warning
+            </button>
+        </div>
+        <div class="toasts">
+            <div v-for="(toast, index) in toasts" :key="index" class="toast-notification"
+                 :class="'toast-' + (index + 1) + ' toast-notification ' + toast.animation">
+                <div class="toast-content">
+                    <div class="toast-icon" :style="{ 'background-color': toast.iconColor }">
+                        <i class="fas" :class="toast.icon"></i>
+                    </div>
+                    <div class="toast-msg">@{{ toast.message }}</div>
+                </div>
+                <div class="toast-progress">
+                    <div class="toast-progress-bar" :style="{ width: '100%' }"></div>
+                </div>
+            </div>
+        </div>
     </section>
     </body>
+    <script src="/resources/js/loader.js"></script>
+    <script src="/resources/js/toast.js"></script>
 
     <script>
         new Vue({
@@ -161,7 +190,9 @@
                 showDeleteModal: false,
                 bookToDelete: {id: null, title: ''},
                 itemsPerPage: 6,
-                currentPage: 1
+                currentPage: 1,
+                toasts: []
+
             },
             computed: {
                 totalPages() {
@@ -173,7 +204,7 @@
                     return this.books.slice(start, end);
                 },
                 shouldShowPagination() {
-                    return this.totalPages > 1; // Покажите пагинацию, только если страниц больше одной
+                    return this.totalPages > 1;
                 },
             },
             methods: {
@@ -184,9 +215,13 @@
                         .then(response => {
                             if (response.data.status) {
                                 this.books = this.books.filter(book => book.id !== this.bookToDelete.id);
+                                this.showToast('success', 'Книга удалена')
                             } else {
-                                alert('Ошибка при удалении книги');
+                                this.showToast('error', 'Ошибка удалении книги!')
                             }
+                        })
+                        .catch(error => {
+                            this.showToast('error', 'Ошибка удалении книги!')
                         })
                         .finally(() => {
                             this.hideLoader();
@@ -196,12 +231,6 @@
                     this.bookToDelete.id = id;
                     this.bookToDelete.title = title;
                     this.showDeleteModal = true;
-                },
-                showLoader() {
-                    document.getElementById('loader').style.display = 'block';
-                },
-                hideLoader() {
-                    document.getElementById('loader').style.display = 'none';
                 },
                 prevPage() {
                     if (this.currentPage > 1) {

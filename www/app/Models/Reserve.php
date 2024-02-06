@@ -19,4 +19,9 @@ class Reserve extends Model
         'date',
         'unique_key'
     ];
+
+    public function book(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Books::class, 'idbook');
+    }
 }

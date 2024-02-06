@@ -13,12 +13,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="alert" :class="{ 'alert-success': isSuccess, 'alert-danger': !isSuccess }"
-                     v-if="statusMessage">
-                    @{{ statusMessage }}
-                </div>
-            </div>
             <div class="tables-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
@@ -69,9 +63,9 @@
                                             <p>@{{ surrenders[index].date }}</p>
                                         </td>
                                         <td>
-                                            <button type="button" class="text-danger"
+                                            <button type="button" class="main-btn btn-sm primary-btn btn-hover text-center text-white"
                                                     @click="returnBook(surrenders[index].id, book.id)">
-                                                <p>Возврат в библиотеку</p>
+                                                Возврат в библиотеку
                                             </button>
                                         </td>
                                     </tr>
@@ -82,8 +76,24 @@
                     </div>
                 </div>
             </div>
+            <div class="toasts">
+                <div v-for="(toast, index) in toasts" :key="index" class="toast-notification"
+                     :class="'toast-' + (index + 1) + ' toast-notification ' + toast.animation">
+                    <div class="toast-content">
+                        <div class="toast-icon" :style="{ 'background-color': toast.iconColor }">
+                            <i class="fas" :class="toast.icon"></i>
+                        </div>
+                        <div class="toast-msg">@{{ toast.message }}</div>
+                    </div>
+                    <div class="toast-progress">
+                        <div class="toast-progress-bar" :style="{ width: '100%' }"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    <script src="/resources/js/loader.js"></script>
+    <script src="/resources/js/toast.js"></script>
 
     <script>
         const app = new Vue({
@@ -92,38 +102,22 @@
                 books: @json($books),
                 users: @json($users),
                 surrenders: @json($surrenders),
-                isSuccess: false,
-                statusMessage: ''
+                toasts: []
             },
             methods: {
                 returnBook(issuance, book) {
                     this.showLoader();
                     axios.post(`/books/surrender`, {issuance: issuance, book: book})
                         .then(response => {
-                            this.hideLoader();
-                            this.showAlert('Книга успешно была возвращена в библиотеку', true);
-
+                            this.showToast(response.data.status, response.data.message)
                             this.books = this.books.filter(b => b.id !== book);
                         })
                         .catch(error => {
+                            this.showToast('error', 'Неизвестная ошибка при возврате книги')
+                        })
+                        .finally(() => {
                             this.hideLoader();
-                            this.showAlert('Произошла ошибка в удалении книги', false);
                         });
-                },
-                showAlert(message, bool) {
-                    this.statusMessage = message;
-                    this.isSuccess = bool;
-
-                    setTimeout(() => {
-                        this.statusMessage = '';
-                        this.isSuccess = false;
-                    }, 4000);
-                },
-                showLoader() {
-                    document.getElementById('loader').style.display = 'block';
-                },
-                hideLoader() {
-                    document.getElementById('loader').style.display = 'none';
                 },
             }
         });

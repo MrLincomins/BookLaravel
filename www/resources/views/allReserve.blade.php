@@ -14,12 +14,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="alert" :class="{ 'alert-success': isSuccess, 'alert-danger': !isSuccess }"
-                     v-if="statusMessage">
-                    @{{ statusMessage }}
-                </div>
-            </div>
             <div class="tables-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
@@ -71,16 +65,19 @@
                                             <p>@{{ reserves[index].date }}</p>
                                         </td>
                                         <td>
-                                            <div class="action">
-                                                <button type="button" class="text-danger"
+                                            <div class="d-flex align-items-center">
+                                                <button type="button"
+                                                        class="main-btn btn-sm primary-btn btn-hover text-center text-white"
                                                         @click="issuanceBook(reserves[index].id, book.id, users[index].id)">
-                                                    <p>Выдача книги пользователю</p>
+                                                    Выдача книги пользователю
                                                 </button>
-                                                <button @click="deleteReservation(reserves[index].id, book.id)"
-                                                        type="button"
-                                                        class="text-danger">
-                                                    <i class="lni lni-trash-can"></i>
-                                                </button>
+                                                <div class="action ml-2">
+                                                    <button @click="deleteReservation(reserves[index].id, book.id)"
+                                                            type="button"
+                                                            class="text-danger">
+                                                        <i class="lni lni-trash-can"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
@@ -91,9 +88,26 @@
                     </div>
                 </div>
             </div>
+            <div class="toasts">
+                <div v-for="(toast, index) in toasts" :key="index" class="toast-notification"
+                     :class="'toast-' + (index + 1) + ' toast-notification ' + toast.animation">
+                    <div class="toast-content">
+                        <div class="toast-icon" :style="{ 'background-color': toast.iconColor }">
+                            <i class="fas" :class="toast.icon"></i>
+                        </div>
+                        <div class="toast-msg">@{{ toast.message }}</div>
+                    </div>
+                    <div class="toast-progress">
+                        <div class="toast-progress-bar" :style="{ width: '100%' }"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     </body>
+    <script src="/resources/js/loader.js"></script>
+    <script src="/resources/js/toast.js"></script>
+
     <script>
         const app = new Vue({
             el: '.table-components',
@@ -101,60 +115,44 @@
                 books: @json($books),
                 users: @json($users),
                 reserves: @json($reserves),
-                isSuccess: false,
-                statusMessage: ''
+                toasts: []
             },
             methods: {
                 issuanceBook(reserve, book, user) {
                     this.showLoader();
                     axios.post(`/books/reserve`, {reserve: reserve, book: book, user: user})
                         .then(response => {
-                                if (response.data) {
-                                    this.hideLoader();
-                                    this.showAlert('Книга была успешно выдана ученику', true);
-
-                                    this.books = this.books.filter(b => b.id !== book);
-                                } else {
-                                    this.showAlert('У пользователя уже есть книга', false);
-                                }
+                            if (response.data.status) {
+                                this.showToast(response.data.status, response.data.message)
+                            } else if (response.data.redirect) {
+                                this.books = this.books.filter(b => b.id !== book);
+                                this.showToast('success', 'Книга успешно выдана ученику')
+                            } else {
+                                this.showToast('error', 'Неизвестная ошибка при резервации')
                             }
-                        )
+                        })
                         .catch(error => {
+                            this.showToast('error', 'Неизвестная ошибка при возврате книги')
+                        })
+                        .finally(() => {
                             this.hideLoader();
-                            this.showAlert('Произошла ошибка в выдаче книги', false);
                         });
                 },
                 deleteReservation(reserve, book) {
                     this.showLoader();
                     axios.delete(`/books/reserve/${reserve}`)
                         .then(response => {
-                            this.hideLoader();
-                            this.showAlert('Резервация была успешно удалена', true);
-
-                            this.books = this.books.filter(b => b.id !== book);
+                            this.showToast(response.data.status, response.data.message)
+                            if (response.data.status === 'success') {
+                                this.books = this.books.filter(b => b.id !== book);
+                            }
                         })
                         .catch(error => {
+                            this.showToast('error', 'Неизвестная ошибка при возврате книги')
+                        })
+                        .finally(() => {
                             this.hideLoader();
-                            this.showAlert('Произошла ошибка в удалении резервации', false);
                         });
-                }
-                ,
-                showAlert(message, bool) {
-                    this.statusMessage = message;
-                    this.isSuccess = bool;
-
-                    setTimeout(() => {
-                        this.statusMessage = '';
-                        this.isSuccess = false;
-                    }, 4000);
-                }
-                ,
-                showLoader() {
-                    document.getElementById('loader').style.display = 'block';
-                }
-                ,
-                hideLoader() {
-                    document.getElementById('loader').style.display = 'none';
                 }
                 ,
             }
