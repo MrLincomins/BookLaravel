@@ -24,7 +24,7 @@
                                 Тут находятся все книги, которые не взяли и могут быть взяты в будущем
                             </p>
                             <div class="table-wrapper table-responsive">
-                                <table class="table">
+                                <table class="table table-fixed">
                                     <thead>
                                     <tr>
                                         <th><h6>Название</h6></th>
@@ -148,21 +148,6 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <button @click="showToast('success', 'Книга добавлена')">
-                Успех
-            </button>
-            <button @click="showToast('error', 'Книга не была добавлена!')">
-                Ошибка
-            </button>
-            <button @click="showToast('info', 'Да да да')">
-                Информация
-            </button>
-            <button
-                @click="showToast('warning', 'Your content is not saved yet!')">
-                Warning
-            </button>
-        </div>
         <div class="toasts">
             <div v-for="(toast, index) in toasts" :key="index" class="toast-notification"
                  :class="'toast-' + (index + 1) + ' toast-notification ' + toast.animation">
@@ -247,7 +232,11 @@
                 },
             },
         });
-        //Пагинацию потом исправлю, а то мне кажется так не правильно вставлять.
-        //Просто не могу использовать пагинацию Laravel, когда вывожу данные с помощью vue.js
     </script>
+    <style>
+        .table-wrapper table {
+            width: 100%;
+            min-height: 450px;
+        }
+    </style>
 @endsection

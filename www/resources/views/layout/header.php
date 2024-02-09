@@ -199,9 +199,9 @@ $permission = new PermissionService();
                         <span class="text">Библиотека</span>
                     </a>
                     <ul id="ddmenu_10" class="collapse dropdown-nav">
-                            <li>
-                                <a href="/library/exit">Выход из библиотеки</a>
-                            </li>
+                        <li>
+                            <a href="/library/exit">Выход из библиотеки</a>
+                        </li>
                     </ul>
                 </li>
             <?php } ?>
@@ -289,27 +289,37 @@ $permission = new PermissionService();
                     <div class="header-right">
                         <!-- notification start -->
                         <div class="notification-box ml-15 d-none d-md-flex">
+                            <?php
+                            $notification = \App\Models\Notification::where('user_id', Auth::id())->where('read', 0)->orderBy('created_at', 'desc')->first();
+                            if (!$notification) {
+                                $notification = \App\Models\Notification::where('user_id', Auth::id())->orderBy('created_at', 'desc')->first();
+                            }
+                            ?>
                             <button class="dropdown-toggle" type="button" id="notification" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                 <i class="lni lni-alarm"></i>
+                                <?php if (@$notification->read == 0 && $notification): ?>
+                                    <span>1</span>
+                                <?php endif; ?>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notification">
-                                <?php $notification = \App\Models\Notification::where('user_id', Auth::id())->orderBy('created_at', 'desc')->first(); ?>
-                                <li>
-                                    <a href="/notifications">
-                                        <div class="image">
-                                            <img src="/resources/images/149452.png" alt="">
-                                        </div>
-                                        <div class="content">
-                                            <h6 class="mr-2"><?= @$notification->sender ?><span
-                                                    class="text-regular"><?= @$notification->event_name ?></span></h6>
-                                            <p>
-                                                <?= @$notification->message ?>
-                                            </p>
-                                            <span><?= @$notification->updated_at ?></span>
-                                        </div>
-                                    </a>
-                                </li>
+                                <?php if($notification): ?>
+                                    <li>
+                                        <a href="/notifications" id="notification-link-<?= @$notification->id ?>" data-read="<?= @$notification->read ?>">
+                                            <div class="image">
+                                                <img src="/resources/images/149452.png" alt="">
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="mr-2"><?= @$notification->sender ?><span
+                                                        class="text-regular"><?= @$notification->event_name ?></span></h6>
+                                                <p>
+                                                    <?= @$notification->message ?>
+                                                </p>
+                                                <span><?= @$notification->updated_at ?></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
                             </ul>
                         </div>
 
@@ -372,3 +382,30 @@ $permission = new PermissionService();
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        const notificationButton = document.querySelector('#notification');
+        notificationButton.addEventListener('shown.bs.dropdown', (event) => {
+            markAsRead(<?= @$notification->id ?>);
+        });
+
+        function markAsRead(notificationId) {
+            const notificationLink = document.getElementById(`notification-link-${notificationId}`);
+            if (notificationLink.dataset.read === "0") {
+
+                axios.put(`/notifications/${notificationId}`)
+                    .then(response => {
+                        if (response.data) {
+                            const notificationIndicator = document.querySelector('#notification span');
+                            if (notificationIndicator) {
+                                notificationIndicator.style.display = 'none';
+                            }
+                        } else {
+                            console.error('Не удалось отметить уведомление как прочитанное');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Произошла ошибка при отметке уведомления как прочитанного', error);
+                    });
+            }
+        }
+    </script>

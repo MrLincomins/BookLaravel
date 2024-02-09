@@ -1,3 +1,6 @@
+<?php
+use Illuminate\Support\Facades\Auth;
+?>
 @extends('layout.layout')
 
 @section('content')
@@ -15,8 +18,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-style" v-if="notifications.length > 0">
-                    <div class="single-notification" v-for="notification in notifications" :key="notification.id">
+                <div class="card-style">
+                        <p>Ваш уникальный код библиотеки: <?= Auth::user()->unique_key; ?></p>
+                    <hr>
+                    <div v-if="notifications.length === 0">
+                        <p>На данный в библиотеке нет заявок</p>
+                    </div>
+                    <div v-if="notifications.length > 0" class="single-notification" v-for="notification in notifications" :key="notification.id">
                         <div class="notification">
                             <div class="image primary-bg">
                                 <span>@{{ getFirstLetter(notification.nameUser) }}</span>

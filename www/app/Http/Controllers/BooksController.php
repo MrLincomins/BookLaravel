@@ -25,7 +25,8 @@ class BooksController
 
     public function create(Request $request): \Illuminate\Contracts\View\View
     {
-        $genres = Genre::all('genre');
+        $unique_key = Auth::user()->unique_key;
+        $genres = Genre::where('library_id', $unique_key)->get();
         return view('createBooks', compact('genres'));
     }
 

@@ -77,6 +77,18 @@ class UserController extends Controller
         return true;
     }
 
+    public function notificationMarked(Request $request, $id): bool
+    {
+        $notification = Notification::find($id);
+        if($notification){
+            $notification->read = 1;
+            $notification->save();
+        } else {
+            return false;
+        }
+        return true;
+    }
+
     public function notificationTest(Request $request)
     {
         Notification::create([

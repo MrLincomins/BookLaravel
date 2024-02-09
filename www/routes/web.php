@@ -86,6 +86,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::get('/notifications', [UserController::class, 'notificationsGet']);
 
+    Route::put('/notifications/{id}', [UserController::class, 'notificationMarked']);
+
     Route::delete('/notifications/{id}', [UserController::class, 'notificationsDelete']);
 
 // Панель библиотекаря
